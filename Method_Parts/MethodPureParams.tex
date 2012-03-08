@@ -1,0 +1,264 @@
+\section{The Double Weighted Power Mean Mixture Model for the Gibbs Energy of Fluid Mixtures}
+
+The liquid phase is characterised by short range intermolecular forces and is consequently conceptualised as a collection of clusters of molecules, each with a central reference molecule and an arrangement of the nearest molecules around it. Due to the short range of intermolecular forces in the condensed phase, the binary interactions between like and unlike molecules in these clusters ultimately determine the overall properties of a mixture. Mixing rules based on this assumption must therefore prescribe a method to calculate cluster properties, from binary interactions, between molecules arranged around a central reference molecule. Then they must provide a method to combine the cluster properties to yield an estimate of the overall mixture property~\cite{Maitland, WeightedPowerMeanModel, FockeSandrock}.\\
+
+When both the cluster and overall combination methods are taken as composition weighted power means, a double weighted power mean mixture model results. The double weighted power mean is expressed as~\cite{WeightedPowerMeanModel, FockeSandrock}:\
+
+\begin{equation}
+  f\left( \bar{c}, \bar{x}\right) = \lim_{p \rightarrow r^{+}} \left( \sum_{i = 1}^{n} x_{i} \left[ \lim_{q \rightarrow s^{+}} \left(\sum_{k=1}^{n} x_{k} c_{ik}^{q} \right)^{\cfrac{1}{q}} \right]^{p} \right)^{\cfrac{1}{p}} \label{GeneralModelLimits}
+\end{equation}\
+
+For $r, s\neq 0$ we have:\
+
+\begin{equation}
+  f\left( \bar{c}, \bar{x}\right) = \left[\sum_{i=1}^{n} x_{i} \left(\sum_{j=1}^{n} x_{j}c_{ij}^{s}\right)^{\cfrac{r}{s}}\right]^{\cfrac{1}{r}} \label{GeneralModel}
+\end{equation}\
+
+Where $x_{i}$ represents the mole fraction of component $i$ in the mixture. The coefficients $c_{ij}$ denote the binary interactions assumed in a cluster, where $i$ refers to the central cluster molecule and $j$ to the neighbouring cluster molecule. For a pure component, all molecular interactions are identical and the pure fluid property is referred to by $c_{ii}$, which therefore also denotes the pure fluid property in a mixture. Figure \ref{BinaryParameterSyntaxDrawing} illustrates the syntax used for the binary interactions in a cluster~\cite{WeightedPowerMeanModel, FockeSandrock}.\\
+
+\begin{figure}[t]
+\begin{center}
+\resizebox{0.7\textwidth}{!}{\input{Drawings/pstex/DWPMParamsSyntax.pstex_t}}\\
+\end{center}
+\caption{Illustration of cluster orientation and binary interaction parameter syntax} \label{BinaryParameterSyntaxDrawing}
+\end{figure}	
+
+The model in equation \ref{GeneralModel} contains two types of adjustable parameters. The first  represents the binary interactions between neighbouring molecules in a cluster, and the second kind determines the combination methods. The $s$ parameter determines the method whereby cluster properties are obtained from the binary interactions, and the $r$ parameter determines how the cluster properties are combined to give the overall mixture property~\cite{WeightedPowerMeanModel, FockeSandrock}.\\
+
+In order to model fluid mixtures, it has been suggested to use equation \ref{GeneralModel} to model the Gibbs energy as follows~\cite{WeightedPowerMeanModel}:\
+
+\begin{eqnarray}
+f\left( \bar{c}, \bar{x}\right) = \dfrac{G}{RT} - \sum_{i=1}^{n} x_{i}\ln x_{i}\\
+= \dfrac{G^{E}}{RT} + \sum_{i=1}^{n}\left(\dfrac{G_{i}}{RT}x_{i}\right) \label{GeneralPowerMeanGibbsModel}
+\end{eqnarray}\
+
+Where $G$ represents the overall Gibbs energy of the mixture, $G^{E}$ the excess Gibbs energy, $G_{i}$ the Gibbs energy of component $i$, $R$ the ideal gas constant and $T$ the applicable temperature.\\
+
+When the indices in equation \ref{GeneralModel} are set equal to $1$, $0$, or $-1$, the relevant averaging method corresponds to an arithmetic, geometric and harmonic mean, respectively. Therefore, the double weighted power mean mixture model can be seen as a generalisation of a number of mixture models. Including the Porter, Margules and Wassiljewa-NRTL models. For example, when $r = 1$ and $s = -1$, the model's composition dependence becomes similar to that of the NRTL model~\cite{WeightedPowerMeanModel}:\
+
+\begin{equation}
+\dfrac{G^{E}}{RT} = \sum_{i=1}^{n} c_{ii}x_{i}\left[\cfrac{\sum_{j=1}^{n}\left(1-\Lambda_{ij}\right)x_{j}}{\sum_{k=1}^{n}\Lambda_{ik}x_{k}}\right] \label{DWPMasNRTL}
+\end{equation}\
+
+Where $\Lambda_{ij} = \cfrac{c_{ii}}{c_{ij}}$. The result in equation \ref{DWPMasNRTL} is of interest since it is derived by performing a composition weighted harmonic mean to obtain the cluster properties, and a weighted arithmetic mean to obtain the overall mixture property. The relationship in equation \ref{DWPMasNRTL} was therefore obtained without invoking the concept of local compositions. In addition, Focke has shown that this form of the model, which requires only two parameters per binary pair, can be related to the classic expressions for the multi-component NRTL model~\cite{WeightedPowerMeanModel}.\\
+
+It is now proposed to use eqution \ref{GeneralModelLimits} to model liquid mixtures by setting $r=0$ and $s\neq0$. $f\left( \bar{c}, \bar{x}\right)$ then becomes~\cite{WeightedPowerMeanModel, FockeSandrock}:\
+
+\begin{equation}
+f\left( \bar{c}, \bar{x}\right) = \prod_{i=1}^{n} \left(\sum_{j=1}^{n} x_{j}c_{ij}^s\right)^{\dfrac{x_{i}}{s}} \label{DWPMProduct}
+\end{equation}\ 
+
+Which is assumed to be related to the Gibbs energy by:\
+
+\begin{eqnarray}
+-\ln f\left( \bar{c}, \bar{x}\right) = \dfrac{G}{RT} - \sum_{i=1}^{n} x_{i}\ln x_{i}\\
+= \dfrac{G^{E}}{RT} + \sum_{i=1}^{n}\left(\dfrac{G_{i}}{RT}x_{i}\right)\\
+\therefore \dfrac{G^{E}}{RT}  = -\dfrac{1}{s}\sum_{i=1}^{n} x_{i} \ln \left(\sum_{j=1}^{n}x_{j} \Lambda_{ij}^{s}\right) \label{DWPMWilson3}
+\end{eqnarray}\
+
+In this case, as in equation \ref{DWPMWilson3}, Wilson equations are generated. It may also be argued that the $s$ parameter is related to the nature of the cluster, in which case:\
+
+\begin{equation}
+\dfrac{G^{E}}{RT}  = -\sum_{i=1}^{n} \dfrac{x_{i}}{s_{i}} \ln \left(\sum_{j=1}^{n}x_{j} \Lambda_{ij}^{s_{i}}\right) \label{DWPMWilsonLike}
+\end{equation}\
+
+However, equations \ref{GeneralModelLimits} and \ref{DWPMProduct} are only applicable to properties which have well defined absolute values. This is obviously not the case for the Gibbs energy of mixtures, as it is defined with respect to some arbitrary reference state ~\cite{WeightedPowerMeanModel}.\\
+
+Finally, a method proposed by Wong and Sandler provides a convenient way by which the pure component binary parameters in equation \ref{DWPMProduct} can be determined. They proposed that the excess Helmholtz free energy of mixing is independent of pressure, $P$. Therefore, the excess Helmholtz energy at infinite pressure yields an approximation to the excess Gibbs free energy for the liquid state.~\cite{WongSandler, WeightedPowerMeanModel}:\
+
+\begin{eqnarray}
+  G^{E}(T, x_{i}) = G^{E}(T, P \approx 0, x_{i}) \approx A_{EOS}^{E}(T, P \rightarrow 0, x_{i})\\
+  \approx A_{EOS}^E(T, P \rightarrow \infty, x_{i})
+\end{eqnarray}\
+
+\nomenclature{$A_{EOS}^{E}$}{Helmholtz free energy of an Equation of State}
+
+Where $A^{E}_{EOS}$ represents the excess Helmholtz free energy determined from the cubic equation of state.\\
+
+As the pressure approaches infinity the free volume approaches zero. Therefore, in the case of a cubic equation of state for a pure compound and for a mixture, respectively, $ v \rightarrow b$ and $v_{i} \rightarrow b_{i}$. Consequently the Gibbs excess energy at infinite pressure can be expressed as~\cite{HuronVidal, Vidal}:\
+
+\begin{eqnarray}
+  \frac{G^{E}}{RT} \approx \frac{A^{E}_{\infty}}{RT} = -\frac{\Phi}{RT} \frac{a_{mix}}{b_{mix}} -\sum_{i = 1}^{n}\left(\frac{-\Phi}{RT} \frac{a_{ii}}{b_{i}}\right)x_{i} \label{DWPMPureParamsDeriv}\\
+  \dfrac{G}{RT} = \dfrac{G^{E}}{RT} + \sum_{i=1}^{n}x_{i}\dfrac{G_{i}}{RT}\\
+   \therefore \dfrac{G}{RT} = \dfrac{G^{E}}{RT} +\sum_{i=1}^{n}\left(\frac{-\Phi}{RT} \frac{a_{ii}}{b_{i}}\right)x_{i} = \frac{-\Phi}{RT} \frac{a_{mix}}{b_{mix}} 
+\end{eqnarray}\
+
+\nomenclature{$A_{\infty }^{E}$}{Helmholtz free energy of an Equation of State at infinite pressure}
+\nomenclature{$\Phi$}{Characteristic constant of the cubic equation of state}
+
+$\Phi$ is a characteristic constant of the cubic equation of state used and\\
+
+\begin{itemize}
+\item $\Phi = 1/\left(1+\phi_{1}\right)$ for $\phi_{1} = \phi_{2}$ or
+\item $\Phi = \ln \left[\left(1+\phi_{1}\right)/\left(1+\phi_{2}\right)\right]/\left(\phi_{1} - \phi_{2}\right)$ for  $\phi_{1} \neq \phi_{2}$
+\end{itemize}\
+
+Where the general form of the cubic equation of state is:\
+
+\begin{equation}
+  P = \frac{RT}{\left(v-b\right)} - \frac{a}{\left(v+\phi_{1}b\right)\left(v+\phi_{2}b\right)}
+\end{equation}\
+
+When comparing equations \ref{DWPMProduct} and \ref{DWPMPureParamsDeriv}, the following relationship between the $c_{ii}$ constants in the double weighted power mean and the equation of state parameters is apparent:\
+
+\begin{equation}
+  c_{ii} = \frac{-\Phi}{RT} \frac{a_{ii}}{b_{i}} \label{DWPMPureParam}
+\end{equation}\
+
+It is also clear that since $a_{ii}, b_{i} \textgreater 0$, the parameters $c_{ii}\textless 0$ when $\Phi\textgreater 0$.\\
+
+Due to the close proximity of molecules, resulting in more frequent molecular interaction, non-ideal behaviour in the liquid phase is more pronounced in the liquid phase than in the vapour phase. Thermodynamic models play a very significant role in the prediction of liquid-liquid phase equilibria and the applicability of a specific model to a specific problem is determined by it's ability to accommodate variations from the ideal. An investigation is launched into the ability of the double weighted power mean model, as stated in equation \ref{DWPMWilsonLike}, to accommodate liquid-liquid phase equilibria.\\
+
+Three models for the excess free Gibbs energy of a mixture are fitted to experimental liquid-liquid phase equilibrium data namely, the NRTL, UNIQUAC and the proposed double wiegthed power mean mixture model (DWPM). The NRTL and UNIQUAC models are used to confirm the reliability of the  software routines used. These were developed to perform parameter and equilibrium calculations, to investigate the applicability of the DWPM model. In addition, the computational efficiency and relative ease, or difficulty, with which the DWPM model is used to model liquid-liquid equilibria can be evaluated.\\
+	
+The component properties and parameters required for the DWPM model is determined by fitting a modified van der Waals equation to the pure 	compound experimental vapour-liquid equilibrium data obtained from the property data bank in Poling, Prausnitz and O'Connell ~\cite{GasLiquidProperties}. The experimental liquid-liquid phase equilibrium data of all mixtures are obtained from the Dechema liquid-liquid data collection ~\cite{Dechema}.\\
+	
+%%---------------------------------------------------------Pure Component Parameters-------------------------------------------------------------%%
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+
+\section{Calculation of the Pure Component Parameters for the Double Weighted Power Mean Mixture Model}\label{PureComponentParameterCalcSection}
+			
+The van der Waals equation of state, as discussed in section \ref{EOSSection}, was derived from the ideal gas law. It is cubic in the molar volume, $v$, and contains two adjustable parameters $a$ and $b$:\\
+
+\begin{equation}
+P  = \dfrac{RT}{v - b_{c}} - \dfrac{a_{c}}{v^{2}} \label{vdWaalsParameterMethod}
+\end{equation}\
+
+The parameters $a_{c}$ and $b_{c}$ are calculated from~\cite{ThermophysicalProperties}:\
+
+\begin{eqnarray}
+a_{c} = \dfrac{27 \left( RT_{c} \right) ^{2}}{64P_{c}} \label{acParameterMethod}\\
+b_{c} = \dfrac{ RT_{c}}{8P_{c}} \label{bcParameterMethod}\
+\end{eqnarray}\
+
+The second term in equation \ref{vdWaalsParameterMethod} represents the attractive interactions between particles .In sub-critical regions, the inaccuracy of this term dominates and can be improved by using a relatively simle, yet effective, method proposed by Adachi and Lu~\cite{Adachi-Lu}:\
+
+\begin{equation}
+\dfrac{a\left(T\right)}{a_{c}}= \exp \left[m\left(1-T_{R}\right)\right] \label{aTParameterMethod}
+\end{equation}\
+
+Where\
+
+\begin{equation}
+T_{R} = \dfrac{T}{T_{c}}
+\end{equation}\
+
+Therefore the attraction parameter becomes a function of temperature and equation \ref{vdWaalsParameterMethod} becomes:\
+
+\begin{equation}
+P  = \dfrac{RT}{v - b_{c}} - \dfrac{a\left(T\right)}{v^{2}} \label{vdWaalsModifiedMethod}
+\end{equation}\
+
+In order to determine the adjustable parameter $m$ in equation \ref{aTParameterMethod}, the modified van der Waals equation can be fit to vapour-liquid equilibrium data at different temperatures. A method for calculating the vapour pressure by evaluating the roots of equation \ref{vdWaalsParameterMethod}, was also discussed earlier. Below the critical temperature, the van der Waals eqaution has three real roots, the smallest corresponding to the liquid molar volume and the largest to that of the vapour. The roots converge on the critical volume as the critical temperature is approached.\\
+
+For the purposes of this investigation, the vapour-liquid equilibrium data of pure substances were obtained from the property data bank in Poling et.al.~\cite{GasLiquidProperties}. The data is given in the form of equations that describe the vapour pressure over a range of applicable temperatures. The vapour pressure of each compound is determined by one of the following:\
+
+\begin{list}{method}{}
+\item 1. \begin{equation}
+\ln \left(\frac{P_{vap}}{P_{c}}\right) = \frac{1}{\left(1-x\right)}\left[A_{vp}x + B_{vp}x^{1.5} + C_{vp}x^{3} + D_{vp}x^{6}\right] \label{Method1}
+\end{equation}\
+where $x = 1 - \frac{T}{Tc}$\
+\item 2. \begin{equation}
+\ln P_{vap} = A_{vp} - \frac{B_{vp}}{T} + C_{vp}\ln T + D_{vp} \frac{P_{vap}}{T^{2}} \label{Method2}
+\end{equation}\
+\item 3. \begin{equation}
+\ln P_{vap} = A_{vp} - \frac{B_{vp}}{T + C_{vp}} \label{Method3}
+\end{equation}\
+\end{list}\
+				
+\nomenclature{$A_{vp}$}{Constant used for the calculation of the vapour pressure of a pure compound as a function of temperature}
+\nomenclature{$B_{vp}$}{Constant used for the calculation of the vapour pressure of a pure compound as a function of temperature}
+\nomenclature{$C_{vp}$}{Constant used for the calculation of the vapour pressure of a pure compound as a function of temperature}
+\nomenclature{$D_{vp}$}{Constant used for the calculation of the vapour pressure of a pure compound as a function of temperature}
+\nomenclature{$P_{vap}$}{Vapour pressure of a pure compound $[bar]$}
+		
+Due to the manner whereby the vapour pressure is calculated, the Adachi-Lu parameter estimation is done by means of a bi-level optimization. The steps for calculating the Adachi-Lu parameter, $m$, from the vapour-liquid equilibrium data is as follows:\
+\begin{enumerate}
+\item Import the compound critical point data and vapour pressure parameters, for equations \ref{Method1} through \ref{Method3}, from a saved data file.\
+\item Generate an array of temperatures, with a selected interval size, $\Delta T_{int}$, within the applicable range for equations \ref{Method1} to \ref{Method3}.\label{TrangeStep}\
+\item Generate an array of vapour pressures for the elements in the temperature array using the suitable method from equations \ref{Method1} to \ref{Method3}.\
+\item Calculate $b_{c}$.\
+\item Using a suitable numerical algorithm:\label{mOptimization}\
+\begin{equation}
+\min_{m} E = \Delta T_{int}\sum_{i =1}^{N_{int}} \left(P_{vap_{i}}^{predicted} - P_{vap_{i}}^{actual}\right) \label{mGoalFunction}
+\end{equation}\
+Where $N_{int}$ is the number of intervals into which the temperature range is divided, $\Delta T_{int}$ the size of the temperature intervals, $P_{vap_{i}}^{actual}$ the vapour pressure determined using one of equations \ref{Method1} to \ref{Method3}, and $P_{vap_{i}}^{predicted}$ is the vapour pressure predicted using the van der Waals equation.\
+\nomenclature{$\Delta T_{int}$}{Size of temperature intervals for the calculation of $m$ in the modified van der Waals equation of state}\
+\nomenclature{$N_{int}$}{Number of intervals into which the temperature range is divided for the calculation of $m$ in the modified van der Waals equation of state}\
+\nomenclature{$P_{vap_{i}}^{actual}$}{The vapour pressure of a pure compound determined using an approximation from the property data bank in Poling et.al.~\cite{GasLiquidProperties}}\
+\nomenclature{$P_{vap_{i}}^{predicted}$}{The vapour pressure of a pure compound predicted by the van der Waals equation of state}\
+
+\begin{enumerate}
+	\item In order to calculate the vapour pressure predicted by the van der Waals equation of state, at a selected temperature and the relevant value of $m$, a suitable numerical algorithm is used to evaluate the integral of equation \ref{vdWaalsPvapRoots} between $v_{l}$ and $v_{g}$, to determine the difference in areas A and B as indicated in figure \ref{roots}\label{PvapOptimization}. The goal becomes:\
+	\begin{equation}
+	\min_{P_{vap_{i}}^{predicted}} E =  \Vert RT \ln \left( \frac{v_{g}-b}{v_{l} -b}\right) + a\left(T\right)\left(\frac{1}{v_{g}}- \frac{1}{v_{l}} \right)- 			 P_{vap_{i}}^{predicted}\left(v_{g}-v_{l}\right)\Vert \label{GoalFunctionPvap}
+	\end{equation}\
+	 Where the molar volumes in \ref{GoalFunctionPvap} are determined as follows:\
+	\begin{enumerate}
+		\item Rewrite the van der Waals equation as:\
+		\begin{equation}
+		P_{vap}v^{3} - \left(RT +P_{vap}b\right)v^{2} + a\left(T\right)v -a\left(T\right)b = 0 \label{vdWaalsPvapRoots}
+		\end{equation}\
+		\item Solve for the roots of equation \ref{vdWaalsPvapRoots}, where $a\left(T\right)$ is calculated at the specified temperature and 				relevant value of $m$.\
+		\item Sort the 3 resulting roots and assign the largest to the vapour molar volume, the smallest to the liquid molar volume, and the one 			partway between them to $v_{i}$.\
+	\end{enumerate}	
+\item Terminate the optimization initiated in step \ref{PvapOptimization} once the function in \ref{GoalFunctionPvap} reaches a specified tolerance.\
+\end{enumerate}
+\item Terminate the optimization initiated in step \ref{mOptimization} once the function in \ref{mGoalFunction} is minimised.\
+\item Write the calculated $m$ parameter to a data file for use at a later time.\
+\end{enumerate}
+				
+\begin{figure}
+\begin{center}
+\input{Drawings/pstex/roots.pstex_t}
+\end{center}
+\caption{Roots of Van der Waals EOS for Determining Vapor Pressure} \label{roots}
+\end{figure}	
+		
+The method described above was implemented in the Python programming language. The details and parameters of the optimisation methods used to determine the predicted van der Waals vapour pressures and Adachi-Lu parameter are summarised in tables \ref{PvapOptParam} and \ref{mOptParam} respectively.\\
+
+\begin{table}
+\begin{tabularx}{\textwidth}{l|c}
+\hline
+\textbf{Parameter}&\textbf{Value}\\
+\hline
+\hline
+\textbf{Design Variable}& $P_{vap}^{predicted}$\\
+\textbf{Bounds}& $P_{vap_{min}}^{actual} \leq P_{vap}^{predicted} \leq P_{vap_{max}}^{actual}$\\
+\textbf{Goal Function}& Equation \ref{GoalFunctionPvap} \\
+\textbf{Termination Tolerance on Design Variable}& $10^{-4}$\\
+\textbf{Maximum Number of Function Evaluations}&500\\
+\textbf{Maximum Number of Iterations}&500\\				
+\textbf{SciPy Optimiser }&fminbound\\
+\textbf{Algorithm}& Brent's Method\\
+\hline
+\end{tabularx}\\
+\caption{Optimisation parameters for the vapour pressure prediction using the van der Waals equation of state } \label{PvapOptParam}
+\end{table}\
+
+\begin{table}
+\begin{tabularx}{\textwidth}{l|c}
+\hline
+\textbf{Parameter}&\textbf{Value}\\
+\hline
+\hline
+\textbf{Design Variable}& $m$\\
+\textbf{Bounds}&$ 0 \leq m \leq 5$\\
+\textbf{Goal Function}&Equation \ref{mGoalFunction} \\
+\textbf{Termination Tolerance on Design Variable}&$10^{-4}$\\
+\textbf{Maximum Number of Function Evaluations}&500\\
+\textbf{Maximum Number of Iterations}&500\\				
+\textbf{SciPy Optimiser }&fminbound\\
+\textbf{Algorithm}& Brent's Method\\
+\hline
+\end{tabularx}\\
+\caption{Optimisation Parameters for the adjustable parameter $m$ in the modified van der Waals equation of state} \label{mOptParam}			
+\end{table}\
+					
+Assuming the Adachi-Lu modification for the van der Waals equation of state, the expression for the pure component parameters, in equation \ref{DWPMPureParam}, becomes:\
+
+\begin{equation}
+  c_{ii} = -\frac{a_{i}\left(T\right)}{RTb_{i}} \label{DWPMPureParamT}
+\end{equation}\
+
+Once the optimal value for $m$ has been determined the form of the temperature dependence of $a(T)$ is known. Consequently the pure component parameters, $c_{ii}$, required for the double weighted power mean model, in equation \ref{DWPMWilsonLike}, can be calculated as needed at the relevant temperatures.

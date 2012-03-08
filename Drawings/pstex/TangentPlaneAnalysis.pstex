@@ -1,0 +1,174 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: TangentPlaneAnalysis.fig
+%%Creator: fig2dev Version 3.2 Patchlevel 5c
+%%CreationDate: Tue Nov 22 18:43:15 2011
+%%BoundingBox: 0 0 241 224
+%Magnification: 1.0000
+%%EndComments
+%%BeginProlog
+/$F2psDict 200 dict def
+$F2psDict begin
+$F2psDict /mtrx matrix put
+/col-1 {0 setgray} bind def
+/col0 {0.000 0.000 0.000 srgb} bind def
+/col1 {0.000 0.000 1.000 srgb} bind def
+/col2 {0.000 1.000 0.000 srgb} bind def
+/col3 {0.000 1.000 1.000 srgb} bind def
+/col4 {1.000 0.000 0.000 srgb} bind def
+/col5 {1.000 0.000 1.000 srgb} bind def
+/col6 {1.000 1.000 0.000 srgb} bind def
+/col7 {1.000 1.000 1.000 srgb} bind def
+/col8 {0.000 0.000 0.560 srgb} bind def
+/col9 {0.000 0.000 0.690 srgb} bind def
+/col10 {0.000 0.000 0.820 srgb} bind def
+/col11 {0.530 0.810 1.000 srgb} bind def
+/col12 {0.000 0.560 0.000 srgb} bind def
+/col13 {0.000 0.690 0.000 srgb} bind def
+/col14 {0.000 0.820 0.000 srgb} bind def
+/col15 {0.000 0.560 0.560 srgb} bind def
+/col16 {0.000 0.690 0.690 srgb} bind def
+/col17 {0.000 0.820 0.820 srgb} bind def
+/col18 {0.560 0.000 0.000 srgb} bind def
+/col19 {0.690 0.000 0.000 srgb} bind def
+/col20 {0.820 0.000 0.000 srgb} bind def
+/col21 {0.560 0.000 0.560 srgb} bind def
+/col22 {0.690 0.000 0.690 srgb} bind def
+/col23 {0.820 0.000 0.820 srgb} bind def
+/col24 {0.500 0.190 0.000 srgb} bind def
+/col25 {0.630 0.250 0.000 srgb} bind def
+/col26 {0.750 0.380 0.000 srgb} bind def
+/col27 {1.000 0.500 0.500 srgb} bind def
+/col28 {1.000 0.630 0.630 srgb} bind def
+/col29 {1.000 0.750 0.750 srgb} bind def
+/col30 {1.000 0.880 0.880 srgb} bind def
+/col31 {1.000 0.840 0.000 srgb} bind def
+
+end
+
+/cp {closepath} bind def
+/ef {eofill} bind def
+/gr {grestore} bind def
+/gs {gsave} bind def
+/sa {save} bind def
+/rs {restore} bind def
+/l {lineto} bind def
+/m {moveto} bind def
+/rm {rmoveto} bind def
+/n {newpath} bind def
+/s {stroke} bind def
+/sh {show} bind def
+/slc {setlinecap} bind def
+/slj {setlinejoin} bind def
+/slw {setlinewidth} bind def
+/srgb {setrgbcolor} bind def
+/rot {rotate} bind def
+/sc {scale} bind def
+/sd {setdash} bind def
+/ff {findfont} bind def
+/sf {setfont} bind def
+/scf {scalefont} bind def
+/sw {stringwidth} bind def
+/tr {translate} bind def
+/tnt {dup dup currentrgbcolor
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add
+  4 -2 roll dup 1 exch sub 3 -1 roll mul add srgb}
+  bind def
+/shd {dup dup currentrgbcolor 4 -2 roll mul 4 -2 roll mul
+  4 -2 roll mul srgb} bind def
+/$F2psBegin {$F2psDict begin /$F2psEnteredState save def} def
+/$F2psEnd {$F2psEnteredState restore end} def
+
+/pageheader {
+save
+newpath 0 224 moveto 0 0 lineto 241 0 lineto 241 224 lineto closepath clip newpath
+15.1 322.4 translate
+1 -1 scale
+$F2psBegin
+10 setmiterlimit
+0 slj 0 slc
+ 0.06299 0.06299 sc
+} bind def
+/pagefooter {
+$F2psEnd
+restore
+} bind def
+%%EndProlog
+pageheader
+%
+% Fig objects follow
+%
+% 
+% here starts figure with depth 50
+% Polyline
+0 slj
+0 slc
+7.500 slw
+n 405 1575 m 405 4725 l 3555 4725 l
+ 3555 1575 l gs col0 s gr 
+% Polyline
+15.000 slw
+ [60] 0 sd
+n 1350 3375 m
+ 2745 3015 l gs col0 s gr  [] 0 sd
+% Polyline
+ [15 60] 60 sd
+n 1035 3960 m
+ 3015 3195 l gs col0 s gr  [] 0 sd
+% Polyline
+7.500 slw
+gs  clippath
+1770 3070 m 1770 3255 l 1830 3255 l 1830 3070 l 1830 3070 l 1800 3220 l 1770 3070 l cp
+eoclip
+n 1800 3240 m
+ 1800 2160 l gs col0 s gr gr
+
+% arrowhead
+n 1770 3070 m 1800 3220 l 1830 3070 l 1800 3100 l 1770 3070 l 
+ cp gs 0.00 setgray ef gr  col0 s
+% Polyline
+2 slj
+15.000 slw
+n 405 1800 m 405 1802 l 406 1807 l 408 1816 l 411 1831 l 415 1852 l
+ 420 1880 l 427 1915 l 435 1958 l 445 2009 l 456 2068 l
+ 469 2133 l 483 2206 l 498 2284 l 515 2367 l 533 2454 l
+ 551 2544 l 570 2637 l 590 2730 l 610 2823 l 630 2915 l
+ 650 3005 l 670 3093 l 690 3178 l 710 3260 l 729 3337 l
+ 748 3411 l 766 3480 l 785 3544 l 802 3604 l 819 3659 l
+ 836 3709 l 853 3754 l 869 3795 l 885 3831 l 900 3862 l
+ 915 3889 l 931 3911 l 946 3929 l 960 3942 l 975 3951 l
+ 990 3956 l 1005 3957 l 1020 3955 l 1035 3948 l 1050 3938 l
+ 1065 3924 l 1081 3906 l 1097 3886 l 1113 3862 l 1129 3835 l
+ 1145 3805 l 1162 3773 l 1179 3737 l 1197 3698 l 1215 3657 l
+ 1233 3613 l 1251 3567 l 1270 3518 l 1289 3468 l 1308 3415 l
+ 1328 3361 l 1348 3305 l 1368 3248 l 1389 3190 l 1410 3131 l
+ 1431 3071 l 1452 3010 l 1473 2950 l 1494 2889 l 1516 2829 l
+ 1537 2769 l 1559 2710 l 1580 2652 l 1602 2595 l 1623 2539 l
+ 1644 2485 l 1666 2433 l 1687 2383 l 1708 2335 l 1729 2289 l
+ 1750 2246 l 1770 2205 l 1791 2167 l 1811 2132 l 1831 2100 l
+ 1851 2071 l 1871 2044 l 1891 2021 l 1911 2002 l 1930 1985 l
+ 1950 1973 l 1974 1961 l 1998 1955 l 2022 1954 l 2047 1957 l
+ 2071 1965 l 2096 1977 l 2122 1993 l 2147 2013 l 2173 2037 l
+ 2199 2065 l 2226 2096 l 2253 2131 l 2280 2168 l 2307 2208 l
+ 2334 2250 l 2362 2295 l 2389 2342 l 2417 2390 l 2444 2439 l
+ 2471 2489 l 2499 2540 l 2525 2591 l 2552 2641 l 2578 2691 l
+ 2604 2741 l 2629 2789 l 2654 2835 l 2679 2880 l 2702 2923 l
+ 2726 2964 l 2749 3002 l 2771 3038 l 2793 3071 l 2814 3101 l
+ 2835 3128 l 2855 3151 l 2875 3171 l 2895 3188 l 2914 3200 l
+ 2934 3209 l 2953 3214 l 2971 3214 l 2990 3211 l 3009 3202 l
+ 3028 3190 l 3047 3172 l 3066 3150 l 3086 3123 l 3106 3092 l
+ 3127 3055 l 3148 3014 l 3170 2967 l 3192 2916 l 3215 2860 l
+ 3239 2800 l 3263 2736 l 3287 2668 l 3312 2596 l 3336 2523 l
+ 3361 2448 l 3385 2372 l 3409 2298 l 3431 2225 l 3452 2155 l
+ 3472 2090 l 3489 2030 l 3505 1976 l 3518 1930 l 3530 1891 l
+ 3538 1860 l 3545 1836 l 3550 1819 l 3553 1808 l 3554 1803 l
+
+ 3555 1800 l gs col0 s gr 
+/Times-Roman ff 190.50 scf sf
+225 1845 m
+gs 1 -1 sc (0) col0 sh gr
+% here ends figure;
+pagefooter
+showpage
+%%Trailer
+%EOF

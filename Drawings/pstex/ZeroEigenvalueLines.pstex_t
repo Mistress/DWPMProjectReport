@@ -1,0 +1,39 @@
+\begin{picture}(0,0)%
+\includegraphics{Drawings/pstex/ZeroEigenvalueLines.pstex}%
+\end{picture}%
+\setlength{\unitlength}{4144sp}%
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined%
+\gdef\SetFigFont#1#2#3#4#5{%
+  \reset@font\fontsize{#1}{#2pt}%
+  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
+  \selectfont}%
+\fi\endgroup%
+\begin{picture}(10713,4941)(31,-6214)
+\put(2566,-6136){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\left(a\right)$}}%
+}}}}
+\put( 46,-5731){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\left( 1\right)$}}%
+}}}}
+\put(2386,-1456){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\left( 2\right)$}}%
+}}}}
+\put(4681,-5731){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\left( 3\right)$}}%
+}}}}
+\put(2566,-3076){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\mathrm{I}$}}%
+}}}}
+\put(2476,-4021){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\mathrm{II}$}}%
+}}}}
+\put(2431,-4831){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\mathrm{III}$}}%
+}}}}
+\put(8461,-6136){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\left(b\right)$}}%
+}}}}
+\put(10576,-5731){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\left( 3\right)$}}%
+}}}}
+\put(5941,-5731){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\left( 1\right)$}}%
+}}}}
+\put(8281,-1456){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\left( 2\right)$}}%
+}}}}
+\put(8416,-2941){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\mathrm{I}$}}%
+}}}}
+\put(8326,-3976){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\large{$\mathrm{II}$}}%
+}}}}
+\end{picture}%

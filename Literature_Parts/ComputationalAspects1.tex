@@ -1,0 +1,145 @@
+%%------------------------------------------------Challenges and Importance/Future Importance-------------------------------------------------------%
+%%--------------------------------------------------------------------------------------------------------------------------------------------------%
+\subsection{Challenges in and Importance of Phase Equilibrium Calculation}
+
+%%--------------------------------------------------Data Sources and Data Reduction-----------------------------------------------------------------%
+%%--------------------------------------------------------------------------------------------------------------------------------------------------%
+\subsection{Data Sources and Data Reduction}
+
+
+%%------------------------------------------------------Phase Equilibrium Calcs-------------------------------------------------------------------%
+%%---------------------------------------------------------------------------------------------------------------------------------------------------%
+
+\subsection{Phase Stability}\label{PhaseStabilityComputationalSection}
+
+\subsubsection{Tangent Plane Analysis}\ 
+	
+In liquid-liquid equilibria, the requirement that the chemical potential or fugacity of each component be equal in each phase, is only a necessary condition. A necessary and sufficient condition is, as discussed in sections \ref{PhaseEqStabilitySection} and \ref{LiquidLiquidEquilibriaSection}, that the overall Gibbs energy be at a global minimum.\\
+
+In order to illustrate the method whereby the stability of a mixture is determined consider the following; a mixture has an initial composition $z_{1}$  and chemical potential $\mu\left(z_{1}\right)$. An infinitesimally small amount, $\delta n$, of a new phase, with composition $z_{2}$,  forms. The change in Gibbs energy of the mixture upon formation of the new phase is given by~\cite{ThermodynamicModels}:\
+
+\begin{equation}
+\delta G = \delta n \sum_{i = 1}^{C} m_{i}\left[\mu_{i}\left(z_{2}\right) - \mu_{i}\left(z_{1}\right)\right] \label{GibbsChangePhaseSplit}
+\end{equation}\
+
+The amount of component $i$ is given by $m_{i} \delta n$. In order for the mixture to be stable at composition $z_{1}$, eqaution \ref{GibbsChangePhaseSplit} must evaluate to a value larger or equal to zero, for any composition $z_{2}$ and a positive $\delta n$. This results in the Gibbs tangent plane condition~\cite{ThermodynamicModels}:\
+
+\begin{equation}
+\sum_{i = 1}^{C} m_{i}\left[\mu_{i}\left(z_{2}\right) - \mu_{i}\left(z_{1}\right)\right] \geq 0 \label{GibbsTangentPlaneCondition}
+\end{equation}\
+
+Consider now the Gibbs energy of mixing of the binary mixture depicted in figure \ref{TangentPlaneAnalysisDrawing}. The mixture at composition $z_{1}$ splits into two phases with compositions $x_{\alpha}$ and $x_{\beta}$. The Gibbs energy of mixing of the resulting system and the change in Gibbs energy is given in equation \ref{GMixNew} and equation \ref{ChangeGMixPhaseSplit}, respectively~\cite{ThermodynamicModels}.\
+
+
+\begin{figure}[t]
+\begin{center}
+\resizebox{0.7\textwidth}{!}{\input{Drawings/pstex/TangentPlaneAnalysis.pstex_t}}\\
+\end{center}
+\caption{Gibbs energy of mixing for binary mixture liquid-liquid phase separation, and the tangent plane at the incipient equilibrium phases} \label{TangentPlaneAnalysisDrawing}
+\end{figure}	
+
+\begin{eqnarray}
+G_{new} = \kappa G_{mix}\left(x_{\alpha}\right) + \left(1-\kappa\right)G_{mix}\left(x_{\beta}\right) \label{GMixNew}\\
+\Delta G_{mix} = \kappa G_{mix}\left(x_{\alpha}\right) + \left(1-\kappa\right)G_{mix}\left(x_{\beta}\right) - G_{mix}\left(z_{1}\right) \label{ChangeGMixPhaseSplit}
+\end{eqnarray}\
+
+Where $\kappa$ represents the fraction of the mixture in the phase at composition $x_{\alpha}$. The tie-line connecting the two points at $x_{\alpha}$ and $x_{\beta}$, on the $G_{mix}$ curve is given by~\cite{ThermodynamicModels}:\
+
+\begin{equation}
+G_{tieline}\left(x\right) = G_{mix}\left(x_{\alpha}\right) + \dfrac{G_{mix}\left(x_{\beta}\right) - G_{mix}\left(x_{\alpha}\right)}{x_{\beta}-x_{\alpha}}\left(x - x_{\alpha}\right) \label{TielineAlphaBeta}
+\end{equation}\
+
+The expression in equation \ref{TielineAlphaBeta} is, upon inspection, at $x = z_{1}$ equivalent to the expression for the $G_{new}$. The phase split will therefore result in a decrease of the overall Gibbs energy if $G_{tieline}\left(z_{1}\right) < G_{mix}\left(z_{1}\right)$. Equilibrium is achieved when the tie-line corresponds to the common tangent at compositions $\alpha$ and $\beta$. The equation for the line tangent to the $G_{mix}$ at $z$ is given by~\cite{ThermodynamicModels}:\
+
+\begin{equation}
+f\left(x\right) = G_{mix}\left(z\right) + \dfrac{\mathrm{d}G_{mix}}{\mathrm{d}z}\vert_{z}\left(x-z\right) \label{Tangent}
+\end{equation}\
+
+And, finally, the distance from the tangent line, to the Gibbs energy surface:\
+
+\begin{equation}
+s\left(x\right) = G_{mix}\left(x\right) -  G_{mix}\left(z\right) + \dfrac{\mathrm{d}G_{mix}}{\mathrm{d}z}\vert_{z}\left(x-z\right) \label{TangentPlaneDistance}
+\end{equation}\
+
+Therefore, if for a composition $z$ the tangent plane distance in equation \ref{TangentPlaneDistance} becomes negative for any composition within the allowable simplex, the mixture is unstable at $z$~\cite{ThermodynamicModels}.\
+
+\subsubsection{The Hessian Matrix and Phase Diagram Construction}\
+	
+In liquid-liquid phase equilibria, the binodal curve is analogous to the dew point or bubble point curve in vapour-liquid equilibria. The binodal curve depicts the locus of points where one liquid phase becomes saturated and a second phase forms which coexists, in equilibrium, with the first. As such, and related to the way in which it is determined experimentally, it is also referred to as the cloud point curve. The extreme point of the binodal curve, the point at which the length of the tie-line between the two phases becomes zero, is the plait point. At this point the composition of the two equilibrium phases become equal~\cite{ChemicalBiochemicalEngineeringThermodynamics}.\\
+
+The spinodal curve represents the absolute limits to which a phase can be metastable. Inside the spinodal curve the smallest variations in composition will result in phase split. It coincides with the inflection points of the Gibbs energy versus composition curve, in the case of binary mixtures, or in the case of ternary mixtures, the Gibbs energy surface. Inside the region between the binodal and spinodal curves, the mixture is metastable with respect to small fluctuations~\cite{ChemicalBiochemicalEngineeringThermodynamics}.\\
+
+Figure \ref{BinodalSpinodalDrawing} depicts the binodal and spinodal curves for a ternary mixture.\\
+
+\begin{figure}[t]
+\begin{center}
+\resizebox{0.7\textwidth}{!}{\input{Drawings/pstex/BinodalSpinodal.pstex_t}}\\
+\end{center}
+\caption{Ternary liquid-liquid phase diagram depicting the binodal and spinodal curves} \label{BinodalSpinodalDrawing}
+\end{figure}	
+
+The Hessian matrix of the Gibbs energy of a mixture can be defined as follows:\
+
+\begin{equation}
+\bigtriangledown^{2} g = \begin{array}{|cccc|}
+  \dfrac{\partial g^{2}}{\partial x_{1}^{2}} & \dfrac{\partial g^{2}}{\partial x_{1}\partial x_{2}} & \cdots & \dfrac{\partial g^{2}}{\partial x_{1}\partial x_{n-1}} \\
+  \dfrac{\partial g^{2}}{\partial x_{2}\partial x_{1}} & \dfrac{\partial g^{2}}{\partial x_{2}^{2}} & \cdots & \dfrac{\partial g^{2}}{\partial x_{2}\partial x_{n-1}} \\
+  \vdots & & & \\
+  \dfrac{\partial g^{2}}{\partial x_{n-1}\partial x_{1}} & \dfrac{\partial g^{2}}{\partial x_{n-1}\partial x_{2}} & \cdots & \dfrac{\partial g^{2}}{\partial x_{n-1}^{2}}
+\end{array}
+\end{equation}\
+
+\nomenclature{$g$}{Reduced total Gibbs energy of a system, $g = \dfrac{G}{RT}$ }
+\nomenclature{$H\left(\overline{x}\right)$}{Hessian matrix of the Gibbs energy of a mixture, as a function of composition}
+
+Where $g = \dfrac{G}{RT}$ and $x_{i}$ represents the mole fraction of component $i$ in the mixture.\\
+
+According to the stability criterion discussed in section \ref{PhaseEqStabilitySection}, a mixture is stable if the Hessian matrix is positively defined~\cite{HessianPhaseEquilibriumCriterion}. A matrix is positively defined if its determinant and all constituent diagonal minors are positive. Equivalently, a square matrix is positively defined if all its eigenvalues are positive~\cite{NumericalAnalysis, HessianPhaseEquilibriumCriterion}.\\
+
+Therefore, the regions of stability of a multicomponent mixture can be determined by evaluating the signs of the eigenvalues of the Hessian matrix at different compositions. The regions where the different eigenvalues have constant signs are separated by lines where each eigenvalue is zero. Consequently the shape of the phase diagram is often calculated by solving equation \ref{zerodeterminant}~\cite{HessianPhaseEquilibriumCriterion}.\\
+
+\begin{equation}
+\det \left(\bigtriangledown^{2} g\right) = 0 \label{zerodeterminant}
+\end{equation}\
+
+However, care has to be taken when using this approach for determining the shape of the spinodal curves; while all spinodal curves are zero determinant lines, not all zero determinant lines separate regions of stability. For illustration, a ternary mixture, as depicted in figure \ref{ZeroEigenvalueLinesDrawing}, has two zero determinant curves. In region $\mathrm{I}$ all eigenvalues are positive and therefore the mixture is stable. In region $\mathrm{II}$, $\lambda_{1}~<~0$ and $\lambda_{2}~>~0$, the mixture will be unstable. In region $\mathrm{III}$, $\lambda_{2}$ is also negative and the resulting matrix determinant is positive. However, since both eigenvalues are negative, the Hessian is not positively defined and the stability criterion is not satisfied. Since the mixture will be unstable in both the regions $\mathrm{II}$ and $\mathrm{III}$, the deviding zero determinant line will therefore not coincide with a spinodal curve~\cite{HessianPhaseEquilibriumCriterion}.\\
+
+\begin{figure}[t]
+\begin{center}
+\resizebox{0.7\textwidth}{!}{\input{Drawings/pstex/ZeroEigenvalueLines.pstex_t}}\\
+\end{center}
+\caption{Ternary liquid-liquid phase diagrams and zero eigenvalue lines of the Hessian Matrix} \label{ZeroEigenvalueLinesDrawing}
+\end{figure}	
+
+The structure of liquid-liquid phase diagrams at different operating conditions are used to select extracting agents and construct process flow sheets. Experimental data are often scarce and the experimental procedures to determine such data are often costly and complicated. Determining the structure of the liquid-liquid phase diagram experimentally for initial design purposes, for example, at various operating temperatures is normally not viable. Moreover, once the operating conditions are chosen, this information remains important in order to optimize and establish the parametric stability of the system. The process can be severely impacted by small fluctuations in operating conditions if the structure of the phase diagram is a strong function of temperature. For these reasons the mathematical modelling of phase separation is an invaluable process design and optimization tool~\cite{HessianPhaseEquilibriumCriterion, HessianPhaseDiagramConstruction}.\\
+
+Although reliable methods exist whereby two-phase equilibria can be accurately calculated, for example by the tangent plane analysis discussed in the previous section, methods used to predict multi-phase equilibria are not as formalised or efficient. This is due to the fact that such methods normally involve the stability analysis of the Gibbs energy at a specific composition point, and therefore it is impossible to consider all geometric features of the Gibbs energy function simultaneously. In order to obtain true, unambiguous  phase separation information at a specific composition the structure of the entire phase diagram is required~\cite{HessianPhaseDiagramConstruction}.\\
+
+The following algorithm provides a method for the automated synthesis of a ternary phase diagram. It can, in principle, be applied to higher order systems~\cite{HessianPhaseDiagramConstruction}.\
+
+Assuming that a constituent binary system can contain only one phase seperation:
+
+\begin{enumerate}
+\item Determine the stability of the binary system at successive compositions, starting from the middle composition of the side of the first binary constituent. If no instability is detected, perform the stability analysis at the concentration points halving the segments on either side of the previous point. Continue this process until instability is revealed or a pre-set tolerance is reached. If no region of instability is detected, repeat the evaluation for the next binary constituent. If no instability is detected for any binary pair, continue to step 7. Else, proceed to the next step.\label{Step1}\
+\item Once the phase compositions are determined for the binary split, take a step normal to that tie-line, into the viable concentration region. The step-size is predetermined and the direction is such that the scalar product of the normal vector and the previous tie-line is positive. Perform the stability analysis and calculate the phase separation, if applicable, at the new composition. Continue in this manner until:\label{Step2}\
+
+	\begin{itemize}
+	\item The last step reaches a new initial point which falls outside the feasible concentration simplex. In this case continue to stage \ref{Step3}.\
+	\item The stability analysis at the last point converged to a single stable composition, then continue to stage \ref{Step4}.\
+	\item The numerical method at the last point converged to a three-phase region, then continue to stage \ref{Step5}.\
+	\item The numerical method at the last point converged to a three-phase region which was previously examined, then return to stage \ref{Step6}.
+	\end{itemize}
+
+\item If the previous step has resulted in an initial point outside the viable composition range, the binodal curve is open. The binary phase split of the constituent binary is calculated as in stage \ref{Step1}.\label{Step3}\
+\item If the previous step has converged to a single stable composition, the pre-set step-size can be halved and the consecutive process of normal step, stability analysis, phase split calculation and step-size reduction can be continued until a predetermined tolerance is reached. The final point can then be taken as the plait point.\label{Step4}\
+\item If a three-phase region is revealed, scrap the calculations from the stage \ref{Step2} calculations which revealed the three phase region and initiate stage \ref{Step2} calculations from all three binary constituent sides of the ternary diagram.\label{Step5}\
+\item If the previous step terminated in an already discovered three-phase region, then the previous tie-line is saved as the last one and the calculation terminated.\label{Step6}\
+\item If all phase split regions starting from the constituent binary pairs have been completed, or if no binary splits where detected, the interior of the phase diagram can be scanned for instability. Seeing as such systems are rare, this can be considered an additional step.\label{Step7}\
+\end{enumerate}
+	
+	
+
+
+
+
+

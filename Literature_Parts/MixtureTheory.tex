@@ -1,0 +1,341 @@
+
+%\subsection{Molecular Thermodynamics of Liquids}
+%%%------------------------------------------------------------Molecular Thermodynamics--------------------------------------------------------------%%
+%%%------------------------------------------------------------------------------------------------------------------------------------------------------------%%
+%\subsubsection*{Pure Compounds}
+%
+%A simple liquid is assumed to consist of small, uncharged, nonpolar, spherical molecules. Simple liquids are very suitable for theoretical treatment, due to the lack of intermolecular interactions like hydrogen bonding, polar interactions or structural effects, and so on. The molecules of simple liquids therefore interact mainly due to dispersion forces~\cite{MolecularThermPure}. 
+
+\subsection{Mixture Theory and Thermodynamics}
+
+It has been found useful in many fields of science to develop simplified models or theories of natural phenomena. These theories will initially contain only essential behaviour and are then expanded to include many possible exceptions and details. The additional terms are used to describe behaviour which was initially neglected and therefore accounts for deviations of reality from the ideal. This approach has been applied quite successfully in the field of solution thermodynamics.\
+
+%%-----------------------------------------------------Fundemental Thermodynamic Properties-----------------------------------------------------%%
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsubsection{Fundamental Thermodynamic Properties}\
+
+We have the following expression for the Gibbs energy of a closed system at a specific temperature and pressure~\cite{SmithNessAbbott}:\
+
+\begin{equation}
+\mathrm{d}\left(nG\right) = \left(nV\right) \mathrm{d}P - \left(nS\right) \mathrm{d}T \label{GibbsClosedSystem}
+\end{equation}\
+
+\nomenclature{$H$}{Total enthalpy of a system $\left[H\right]=\mathrm{\dfrac{J}{mol}}$ }
+\nomenclature{$S$}{Total entropy of a system $\left[S\right]=\mathrm{\dfrac{J}{molK}}$ }
+\nomenclature{$n$}{Number of moles in a closed system}
+
+If no chemical reaction occurs the composition of the system is constant and we have~\cite{SmithNessAbbott}:\
+
+\begin{equation}
+\left[\frac{\partial \left(nG\right)}{\partial P}\right]_{T, n}  = nV \label{nV}
+\end{equation}\
+and 
+\begin{equation}
+\left[\frac{\partial \left(nG\right)}{\partial T}\right]_{P, n}  = -nS \label{nS}
+\end{equation}\
+
+If however, the single phase system interacts with it's surroundings and consequently the number of moles of the composite species are variable~\cite{SmithNessAbbott}:\
+
+\begin{equation}
+\mathrm{d}\left(nG\right) = \left[\frac{\partial \left(nG\right)}{\partial P}\right]_{T, n}\mathrm{d}P + \left[\frac{\partial \left(nG\right)}{\partial T}\right]_{P, n}\mathrm{d}T + \sum_{i}\left[\frac{\partial \left(nG\right)}{\partial n_{i}}\right]_{P, T, n_{j}}\mathrm{d} n_{i} \label{GibbsOpenSystem}
+\end{equation}\
+
+which leads to the definition of the chemical potential of species $i$ in a mixture~\cite{SmithNessAbbott, MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+
+\begin{equation}
+\mu_{i} \equiv \left[\frac{\partial \left(nG\right)}{\partial n_{i}}\right]_{P, T, n_{j}} \label{ChemicalPotential}
+\end{equation}\
+
+\nomenclature{$\mu_{i}$}{Chemical potential of species $i$ $\left[\mu_{i}\right]=\mathrm{\dfrac{J}{mol}}$}
+
+By substituting the chemical potential and equations \ref{nS} and \ref{nV} into equation \ref{GibbsOpenSystem}, we obtain the following fundamental property relation for an open system with variable composition~\cite{SmithNessAbbott}:\
+
+\begin{equation}
+\mathrm{d}\left(nG\right) = \left(nV\right)\mathrm{d}P - \left(nS\right)\mathrm{d}T + \sum_{i}\mu_{i}\mathrm{d} n_{i} \label{FundementalPropertyRelationOpenSystem}
+\end{equation}\
+
+This equation forms the basis of solutions thermodynamics. When the Gibbs energy is expressed, as is the case in equation \ref{FundementalPropertyRelationOpenSystem}, as a function of it's canonical variables it implicitly provides complete property information. All other thermodynamic properties of the system at hand can then be calculated by mathematical operations and manipulations~\cite{SmithNessAbbott, MolecularThermodynamicsOfFluidPhaseEquilibria}.
+
+%%---------------------------------------------------The Ideal Solution and Excess Functions-----------------------------------------------------%%
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsubsection{Ideal Mixture and Excess Functions} \label{IdealExcessPropertiesSection}\
+
+The concept of defining an ideal mixture, and subsequent excess properties to relate this ideal mixture to reality, is similar to how the ideal gas model serves as a reference state for the behaviour of real gasses, and is completed by the introduction of residual properties~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott}.\\
+
+An ideal mixture is defined as one for which:\
+
+\begin{equation}
+\bar{G}_{i}^{ideal} \left(T, P, x\right)= G_{i}\left(T, P\right) + RT \ln x_{i} \label{IdealSolution}
+\end{equation}\
+
+\nomenclature{$G_{i}$}{Gibbs energy of  pure component $i$ in a mixture $\left[G_{i}\right]=\mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$\bar{G}_{i}^{ideal}$}{Partial molar Gibbs energy of  pure component $i$ in an ideal mixture $\left[\bar{G}_{i}^{ideal}\right]=\mathrm{\dfrac{J}{mol}}$}
+
+
+Where $\bar{G}_{i}^{ideal}$ represents the partial molar Gibbs energy of component $i$ in an ideal mixture, and $G_{i}$ represents the molar Gibbs energy of that component at the same conditions as the mixture. All thermodynamic properties of the ideal mixture are derived from or based on equation \ref{IdealSolution}~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott}.\\
+
+ The partial entropy can now be determined from:\
+
+\begin{equation}
+ \bar{S}_{i}^{ideal}= -\left(\frac{\partial \bar{G}_{i}^{ideal}}{\partial T}\right)_{P,x}
+\end{equation}\
+
+\nomenclature{$\bar{S}_{i}^{ideal}$}{Partial molar entropy of  pure component $i$ in an ideal mixture $\left[\bar{S}_{i}^{ideal}\right]=\mathrm{\dfrac{J}{molK}}$}
+
+Therefore\
+\begin{equation}
+ \bar{S}_{i}^{ideal}= -\left(\frac{\partial G_{i}}{\partial T}\right)_{P} - R \ln x_{i}
+\end{equation}\
+
+And since $-S_{i} = \left(\dfrac{\partial G_{i}}{\partial T}\right)_{P}$, we have:\
+\begin{equation}
+ \bar{S}_{i}^{ideal}\left(T, P, x\right)= S_{i}\left(T, P\right) - R \ln x_{i}
+\end{equation}\
+
+\nomenclature{$S_{i}$}{Entropy of  pure component $i$ in a mixture $\left[S_{i}\right]=\mathrm{\dfrac{J}{molK}}$}
+
+In a similar manner we can derive:\
+\begin{equation}
+\bar{V}_{i}^{ideal} = V_{i}
+\end{equation}
+\begin{equation}
+\bar{H}_{i}^{ideal} = H_{i}
+\end{equation}\
+
+\nomenclature{$\bar{V}_{i}^{ideal}$}{Partial molar volume of  pure component $i$ in an ideal mixture $\left[\bar{V}_{i}^{ideal}\right]=\mathrm{\dfrac{cm^{3}}{mol}}$}
+\nomenclature{$\bar{H}_{i}^{ideal}$}{Partial molar enthalpy of  pure component $i$ in an ideal mixture $\left[\bar{H}_{i}^{ideal}\right]=\mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$V_{i}$}{Molar volume of  pure component $i$ in a mixture $\left[V_{i}\right]=\mathrm{\dfrac{cm^{3}}{mol}}$}
+\nomenclature{$H_{i}$}{Enthalpy of  pure component $i$ in a mixture $\left[H_{i}\right]=\mathrm{\dfrac{J}{mol}}$}
+
+Since the principal of summability holds for the partial properties of ideal mixtures, similar to general partial properties, we finally also have the following for ideal mixtures:\
+\begin{equation}
+G^{ideal}\left(T, P, x\right) = \Sigma _{i} x_{i} G_{i}\left(T, P\right) + RT \Sigma _{i} x_{i} \ln x_{i}\label{Gideal}
+\end{equation}
+\begin{equation}
+S^{ideal}\left(T, P, x\right) = \Sigma _{i} x_{i} S_{i}\left(T, P\right) - R \Sigma _{i} x_{i} \ln x_{i}
+\end{equation}
+\begin{equation}
+V^{ideal}\left(T, P, x\right) = \Sigma _{i} x_{i} V_{i}\left(T, P\right) 
+\end{equation}
+\begin{equation}
+H^{ideal}\left(T, P, x\right) = \Sigma _{i} x_{i} H_{i}\left(T, P\right) \label{Hideal}
+\end{equation}\
+
+\nomenclature{$G^{ideal}$}{Gibbs energy of an ideal mixture $\left[G_{ideal}\right]=\mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$S^{ideal}$}{Entropy of an ideal mixture $\left[S_{ideal}\right]=\mathrm{\dfrac{J}{molK}}$}
+\nomenclature{$H^{ideal}$}{Enthalpy of an ideal mixture $\left[H_{ideal}\right]=\mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$V^{ideal}$}{Molar volume of an ideal mixture $\left[V_{ideal}\right]=\mathrm{\dfrac{cm^{3}}{mol}}$}
+
+Therefore, formation of an ideal mixture takes place without any evolution or absorption of heat and without change of volume~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott, ThermodynamicModels}.\\
+
+It can be shown that, for an ideal mixture, equation \ref{IdealSolutionFugacity} holds at a specific temperature and pressure, and all temperatures and pressures in the immediate vicinity. Where $f_{i}^{ideal}$, $c_{i}$ and $x_{i}$ is the ideal mixture fugacity, proportionality constant and mole fraction, respectively, of component $i$ in the liquid mixture. The liquid fugacity is however also conveniently related to the activity coefficient, $\gamma_{i}$, and liquid mole fraction by equation \ref{LiquidFugacity}\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, ThermodynamicModels}.\
+
+\begin{equation}
+f_{i}^{ideal} = c_{i}x_{i} \label{IdealSolutionFugacity}
+\end{equation}
+\begin{equation}
+f_{i}^{ideal} = \gamma_{i} x_{i} f_{i}^{0} \label{LiquidFugacity}
+\end{equation}\
+where $f_{i}^{0}$ is the fugacity of $i$ at some arbitrary reference state.\\
+
+\nomenclature{$f_{i}^{ideal}$}{Fugacity of component $i$ in an ideal mixture}
+\nomenclature{$c_{i}$}{Proportionality constant for component $i$ in the ideal solution relation}
+\nomenclature{$x_{i}$}{Mole fraction of component $i$ in a liquid mixture}
+\nomenclature{$f_{i}^{0}$}{Fugacity of component $i$ in a mixture at an arbitrary reference standard state}
+
+If we let $f_{i}^{0} = c_{i}$, then $\gamma_{i} =1$. If this relationship holds for the entire composition range it follows that $c_{i}$ is equal to the fugacity of the pure liquid at the same temperature. Raoult's law is then obtained if the fugacity in equation \ref{IdealSolutionFugacity} is set to the partial pressure of $i$. Therefore, for an ideal solution a relation, known as the Lewis/Randall rule, can be derived~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott}:\
+
+\begin{equation}
+f_{i}^{ideal}\left(T, P, x \right) = f_{i}^{pure} \left(T, P\right) x_{i} \label{LewisRandall}
+\end{equation}\
+
+\nomenclature{$f_{i}^{pure}$}{Fugacity of pure component $i$}
+
+Real mixtures of similar components often exhibit near-ideal behaviour however, for most liquids ideal behaviour only holds for a small range of compositions. Very dilute mixtures of non-electrolytes behave ideally and Henry's law for ideal dilute solutions is also derived from equation \ref{IdealSolutionFugacity}. Correction terms which account for the non-idealities of real mixtures can be included and are termed excess functions~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott}.\\
+
+As the name suggests, excess properties are thermodynamic properties which are in excess of that of an ideal mixture's at a specified temperature, pressure and composition. The excess Gibbs energy of a mixture is defined as~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott}:\
+
+\begin{equation}
+G^{E}\left(T, P, x\right) = G\left(T, P, x\right) - G^{ideal}\left(T, P, x\right)
+\end{equation}\
+
+\nomenclature{$G^{E}$}{Excess Gibbs energy of a real mixture $\left[G^{E}\right]=\mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$G$}{Total Gibbs energy of a system $\left[G\right]=\mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$P$}{Pressure $\left[P\right]=\mathrm{kPa}$}
+
+The excess volume, $V^{E}$, excess entropy, $S^{E}$, excess enthalpy, $H^{E}$, excess internal energy, $U^{E}$, and excess Helmholtz energy,$A^{E}$, are all defined in a similar manner. Excess property relations are similar to that of total thermodynamic and residual properties. Table \ref{ExcessPropertyTable} summarises these similarities.\\
+
+\begin{table}
+			\caption{Summary of similarities between Total property and excess property relations}\label{ExcessPropertyTable}
+			\begin{center}
+			\begin{tabularx}{\textwidth}{X|X}
+			\hline
+			\textbf{Total Property Relation}&\textbf{Excess Property Relation}\\
+			\hline
+			\multicolumn{1}{c|}{$ S = -\left(\frac{\partial G}{\partial T}\right)_{P,x} $}&\multicolumn{1}{c}{$ S^{E} = -\left(\frac{\partial G^{E}}{\partial T}\right)_{P,x} $}\\
+			\hline
+			\multicolumn{1}{c|}{$V = \left(\frac{\partial G}{\partial P}\right)_{T,x} $}&\multicolumn{1}{c}{$V^{E} = \left(\frac{\partial G^{E}}{\partial P}\right)_{T,x} $}\\
+			\hline
+			\multicolumn{1}{c|}{$H  = G + TS$}&\multicolumn{1}{c}{$H^{E}  = G^{E} + TS^{E}$}\\
+			\multicolumn{1}{c|}{$ = G - T\left(\frac{\partial G}{\partial T}\right)_{P,x}$}&\multicolumn{1}{c}{$ = G^{E} - T\left(\frac{\partial G^{E}}{\partial T}\right)_{P,x}$}\\
+			\multicolumn{1}{c|}{$ = -RT^{2}\left[ \frac{\partial\left(\frac{G}{RT}\right)}{\partial T}\right]_{P,x}$}&\multicolumn{1}{c}{$ = -RT^{2}\left[ \frac{\partial\left(\frac{G^{E}}{RT}\right)}{\partial T}\right]_{P,x}$}\\
+			\hline			
+			\end{tabularx}
+			\end{center}
+\end{table}
+			
+In addition, we can derive a fundamental excess-property relation. Firstly, with the use of the chain rule, we have~\cite{SmithNessAbbott}:\
+
+\begin{equation}
+\mathrm{d}\left(\frac{nG}{RT}\right) \equiv \frac{1}{RT}\mathrm{d}\left(nG\right) - \frac{nG}{RT^{2}} \mathrm{d}T \label{ChainRule}
+\end{equation}\
+
+If we now substitute $G$ with $H - TS$, and $\mathrm{d}\left(nG\right)$ with equation \ref{FundementalPropertyRelationOpenSystem}, we obtain a fundamental overall property relation~\cite{SmithNessAbbott}:\
+
+\begin{equation}
+\mathrm{d}\left(\frac{nG}{RT}\right) = \frac{nV}{RT}\mathrm{d}P - \frac{nH}{RT^{2}}\mathrm{d}T  + \sum_{i}\frac{\bar{G}_{i}}{RT}\mathrm{d}n_{i} \label{FundementalPropertyRelation}
+\end{equation}\
+
+Finally, by rewriting equation \ref{FundementalPropertyRelation} for an ideal mixture and subtracting it from the original a fundamental excess property relation is obtained~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott}:\
+
+\begin{equation}
+\mathrm{d}\left(\frac{nG^{E}}{RT}\right) = \frac{nV^{E}}{RT}\mathrm{d}P - \frac{nH^{E}}{RT^{2}}\mathrm{d}T  + \sum_{i}\frac{\bar{G}^{E}_{i}}{RT}\mathrm{d}n_{i} \label{FundementalExcessPropertyRelation}
+\end{equation}\
+			
+\nomenclature{$V^{E}$}{Excess volume of a real mixture $\left[V^{E}\right]=\mathrm{\dfrac{cm^{3}}{mol}}$}
+\nomenclature{$S^{E}$}{Excess entropy of a real mixture $\left[S^{E}\right]=\mathrm{\dfrac{J}{molK}}$}
+\nomenclature{$H^{E}$}{Excess enthalpy of a real mixture $\left[H^{E}\right]=\mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$A^{E}$}{Excess Helmholtz energy of a real mixture $\left[A^{E}\right]=\mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$U^{E}$}{Excess internal energy of a real mixture $\left[U^{E}\right]=\mathrm{\dfrac{J}{mol}}$}
+
+Depending on whether the excess Gibbs energy is positive or negative, real mixtures are said to exhibit positive or negative deviations from the ideal. Characteristic behaviour of liquid mixtures are often explained upon investigation of excess thermodynamic properties. The excess Gibbs energy can be determined from experimental vapour-liquid equilibrium data, and the excess enthalpy from mixing experiments. Since the excess entropy cannot be determined experimentally, the following relationship is used~\cite{SmithNessAbbott}:\
+
+\begin{equation}
+S^{E} = \frac{H^{E} - G^{E}}{T}
+\end{equation}\
+
+Figure \ref{ExcessPropertyDrawing} illustrates quantitatively the excess properties of some real binary mixtures. The excess properties of all mixtures become zero as the composition approaches a pure substance; since that property will obviously approach that of the pure substance. It has also been observed from experimental data that if an excess property does not change sign in the composition range, it will often have it's extreme value near the equimolar composition~\cite{SmithNessAbbott}.\
+
+\begin{figure}[t]
+\begin{center}
+\resizebox{0.7\textwidth}{!}{\input{Drawings/pstex/ExcessPropertyDrawings.pstex_t}}\\
+\end{center}
+\caption{Typical excess properties for real mixtures} \label{ExcessPropertyDrawing}
+\end{figure}
+
+%%----------------------------------------------------Property Changes on Mixing-----------------------------------------------------------------%%
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsubsection{Changes on Mixing}\
+
+When combining the definition of excess properties with equations \ref{Gideal} to \ref{Hideal} the following relationships result~\cite{SmithNessAbbott}:\
+
+\begin{equation}
+G^{E}  = G - \sum_{i}x_{i}G_{i}  - RT\sum_{i}x_{i}\ln x_{i} \label{Gexcess}
+\end{equation}
+\begin{equation}
+S^{E}  = S - \sum_{i}x_{i}S_{i}  + R\sum_{i}x_{i}\ln x_{i}
+\end{equation}
+\begin{equation}
+V^{E}  = V - \sum_{i}x_{i}V_{i}
+\end{equation}
+\begin{equation}
+H^{E}  = H - \sum_{i}x_{i}H_{i} \label{Hexcess}
+\end{equation}\
+
+\nomenclature{$\Delta G$}{Change in Gibbs energy on mixing $\left[\Delta G\right]=\mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$\Delta S$}{Change in entropy on mixing $\left[\Delta S\right]=\mathrm{\dfrac{J}{molK}}$}
+\nomenclature{$\Delta V$}{Change in molar volume on mixing $\left[\Delta V\right]=\mathrm{\dfrac{cm^{3}}{mol}}$}
+\nomenclature{$\Delta H$}{Change in enthalpy on mixing $\left[\Delta H\right]=\mathrm{\dfrac{J}{mol}}$}
+
+The first two terms on the right hand side of equations \ref{Gexcess} through \ref{Hexcess} express the property changes upon mixing. For example, the change of Gibbs energy on mixing, $\Delta G$, is defined as:
+
+\begin{equation}
+\Delta G \equiv G - \sum_{i} x_{i}G_{i}
+\end{equation}\
+
+Other properties of mixing are defined similarly. From these definitions it is apparent that the excess volume of a mixture is equal to the change of molar volume on mixing, $V^{E} = \Delta V$, and similarly the excess enthalpy is equal to the change in molar enthalpy on mixing, $H^{E} = \Delta H$. The following expressions for $G^{E}$ and $S^{E}$ can therefore also be written~\cite{SmithNessAbbott}:\
+
+\begin{equation}
+G^{E}  = \Delta G - RT\sum_{i}x_{i}\ln x_{i} 
+\end{equation}
+\begin{equation}
+S^{E}  = \Delta S  + R\sum_{i}x_{i}\ln x_{i}
+\end{equation}\
+
+The change of enthalpy and volume on mixing is of greatest interest as these can be measured experimentally, and are equal to the corresponding excess properties.\\
+
+%%%%%%%%%%%%%%%%%%%%%%insert reference%%%%%%%%%%%%%%%%%
+Similar to excess properties, change of properties on mixing are obviously zero for pure species. If mixing occurs, the change of the Gibbs energy on mixing is negative. In general, the change in entropy on mixing is positive however, negative values are observed in rare cases. The second law of thermodynamics places no restriction on the entropy of mixing for systems open to their surroundings; it forbids negative changes of entropy only for systems which are isolated from their surroundings~\cite{SmithNessAbbott}.\
+
+
+%%--------------------------------------------Liquid Mixture Activity Coefficients and Fugacities------------------------------------------------%%
+%%------------------------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsubsection{Mixture Activity Coefficients and Fugacities}\
+
+The chemical potential of a species is an abstract theoretical term and it is difficult to make a connection between it and physical reality. The fugacity of a species conveniently relates pure thermodynamics to physical variables. It was first considered by G.N. Lewis in an attempt to simplify the the expression for chemical equilibrium~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\\
+
+For the chemical potential of a pure species we have:\
+
+\begin{equation}
+\left(\frac{\partial\mu_{i}}{\partial P}\right) = V_{i}
+\end{equation}\
+ 
+For an ideal gas, we substitute $V_{i} = \dfrac{RT}{P}$, and then integrate with respect to pressure at constant temperature:\
+
+\begin{equation}
+\mu_{i} - \mu^{0}_{i} = RT \ln \frac{P}{P^{0}}
+\end{equation}\
+
+This is a significant result as it relates the chemical potential to an experimentally measurable variable, namely pressure. It is however only valid for an ideal gas and consequently Lewis defined, for an isothermal change, the fugacity of a species in any system, in any state as~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+
+\begin{equation}
+\mu_{i} - \mu^{0}_{i} = RT \ln \frac{f_{i}}{f^{0}_{i}} \label{DefinitionFugacity}
+\end{equation}\
+
+Where $f_{i}$ is the fugacity of species $i$ in a mixture. Either $\mu_{i}^{0}$ or $f_{i}^{0}$, but not both, can be chosen arbitrarily. For an ideal gas $f_{i} = P$, and for an ideal gas mixture $f_{i} = y_{i}P$. All systems approach ideal gas behaviour at very low pressures and consequently we have a complete definition for fugacity by including~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott}:\
+
+\begin{equation}
+\lim_{P\rightarrow 0} \;\frac{f_{i}}{y_{i}P} =1
+\end{equation}
+
+The importance of the partial molar excess Gibbs energy in mixture thermodynamics is due to it's direct relation to the activity coefficient of a species in a mixture. With the use of equation \ref{DefinitionFugacity}~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+
+\begin{equation}
+\bar{G}_{i} - \bar{G}_{i}^{id} = RT \ln \frac{f_{i}}{f_{i}^{ideal}} \label{FugacityExcessGibbs}
+\end{equation} \
+
+And by substituting the definition of the partial molar excess Gibbs energy and the Lewis/Randall rule, equation \ref{LewisRandall}, into equation \ref{FugacityExcessGibbs} we obtain the following significant relationship~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+
+\begin{equation}
+\bar{G}_{i}^{E}  = RT \ln \frac{f_{i}}{x_{i}f_{i}^{pure}}
+\end{equation}\
+
+The activity of a species in a mixture is the ratio of the fugacity of $i$ in the mixture to the fugacity in some standard reference state. It is an indication of the isothermal change in the chemical potential of species $i$ from the reference state to that of the mixture; how "active" species $i$ is at the mixture state. When the activity coefficient of a species $i$ is defined as\
+
+\begin{equation}
+\gamma_{i} \equiv \frac{f_{i}}{x_{i}f_{i}^{pure}}
+\end{equation}\
+
+the expressions, in equations \ref{ActivityCoeffiecientExcessGibbs} through \ref{ActivityCoeffiecientSum} are obtained. They are of significant importance in mixture phase-equilibrium thermodynamics. Equation \ref{ActivityCoeffiecientSum}, for example, is a consequence of applying the Gibbs-Duhem equation to the partial molar excess Gibbs energy and is extensively used in practice to determine the thermodynamic consistency of experimental data~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott, ThermodynamicModels}.\
+
+\begin{equation}
+\bar{G}_{i}^{E}  = RT \ln \gamma_{i}\label{ActivityCoeffiecientExcessGibbs}
+\end{equation}
+\begin{equation}
+\therefore G^{E} = RT\sum_{i} x_{i} \ln \gamma_{i} 
+\end{equation}
+\begin{equation}
+\therefore \sum_{i} x_{i}\mathrm{d}\ln \gamma_{i}  = 0 \label{ActivityCoeffiecientSum}
+\end{equation}\
+
+The pressure and temperature derivatives of the activity coefficients are related to the partial molar excess volume and partial molar excess enthalpy, respectively, of the mixture~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+
+\begin{equation}
+\left(\frac{\partial \ln \gamma_{i}}{\partial P}\right)_{T,x} = \frac{\bar{V}_{i}^{E}}{RT}
+\end{equation}
+\begin{equation}
+\left(\frac{\partial \ln \gamma_{i}}{\partial T}\right)_{P,x} = \frac{\bar{H}_{i}^{E}}{RT^{2}}
+\end{equation}\
+
+
+

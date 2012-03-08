@@ -1,0 +1,142 @@
+%%---------------------------------------------------------------------The Gibbs Phase Rule---------------------------------------------------------------------%%
+%%---------------------------------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsection{The Gibbs Phase Rule}
+
+A homogeneous phase is one for which all intensive properties are the same throughout, where intensive properties, for example temperature, pressure, composition etc.,  are those which are not dependent on the size or mass of the phase. Conversely, a heterogeneous system is considered to consist of two or more phases. A phase does not necessarily have to be a continuous whole and it is permissible for one phase to be distributed throughout another. For example the dispersion of gas bubbles in a liquid or a dispersion of one liquid phase inside another~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott}.\\
+
+The state of single pure homogeneous phase is fixed when 2 intensive variables are specified. The degrees of freedom of a heterogeneous system composed of numerous species is given by the Gibbs phase rule:\
+
+\begin{equation}
+p = m + 2 - \pi \label{GibbsPhaseRule}
+\end{equation}\
+
+\nomenclature{$p$}{Number of degrees of freedom of a heterogeneous system}
+\nomenclature{$m$}{Number of components in a heterogeneous system}
+\nomenclature{$\pi$}{Number of phases in a heterogeneous system}
+
+Where $p$, $m$, and $\pi$ represent the degrees of freedom, the number of species and the number of phases, respectively. Therefore, the phase rule establishes the number of intensive variables that must be specified in order to fix the state of the system. The remaining intensive variables are subsequently also fixed and cannot be chosen arbitrarily or independently from the rest. It is important to note that equation \ref{GibbsPhaseRule} only applies to a non-reacting system at equilibrium~\cite{ SmithNessAbbott}. \\
+
+A system is completely determined when all intensive and extensive variables are fixed. Duhem's theorem states that if two independent variables are fixed, then the equilibrium state of a closed system, containing specified masses of a given number of species, is completely determined. These two variables may be extensive or intensive however, the number of intensive variables that must be independently specified is given by the Gibbs phase rule, and the remaining may be extensive~\cite{ SmithNessAbbott}.\
+
+%%---------------------------------------------------------------------Phase Equilibrium-------------------------------------------------------------------------%%
+%%---------------------------------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsection{Phase Equilibrium}
+An isolated system comprising of two phases will exchange material until the compositions of each system attains a constant value, or an equilibrium. Even though material still migrates from one phase to another on a microscopic level, after equilibrium is reached there is no net change in the macroscopic system properties. This natural phenomena of phase equilibrium is of fundamental importance in many natural and industrial processes and is consequently an important topic in the natural and physical sciences. Phase equilibrium thermodynamics is concerned with establishing the relations between variables, such as temperature, pressure and composition, that prevail at equilibrium~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott}.\\
+
+Since equilibrium denotes a static state or the absence of change, it also implies the absence of some driving force which brings about change. For example, the driving force behind heat transfer is a temperature gradient, and an imbalance of mechanical forces cause the transfer of work. The chemical potential, as defined by Gibbs in 1875, denotes the driving force responsible for phase transition. Phase equilibrium occurs only when the chemical potential $\mu_{i}$ of each component is the same in each phase. Therefore, for any phase equilibrium problem we initially have~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+
+\begin{equation}
+\mu_{i}^{\alpha} = \mu_{i}^{\beta}
+\end{equation}\
+
+Where $\alpha$ and $\beta$ denote the phases. In order to solve the phase equilibrium problem, the relation between the chemical potential and temperature, pressure and composition has to be established for each phase. Auxiliary variables, like fugacity and activity, are normally used to link these physical variables to the abstract concept of chemical potential.\
+
+
+%%-------------------------------------------------------------------Phase Equilibria and Stability-------------------------------------------------------------%%
+%%---------------------------------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsection{Phase Equilibria and Stability} \label{PhaseEqStabilitySection}
+
+Consider a closed system that consists of a number of phases and components. Assume that this system is at uniform, but variable, temperature and pressure. It is initially not in a state of equilibrium with regard to mass transfer between phases and chemical reaction. In addition, we assume that the system is at the same temperature and pressure as it's surroundings and therefore all heat exchange with it's surroundings and expansion takes place reversibly~\cite{ SmithNessAbbott}.\\
+
+Consequently we have:\
+
+\begin{equation}
+\mathrm{d}S_{surr} = \frac{\mathrm{d}Q_{surr}}{T_{surr}} = -\frac{\mathrm{d}Q}{T} \label{ClosedSysHeatTransfer}
+\end{equation}\
+
+\nomenclature{$S_{surr}$}{Total entropy of the surroundings of a closed system $\left[S_{surr}\right] = \frac{\mathrm{J}}{\mathrm{molK}}$}
+\nomenclature{$Q_{surr}$}{Heat transfer from closed system to it's surroundings $\left[Q_{surr}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$}
+\nomenclature{$T_{surr}$}{Temperature of the surroundings of a closed system $\left[T_{surr}\right] = \mathrm{K}$}
+\nomenclature{$Q$}{Heat transfer to a closed system from it's surroundings $\left[Q\right] = \frac{\mathrm{J}}{\mathrm{mol}}$}
+
+Where $S_{surr}$,  $Q_{surr}$ and $T_{surr}$  represents the entropy, the heat transferred to and the temperature of the surroundings, respectively. In order for the heat transfer to take place reversibly $T_{surr} = T$. The second law of thermodynamics requires that:\
+
+\begin{equation}
+\mathrm{d}S + \mathrm{d}S_{surr} \geq 0 \label{SecondLaw}
+\end{equation}\
+
+Upon combination of equations \ref{ClosedSysHeatTransfer} and \ref{SecondLaw} we obtain:
+
+\begin{equation}
+\mathrm{d}Q \leq T \mathrm{d}S
+\end{equation}\
+
+And lastly, by applying the first law of thermodynamics we have:\
+
+\begin{equation}
+\mathrm{d}U + P \mathrm{d}V - T \mathrm{d}S \leq 0 \label{ChangesEq}
+\end{equation}\
+
+It is noted that the expression in equation \ref{ChangesEq} involves only properties and is consequently relevant to changes in state of any system with uniform temperature and pressure, not only for systems in mechanical and thermal equilibrium with their surroundings. The following is applicable to equation \ref{ChangesEq}~\cite{ SmithNessAbbott}:\
+
+\begin{itemize}
+\item the inequality holds for any incremental change between non-equilibrium states
+\item it dictates the direction in which change of the properties will occur towards equilibrium
+\item the equality applies to changes between equilibrium states i.e. reversible processes
+\end{itemize}
+
+For a process occurring at constant temperature and pressure, equation \ref{ChangesEq} becomes~\cite{ SmithNessAbbott}:\
+
+\begin{eqnarray}
+\mathrm{d}U_{T, P} +  \mathrm{d}\left(PV\right)_{T, P} - \mathrm{d}\left(TS\right)_{T, P} \leq 0 \\
+\therefore \mathrm{d}\left(U + PV - TS\right)_{T,P} \leq 0 \\
+\therefore \mathrm{d}\left(H - TS\right)_{T,P} \leq 0 \\
+\therefore \mathrm{d} G_{T,P} \leq 0 \label{ChangeGibbsTowardsEq}
+\end{eqnarray}\
+
+The result in equation \ref{ChangeGibbsTowardsEq} is significant. It indicates that all irreversible changes in a process occur in such a way to accomplish a minimum in Gibbs energy of the system. Therefore, the equilibrium state of a closed system, at constant temperature and pressure, is that for which the Gibbs energy of the system is at a minimum. In addition, as indicated by the equality, at the state of equilibrium differential changes in the system can occur, at constant temperature and pressure, without yielding a change in the Gibbs energy of the system~\cite{ SmithNessAbbott, Dechema, SolidLiquidStability}.\\
+
+A general criterion for calculating the equilibrium state is provided by equation \ref{ChangeGibbsTowardsEq}. It is most useful for complex systems containing phase equilibrium, chemical reaction equilibrium and systems containing both phase- and chemical reaction equilibrium. The equilibrium conditions are found by determining the mole numbers which bring about a minimum in the Gibbs energy of the system, whilst satisfying the constraints of conservation of mass~\cite{Dechema, SmithNessAbbott, GasLiquidProperties, SolidLiquidStability, LLECalculation, BilevelOptimization, StabilityAnalysis, ReliableComputationBinaryParams}.\\
+
+Equation \ref{ChangeGibbsTowardsEq} also provides an important criterion which is applied to determine the stability of a single phase. The total Gibbs energy of a system has to decrease if two liquids mix. Therefore, if mixing occurs, the mixed state must result in a negative change in Gibbs energy of the system:\ 
+
+\begin{eqnarray}
+G - \sum_{i} x_{i}G_{i} < 0\\
+\therefore \Delta G < 0
+\end{eqnarray}\
+
+
+\begin{figure}[t]
+\begin{center}
+\resizebox{0.7\textwidth}{!}{\input{Drawings/pstex/GibsMix.pstex_t}}\\
+\end{center}
+\caption{Typical excess properties for real mixtures} \label{GibsMixDrawing}
+\end{figure}	
+
+A phase is considered unstable if upon mixing it can achieve a lower overall Gibbs energy by forming multiple phases rather than remaining in a single phase. Figure \ref{GibsMixDrawing} illustrates typical shapes of the $\Delta G_{mix}$ curve as a function of composition. The usual shape represented in $\left(a\right)$ is that of a stable mixture; it is everywhere less than or equal to zero. The mixture in the case of curve $\left(b\right)$ however is unstable. For a mixture with an overall composition $\alpha < z_{1}< \beta$ the system will split into two phases with $x_{1} = \alpha$ and  $x_{1} = \beta $~\cite{ SmithNessAbbott, Dechema, SolidLiquidStability, BilevelOptimization, ReliableComputationBinaryParams, MultiphaseEquilibria}.\\
+
+Therefore, for stability in a binary mixture at constant temperature and pressure $\Delta G_{mix}$ and it's first and second order derivatives must be continuous functions of $x_{1}$ and the second derivative must be everywhere positive~\cite{ SmithNessAbbott}.\
+
+\begin{equation}
+\frac{d^{2} \Delta G_{mix}}{ dx_{1}^{2} } > 0
+\end{equation}\
+
+%%-------------------------------------------------------------------Liquid-Liquid Equilibria--------------------------------------------------------------------%%
+%%---------------------------------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsection{Liquid-liquid Equilibria} \label{LiquidLiquidEquilibriaSection}
+
+Many chemical species form unstable liquid mixtures and split to form two liquid phases in equilibrium. Liquid-liquid equilibrium forms an important topic in liquid separation processes by extraction. The phenomena of liquid-liquid equilibria requires that, similar to vapour-liquid equilibria, the chemical potential or fugacities of each component be equal in each phase. In addition to the regular requirements of uniform temperature and pressure throughout the system~\cite{ SmithNessAbbott, BilevelOptimization}.\\
+
+Four kinds of binary liquid-liquid equilibria have been observed. They are quantitatively represented in the solubility diagrams in figure \ref{BinaryLLEDrawing}~\cite{ SmithNessAbbott, Dechema, GasLiquidProperties}.\\
+
+\begin{figure}[t]
+\begin{center}
+\resizebox{0.5\textwidth}{!}{\input{Drawings/pstex/BinaryLLE.pstex_t}}\\
+\end{center}
+\caption{Solubility diagrams of three kinds of binary liquid-liquid equilibria} \label{BinaryLLEDrawing}
+\end{figure}	
+
+At constant pressure, or under conditions where pressure effects are negligible, equilibrium compositions of the two liquid phases are determined by the intersections of a isothermal tie-line with the phase boundary. In figure \ref{BinaryLLEDrawing} $\left(a\right)$ an isolated region, with an upper and lower temperature boundaries, of partial solubility is observed. At temperatures outside of these boundaries the binary mixture becomes completely mixable. It is only between these temperature bounds that liquid-liquid equilibria is observed for a certain overall mixture composition range. The upper temperature bound is termed the upper consolute temperature, or the upper critical solution temperature. Similarly the lower temperature bound is called the lower consolute temperature, or the lower critical solution temperature. Similar to the liquid/gas critical point of pure fluids, these critical solution points represent limiting states at which the properties of the two phases become identical~\cite{SmithNessAbbott, GasLiquidProperties, ThermophysicalProperties}.\\
+
+Liquid-liquid equilibria of the type in figure \ref{BinaryLLEDrawing} $\left(a\right)$ is however observed much less frequently experimentally than the behaviour depicted in figure \ref{BinaryLLEDrawing} $\left(b\right)$ and $\left(c\right)$. The kind of liquid-liquid equilibria depicted in \ref{BinaryLLEDrawing} $\left(b\right)$ is encountered when the solubility curve intersects the freezing curve and consequently only the upper critical solution point is observed. In a similar manner, the behaviour observed in \ref{BinaryLLEDrawing} $\left(c\right)$ occurs when the vapour-liquid bubble-point curve is intersected. Lastly, the solubility diagram in figure \ref{BinaryLLEDrawing} $\left(d\right)$  is observed when both the freezing- and the bubble-point curve is intersected. In such a case no critical solubility points are present~\cite{SmithNessAbbott, ThermophysicalProperties}.\\
+
+\begin{figure}%[t]
+\begin{center}
+\resizebox{0.8\textwidth}{!}{\input{Drawings/pstex/TernaryLLE.pstex_t}}\\
+\end{center}
+\caption{Solubility diagrams of six kinds of ternary liquid-liquid equilibria} \label{TernaryLLEDrawing}
+\end{figure}	
+
+Solubility diagrams for the six kinds of liquid-liquid equilibria that have been observed experimentally for ternary systems are depicted in figure \ref{TernaryLLEDrawing}. With the exception of the type of system represented in figure \ref{TernaryLLEDrawing} $\left(f\right)$, which may have three liquid phases in equilibrium, unstable ternary mixtures are only observed to split into two equilibrium phases~\cite{Dechema, LLECalculation, TernaryLLECalculation}.\
+
+

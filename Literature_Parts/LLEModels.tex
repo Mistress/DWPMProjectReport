@@ -1,0 +1,536 @@
+%%----------------------------------------------------------------Thermodynamic LLE Models-------------------------------------------------------%%
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+
+Equilibrium based separation processes are common in chemical industry, for example distillation, extraction and absorption. In order to design such process equipment accurate knowledge of transport properties, phase equilibrium data etc. is essential. However, the list of possible mixtures is endless, even at only a limited set of temperatures and pressures. It is therefore understandably inconceivable that experimental data would be available for every possible combination of species. It is in fact often the case that experimental data is not available for a specific system at the applicable temperature, pressure and composition. In such cases reliable methods of correlation are required. Thermodynamic models provide such methods by which the required properties of mixtures can be deduced, extrapolated or correlated from available pure component and mixture data. The judicious use of suitable thermodynamic models is therefore a vital tool in the chemical engineering design industry~\cite{SmithNessAbbott, GasLiquidProperties, ThermophysicalProperties}.\\
+
+In the case of Liquid-liquid equilibria thermodynamic models may take the form of excess Gibbs energy models and equations of state. Equations of state find widespread application for both property and phase equilibrium predictions. They are the preferable method by which high-pressure vapour-liquid equilibria is calculated for systems of non-associating molecules. Excess Gibbs energy or activity coefficient models, i.e. expressions for $\frac{G^{E}}{RT}$ from which activity coefficients are calculated, normally provide more accurate predictions for associating systems~\cite{ThermophysicalProperties}.\\
+
+Whether a specific model is suitable for the problem at hand is determined by it's ability to accommodate the specific type of liquid-liquid phase equilibria. The ability of a activity coefficient model to accurately predict liquid-liquid equilibria poses a significant problem; seeing as the activity coefficients it predicts are the only thermodynamic contributions used in the equilibrium calculation, as opposed to the supplementary role played by thermodynamic models in vapour-liquid equilibria calculations~\cite{SmithNessAbbott, GasLiquidProperties}.\\
+
+%%---------------------------------------------------------------------Equation of State---------------------------------------------------------%%
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsection{Equations of State}\label{EOSSection}
+
+Equations of state are semi-theoretical, empirically derived functions of state variables, i.e. pressure, temperature, molar volume and composition. They provide a method for calculation of configurational and residual thermodynamic properties, normally based on theoretical analysis of molecular interactions combined with parametrisations which allow for the reproduction of experimental data. The virial equation of state, for example, is derived from molecular theory. Cubic and quartic equations of state are semi-theoretical equations which can be solved analytically and are applicable to a wide range of compounds. Equations of state which are derived purely empirically are applicable over a much larger temperature and pressure range for many more compounds. Empirical equations of state can however not be solved analytically and normally require large amounts of property data in order to fit the numerous parameters involved~\cite{ThermophysicalProperties, GasLiquidProperties}.\\
+
+Some equations of state are applicable to the gas phase, some to the liquid phase, some are simultaneously applicable, in the same form, to both the gas and liquid phase.  The virial equation of state is suitable for representing slight deviations from ideal gas behaviour. Cubic and quartic equations are applicable to both the gas and liquid phases. However, no equation of state is simultaneously applicable to the gas, liquid and solid phase.~\cite{ThermophysicalProperties, GasLiquidProperties}.\
+
+
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+%%-----------------------------------------------------van der Waals Equations of State----------------------------------------------------------%%
+
+\subsubsection{van der Waals Equation of State}\
+
+The simplest equation of state is known as the ideal gas law, which can be stated as follows for an ideal gas mixture:\
+\begin{equation}
+P = \sum_{i} n_{i}\frac{RT}{V} \label{IdealGasMixture}
+\end{equation}\
+
+\nomenclature{$V$}{Total volume of a pure gas or mixture $\left[V\right] = \mathrm{cm^{3}}$} 
+
+As interest and research about the transition from liquid to vapour phase enjoyed more attention the van der Waals equation of state evolved from the ideal gas law. It is cubic in the molar volume and contains two adjustable parameters a and b, see equation \ref{vdWaals}. It is the simplest cubic equation of state and is never very accurate for real fluids. It does however have sound theoretical basis and the behaviour that it predicts is qualitatively correct ~\cite{ThermophysicalProperties, ThermodynamicModels}.\
+
+\begin{equation}
+P  = \dfrac{RT}{v - b} - \dfrac{a}{v^{2}} \label{vdWaals}
+\end{equation}\
+
+\nomenclature{$a$}{Adjustable parameter in the van der Waals equation for correction of attractive forces between molecules}
+\nomenclature{$b$}{Adjustable parameter in the van der Waals equation for correction of repulsive forces between molecules}
+\nomenclature{$v$}{Molar volume $\left[v\right] = \mathrm{\dfrac{cm^{3}}{mol}}$ }
+\nomenclature{$R$}{Ideal Gas Constant $ 8.314 \mathrm{\dfrac{J}{molK}}$ }
+
+Term 1 of equation \ref{vdWaals} represents the effects of the repulsive interactions between molecules on the pressure and term 2 that of the attractive interactions. It was the first equation of state capable of predicting both gas and liquid phase properties and many modern empirical equations of state are derived from it. More complex equations of state are available and provide more accurate predictions however, the cubic equations of state are fairly accurate and relatively simple to apply. In the derivation of the van der Waals equation the following assumptions were made ~\cite{ThermophysicalProperties}:\
+
+\begin{itemize}
+\item Each individual molecule, in a fluid of interacting molecules, moves independently in a uniform potential field produced by other molecules.\
+\item A molecule cannot occupy the same space as the core of another molecule.\
+\item Molecules are rigid spheres between which there is an infinitesimal attractive force with infinite range.\
+\item The distribution of molecules around any one molecule is random.\
+\end{itemize}
+
+
+Equation \ref{vdWaals} has three real roots below the critical temperature. For a specific vapour pressure the smallest root corresponds to the liquid molar volume, the largest to that of the vapour and the intermediate has no known physical significance. As the critical temperature is approached these roots converge on the critical volume. The parameters, a and b, are calculated at the critical point by utilising the following~\cite{ThermophysicalProperties}:\
+
+\begin{equation}
+\left( \dfrac{\partial P}{\partial V}\right) _{T}=0 
+\end{equation}\
+\begin{equation}
+\left( \dfrac{\partial^{2}P}{\partial V^{2}}\right) =0
+\end{equation}\
+These are solved to find expressions for a and b:\
+\begin{equation}
+a = \dfrac{27 \left( RT^{c} \right) ^{2}}{64P^{c}} \label{Consta}
+\end{equation}\
+\begin{equation}
+b = \dfrac{ RT^{c}}{8P^{c}} \label{Constb}
+\end{equation}\
+
+\nomenclature{$P^{c}$}{Critical pressure $\left[P_{c}\right] = \mathrm{bar}$}
+\nomenclature{$T^{c}$}{Critical temperature $\left[T_{c}\right] = \mathrm{K}$}
+
+Figure \ref{roots} illustrates how the vapour-liquid equilibrium pressure and the roots of the van der Waals equation are related.\\
+				
+\begin{figure}[t]
+\begin{center}
+\resizebox{0.7\textwidth}{!}{\input{Drawings/pstex/roots.pstex_t}}\\
+\end{center}
+\caption{Roots of the Van der Waals equation of state} \label{roots}
+\end{figure}
+
+The van der Waals equation is applied to mixtures by utilising suitable combining rules. It is common practice to calculate the attractive parameter $a$ for a mixture by~\cite{ThermophysicalProperties}:\
+\begin{equation}
+a = \left(\sum_{i} x_{i} \sqrt{a_{i}}\right)^{2}
+\end{equation}\
+And the repulsive parameter simply as the mole weighted average of the pure component parameters~\cite{ThermophysicalProperties}:\
+\begin{equation}
+b = \sum_{i} x_{i}b_{i}
+\end{equation}\
+
+These combining- or mixing rules are regularly used in conjunction with modern cubic equations of state. In more complex cases, binary interaction parameters are introduced in the calculation of the attractive parameter $a$~\cite{ThermophysicalProperties}.\
+
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+%%-------------------------------------------------------General Cubic Equations of State--------------------------------------------------------%%
+\subsubsection{General Cubic Equations of State}\
+
+The predictions provided by the standard van der Waals equation are usually found to be qualitatively accurate but quantitatively rather poor. Predicted densities in the region of the critical point are particularly inaccurate and the vapour-liquid equilibrium curve is found to deviate from reality. The two most apparent ways in which the van der Waals equation can be improved are~\cite{ThermophysicalProperties, ThermodynamicModels}:\
+\begin{itemize}
+\item The crude expression for the free volume which neglects many body interactions can be improved by using the correct rigid sphere model for the repulsive term.\
+\item The attractive term, which assumes a uniform distribution of molecules over the entire temperature range, can be improved by utilising empirical modifications for term 1 of \ref{vdWaals}.\
+\end{itemize}
+
+The application of equations of state are however usually at sub-critical temperatures and under these conditions the contribution to inaccuracy of the repulsive term is considered insignificant in comparison to that of the attractive term. Consequently, most modifications to the van der Waals equation took the form of improvements to the attractive term~\cite{ThermophysicalProperties, EOSModification}.\\
+
+Cubic equations of state are very well suited for application to vapour-liquid equilibrium and many of the modifications for these functions originated in that field, such as the cohesion function~\cite{Parsafar}. A commonly used modification to the van der Waals equation is that of Adachi-Lu, displayed below in equation \ref{Adachi-Lu}~\cite{Adachi-Lu}:\
+
+\begin{equation}
+\dfrac{a\left(T\right)}{a_{c}}= \exp \left[m\left(1-T_{R}\right)\right] \label{Adachi-Lu}
+\end{equation}\
+\begin{equation}
+T_{R} = \dfrac{T}{T^{c}}
+\end{equation}\
+			
+\nomenclature{$a_{c}$}{Adjustable parameter in the van der Waals equation evaluated at critical temperature}
+\nomenclature{$m$}{Adjustable parameter for the repulsive term from the Adachi-Lu relation }
+\nomenclature{$T_{R}$}{Relative temperature}
+
+Most modified cubic equations of state take the following form~\cite{ThermophysicalProperties}:\
+\begin{equation}
+P = \dfrac{RT}{v - b} - \dfrac{a\left(T\right)}{\left(v + c_{1}b\right)\left(v + c_{2}b\right)} \label{GenericCubicEOS}
+\end{equation}\
+
+\nomenclature{$c_{1}$}{Characteristic variable to establish the form of a cubic equation of state}
+\nomenclature{$c_{2}$}{Characteristic variable to establish the form of a cubic equation of state}
+
+Parameters $c_{1}$ and $c_{2}$ are integer variables which determine the shape of the specific cubic equation of state. In addition, the variable $a$ is considered to be temperature dependant in all modified cubic equations of state; the functional form of which was determined by fitting experimental vapour pressure data. Modern cubic equations of state which find widespread practical application are summarised in table \ref{CubicEOSTable}~\cite{ThermophysicalProperties, GasLiquidProperties, EOSModification}.\\
+
+Which form of cubic equation is used is determined by which properties are to be predicted. The most common approach is to choose a formulation in such a way that produces the most accurate liquid densities and vapour pressures~\cite{GasLiquidProperties}.\\
+	
+\begin{table}
+			\caption{Cubic Equations of State}\label{CubicEOSTable}
+			\begin{center}
+			\begin{tabularx}{\textwidth}{XX}
+			\hline
+			\textbf{van der Waals}&\\
+			\hline
+			\multicolumn{2}{c}{ $P = \dfrac{RT}{v - b} - \dfrac{a}{v^{2}}$}\\
+			\multicolumn{2}{c}{$a_{i}  = \dfrac{27\left(RT_{i}^{c}\right)^{2}}{64P_{i}^{c}}$, $\qquad b_{i} = \dfrac{RT_{i}^{c}}{8P_{i}^{c}}$}\\
+			\multicolumn{2}{c}{$a = \left(\sum_{i} x_{i} \sqrt{a_{i}}\right)^{2}$}\\
+			\hline
+			\textbf{Redlich - Kwong }&\\
+			\hline
+			\multicolumn{2}{c}{$P = \dfrac{RT}{v - b} - \dfrac{a}{v\left(v +b\right)\sqrt{T}}$}\\
+			\multicolumn{2}{c}{$a_{i}  = 0.42748 \dfrac{R^{2}\left(T_{i}^{c}\right)^{2.5}}{P_{i}^{c}}$,  $\qquad b_{i} = 0.08664 \dfrac{RT_{i}^{c}}{P_{i}^{c}}$}\\
+			\multicolumn{2}{c}{$a = \sum_{i}\sum_{j} x_{i}x_{j}\left(1-k_{ij}\right) \sqrt{a_{i}a_{j}} $}\\
+			\hline
+			\textbf{Soave-Redlich-Kwong}  & \\
+			\hline
+			\multicolumn{2}{c}{$P = \dfrac{RT}{v - b} - \dfrac{a \alpha }{v\left(v +b\right)}$}\\
+			\multicolumn{2}{c}{$a_{i}  = 0.42747 \dfrac{\left(RT_{i}^{c}\right)^{2}}{P_{i}^{c}}$, $\qquad b_{i} = 0.08664 \dfrac{RT_{i}^{c}}{P_{i}^{c}}$}\\
+			\multicolumn{2}{c}{$\alpha_{i} = \left[1+ n_{i}\left(1- \sqrt{T_{R,i}}\right)\right]^{2}$}\\
+			\multicolumn{2}{c}{$n_{i} = 0.48508 + 1.55171 \omega_{i} - 0.15613 \omega_{i}^{2}$}\\
+			\multicolumn{2}{c}{$a \alpha = \sum_{i}\sum_{j} x_{i}x_{j}\left(1-k_{ij}\right) \sqrt{a_{i} \alpha_{i}a_{j} \alpha_{j}} $}\\
+			\hline
+			\textbf{Peng-Robinson}&\\
+			\hline
+			\multicolumn{2}{c}{$P = \dfrac{RT}{v - b} - \dfrac{a \alpha}{v\left(v +b\right)+ b\left(v -b\right)}$}\\
+			\multicolumn{2}{c}{$a_{i}  = 0.45724 \dfrac{\left(RT_{i}^{c}\right)^{2}}{P_{i}^{c}}$, $\qquad b_{i} = 0.07780 \dfrac{RT_{i}^{c}}{P_{i}^{c}}$}\\
+			\multicolumn{2}{c}{$\alpha_{i} = \left[1+ n_{i}\left(1- \sqrt{T_{R,i}}\right)\right]^{2}$}\\
+			\multicolumn{2}{c}{$n_{i} = 0.37464 + 1.54226 \omega_{i} - 0.26992 \omega_{i}^{2}$}\\
+		    \multicolumn{2}{c}{$a \alpha = \sum_{i}\sum_{j} x_{i}x_{j}\left(1-k_{ij}\right) \sqrt{a_{i} \alpha_{i}a_{j} \alpha_{j}} $}\\
+			\hline			
+			\end{tabularx}
+			\end{center}
+\end{table}
+
+The modifications introduced in the Redlich-Kwong equation has no theoretical basis but is rather a successful empirical improvement. The parameters of this equation are considered functions of $T^{c}$ and $P^{c}$, whereas most other modifications also take into the account the acentric factor of the molecules. As a result it provides accurate results only for simple fluids. Many modifications of the Redlich-Kwong equation were developed, among these is the Soave-Redlich-Kwong equation. It assumes the attractive term to be a more complex function of temperature, which includes the acentric factor. Similarly, the Peng-Robinson equation of state also incorporates the acentric factor along with the critical temperature and pressure. This latter form of the cubic equation of state does however provide improved liquid density predictions when compared to the former equations~\cite{ThermophysicalProperties, ThermodynamicModels}.\\
+
+%%--------------------------------------------------Properties from EOS--------------------------------------------------------------------------%%
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsubsection{Thermodynamic Properties from Equations of State} \label{EOSPropertiesSection}\
+
+The common P-V-T equation of state may be used to derive expressions for configurational and residual thermodynamic properties within it's domain of applicability. Equations of state which can be used to describe liquid and gas phase behaviour are necessarily pressure explicit with temperature and volume the independent variables. Using Maxwell's relations we have the following expressions for the internal energy and entropy of a system~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+
+\begin{equation}
+\mathrm{d}U = \left[ T\left(\frac{\partial P }{\partial T}\right)_{v, n} - P\right]\mathrm{d}v \label{InternalEnergyTVMaxwell}
+\end{equation}\
+\begin{equation}
+\mathrm{d}S = \left(\frac{\partial P }{\partial T}\right)_{v, n}\mathrm{d}v \label{EntropyTV}
+\end{equation}\
+
+\nomenclature{$U$}{Internal energy of system $\left[U\right] = \mathrm{\dfrac{J}{mol}}$}
+
+Combining equations \ref{InternalEnergyTVMaxwell} and \ref{EntropyTV} with fundamental thermodynamic property relations yields equations \ref{InternalEnergyTV} to \ref{ChemicalPotentialTV}, which can be used to determine property values from pressure explicit equations of state~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria,ThermophysicalProperties}.\
+
+\begin{equation}
+nU = \int_{V}^{\infty} \left[ P - T\left(\frac{\partial P }{\partial T}\right)_{V, n} \right]\mathrm{d}V + \Sigma_{i} n_{i}U_{i}^{ig} \label{InternalEnergyTV}
+\end{equation}\
+\begin{equation}
+nH = \int_{V}^{\infty} \left[ P - T\left(\frac{\partial P }{\partial T}\right)_{V, n} \right]\mathrm{d}V + PV +\Sigma_{i} n_{i}U_{i}^{ig}
+\end{equation}\
+\begin{equation}
+nS = \int_{V}^{\infty} \left[ \frac{nR}{V} -\left(\frac{\partial P }{\partial T}\right)_{V, n} \right]\mathrm{d}V + R\Sigma_{i} n_{i} \ln \frac{V}{n_{i}RT}+ \Sigma_{i} n_{i}S_{i}^{ig}
+\end{equation}\
+\begin{equation}
+nA = \int_{V}^{\infty} \left[P -\frac{nRT }{V}\right]\mathrm{d}V - RT\Sigma_{i} n_{i} \ln \frac{V}{n_{i}RT}+ \Sigma_{i} n_{i}\left(U_{i}^{ig} -TS_{i}^{ig}\right) \label{HelmholtzFromEOS}
+\end{equation}\
+\begin{equation}
+nG = \int_{V}^{\infty} \left[P -\frac{nRT }{V}\right]\mathrm{d}V - RT\Sigma_{i} n_{i} \ln \frac{V}{n_{i}RT}+ PV + \Sigma_{i} n_{i}\left(U_{i}^{ig} -TS_{i}^{ig}\right)
+\end{equation}\
+\begin{equation}
+\mu_{i} = \int_{V}^{\infty} \left[\left(\frac{\partial P }{\partial n_{i}}\right)_{T,V, n_{j}} -\frac{RT }{V}\right]\mathrm{d}V - RT \ln \frac{V}{n_{i}RT}+ RT + U_{i}^{ig} -TS_{i}^{ig} \label{ChemicalPotentialTV}
+\end{equation}\
+
+Equation \ref{ChemicalPotentialTV} can subsequently be used to derive an expression for the fugacity of component $i$~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria,ThermophysicalProperties}:\
+
+\begin{equation}
+RT \ln \frac{f_{i}}{y_{i}P} = \int_{V}^{\infty} \left[\left(\frac{\partial P }{\partial n_{i}}\right)_{T,V, n_{j}} -\frac{RT}{V}\right]\mathrm{d}V - RT \ln \frac{PV}{nRT}
+\end{equation}\
+
+\nomenclature{$f_{i}$}{Fugacity of component $i$ in a mixture}
+\nomenclature{$U^{ig}_{i}$}{Internal energy of component $i$ as an ideal gas $\left[U^{ig}_{i}\right] = \mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$S^{ig}_{i}$}{Entropy of component $i$ as an ideal gas $\left[S^{ig}_{i}\right] = \mathrm{\dfrac{J}{mol}}$}
+
+The molar volume of the system corresponding to the lower bound of the integral can be determined at the relevant conditions from the applicable equation of state, which is an iterative process for pressure explicit equations of state. Similar expressions can be derived from volume explicit equations of state as functions of temperature and pressure. The latter approach enjoyed more attention historically as it does not require iterative calculations, which were highly undesirable before the arrival of modern computers~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, ThermodynamicModels}.\
+
+%%----------------------------------------------Activity Coefficient Models----------------------------------------------------------------------%%
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsection{Activity Coefficient Models}
+
+Equations of state can conveniently be used to derive thermodynamic properties of a system, as demonstrated in section \ref{EOSPropertiesSection}. When used to predict phase-equilibrium by calculation of fugacity coefficients however, cubic equations of state are only suitable for systems of non-associating molecules. For such systems activity coefficient models yield better results when used to calculate the liquid phase fugacities, in conjunction with an equation of state method for the vapour phase~\cite{ThermophysicalProperties, ThermodynamicPropertiesGibbsModels, LLECalculation, ActivityCoefficientModelApplicationNRTL}.\\
+
+Activity coefficient models are all empirically derived functions involving sets of parameters fitted to experimental data. Activity coefficient models can be identified as one of two approaches~\cite{ThermophysicalProperties, ThermodynamicModels, LocalCompositionModels}:\
+\begin{itemize}
+\item Model parameters are determined by fitting of experimental binary equilibria at some temperature. Equilibria of higher order multi-component systems are predicted using calculated parameters of constituent binary pairs.\
+\item Group contribution methods are used to determine model parameters by regression against large collections of experimental phase equilibrium data. These models are predictive and do not require any experimental data.\
+\end{itemize}
+
+The former approach is normally preferred as they are known to provide more accurate predictions. However, the requirement of binary experimental data can be an obstacle. Examples of such models include the NRTL, UNIQUAC, Wilson and T-K-Wilson models, whereas the UNIFAC model is an example of the a group contribution method~\cite{ThermophysicalProperties, ThermodynamicModels, UNIQUAC}.\
+
+%For the use with activity coeffiecient models, the standard state fugacity of a component in a liquid is defined as that of the pure saturated liquid at the given temperature. Consequently, the standard state fugacity of a liquid is equal to the fugacity of the pure vapour phase at the same temperature, and may be calculated from an equation of state. 
+%%---------------------------------------------Wilson Models-------------------------------------------------------------------------------------%%
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsubsection{Wilson and T-K-Wilson Models}\
+
+In 1964 Wilson recognised that the arrangement of molecules around one another are not purely random and that non-ideal behaviour is as a result of this behaviour. The model proposed by Wilson is subsequently termed a local composition model. According to this theory, for a mixture of two compounds, the composition around a molecule from species $1$ will usually not be equal to the bulk composition. Instead, Wilson proposed that the mole fractions of species $1$ and $2$ around a molecule of species $1$, $x_{11}$ and $x_{21}$ respectively, are given by a Boltzmann-weighted average of the bulk mole fractions~\cite{ThermophysicalProperties,MolecularThermodynamicsOfFluidPhaseEquilibria, ThermodynamicModels, LocalCompositionModels}:\
+
+\begin{equation}
+\frac{x_{11}}{x_{21}} = \frac{x_{1}\exp\left(-\dfrac{\varepsilon_{11}}{RT}\right)}{x_{2}\exp\left(-\dfrac{\varepsilon_{21}}{RT}\right)}
+\end{equation}\
+\begin{equation}
+ = \frac{x_{1}}{x_{2}}\exp\left(\frac{\lambda_{12}}{RT}\right) \label{CompositionalOrdering}
+\end{equation}\
+
+\nomenclature{$x_{ij}$}{Mole fraction of species $i$ around a molecule of species $j$ in a mixture}
+\nomenclature{$\Lambda_{ij}$}{Parameter used in the Wilson model}
+\nomenclature{$\varepsilon_{ij}$}{Energy parameter used in the derivation of the Wilson model}
+\nomenclature{$z_{i}$}{Fractional volume occupied by species $i$ around itself in a mixture}
+\nomenclature{$v_{i}$}{Molar volume of species $i$ in a mixture $\left[v_{i}\right] = \mathrm{\dfrac{cm^{3}}{mol}}$}
+
+Where $\varepsilon_{11}$ and $\varepsilon_{21}$ are termed energies of interaction, and $\lambda_{12} = \varepsilon_{21} -\varepsilon_{11}$. Equation \ref{CompositionalOrdering} illustrates that the absolute magnitude of the molecular interactions does not determine the arrangement of molecules around each other in a mixture. It is in fact determined by the difference between like and unlike interactions instead~\cite{ThermophysicalProperties}.\\
+
+We calculate the fractional volume occupied by species $1$ around itself as:\
+\begin{equation}
+z_{1}  =\frac{x_{11}v_{1}}{x_{11}v_{1}+x_{21}v_{2}} \label{FractionalVolume}
+\end{equation}\
+
+From equation \ref{CompositionalOrdering} we substitute the following into equation \ref{FractionalVolume}.\
+
+\begin{equation}
+x_{11} = \dfrac{x_{21}x_{1}}{x_{2}} \exp\left(\dfrac{\lambda_{12}}{RT}\right)
+\end{equation}\
+
+Which, after simplification, yields:\
+
+\begin{equation}
+z_{1} = \frac{x_{1}}{x_{1} + \Lambda_{12}x_{2}} \label{z1}
+\end{equation}\
+
+Where $\Lambda_{12} = \dfrac{v_{2}}{v_{1}}\exp\left(-\dfrac{\lambda_{12}}{RT}\right)$. Similarly we have:\
+
+\begin{equation}
+z_{2} = \frac{x_{2}}{x_{2} + \Lambda_{21}x_{1}} \label{z2}
+\end{equation}\
+
+Where $\Lambda_{21} = \dfrac{v_{1}}{v_{2}}\exp\left(-\dfrac{\lambda_{21}}{RT}\right)$. For the parameters $\Lambda_{ij}$ in the Wilson equation~\cite{ThermophysicalProperties}:\
+\begin{itemize}
+\item $\Lambda_{ij} = 1$ when $i=j$\
+\item $\Lambda_{ij} > 0 $\
+\item In general $\Lambda_{ij} \neq \Lambda_{ji}$\
+\end{itemize}
+
+Using the Flory-Huggins theory, by which the molar Gibbs energy of a mixture is~\cite{Walas}:\
+
+\begin{equation}
+G = \sum_{i=1}^{n} x_{i}\left(\mu_{i} + RT\ln z_{i}\right) \label{FloryHuggins}
+\end{equation}\
+
+And for an ideal mixture:\
+
+\begin{equation}
+G^{ideal} = \sum_{i=1}^{n} x_{i}\left(\mu_{i} + RT\ln x_{i}\right) \label{FloryHugginsIdeal}
+\end{equation}\
+
+Therefore, by combining equations \ref{FloryHuggins} and \ref{FloryHugginsIdeal}, we have the following expression for the excess free Gibbs energy of a mixture:\
+
+\begin{equation}
+\dfrac{G^{E}}{RT} = \sum_{i=1}^{n} x_{i}\left(\ln\dfrac{z_{i}}{x_{i}}\right)
+\end{equation}\
+
+If we now substitute the expressions for the fractional volume of species $1$ and $2$ into the above equation, we have the following relation for a binary mixture:\
+
+\begin{equation}
+\dfrac{G^{E}}{RT} = -x_{1}\ln\left(x_{1} + \Lambda_{12}x_{2}\right)-x_{2}\ln\left(x_{2} + \Lambda_{21}x_{1}\right)
+\end{equation}\
+
+From which the activity coefficients of each component in the mixture may be derived. The generic multicomponent expressions are shown in table \ref{WilsonTable}.\\
+
+\begin{table}
+			\caption{The Wilson Model}\label{WilsonTable}
+			\begin{center}
+			\begin{tabularx}{\textwidth}{Xc}
+			\hline
+			\textbf{Wilson Model}&\\
+			\hline
+			\multicolumn{2}{c}{$\dfrac{G^{E}}{RT} = - \sum_{i=1}^{n} x_{i} \ln \left(\sum_{j=1}^{n}x_{j}\Lambda_{ij}\right)$}\\
+			\multicolumn{2}{c}{$ \ln \gamma_{i} = 1- \ln\left(\sum_{j=1}^{n}x_{j}\Lambda_{ij}\right) - \sum_{k=1}^{n} \dfrac{x_{k}\Lambda_{ki}}{\sum_{j=1}^{n}x_{j}\Lambda_{kj}}$}\\
+			where&\\
+			\multicolumn{2}{c}{$\Lambda_{ij} = \dfrac{v_{j}}{v_{i}}\exp\left(\dfrac{-\lambda_{ij}}{RT}\right)$}\\
+			\multicolumn{2}{c}{$\Lambda_{ii} = 1$}\\
+			\multicolumn{2}{c}{$\Lambda_{ij} \neq \Lambda_{ji}$}\\			
+			\hline
+			\textbf{T-K-Wilson Model}&\\
+			\hline
+			\multicolumn{2}{c}{$\dfrac{G^{E}}{RT} = \sum_{i=1}^{n} x_{i} \ln \left(\dfrac{\sum_{j=1}^{n}x_{j}v_{ij}}{\sum_{j=1}^{n}x_{j}\Lambda_{ij}}\right)$}\\	
+			\multicolumn{2}{c}{$ \ln \gamma_{i} = \ln \left(\dfrac{\sum_{j=1}^{n}x_{j}v_{ij}}{\sum_{j=1}^{n}x_{j}\Lambda_{ij}}\right) + \sum_{k=1}^{n} x_{k}\left(\dfrac{v_{ki}}{\sum_{j=1}^{n}x_{j}v_{kj}}-\dfrac{\Lambda_{ki}}{\sum_{j=1}^{n}x_{j} \Lambda_{kj}}\right)$}\\
+			where&\\
+			\multicolumn{2}{c}{$v_{ij} = \dfrac{v_{j}}{v_{i}}$}\\			
+			\hline
+			\end{tabularx}
+			\end{center}
+\end{table}
+
+It has proven to be very accurate for both polar and non-polar mixtures and has been found very useful for solutions of associating molecules in non-polar solutions, for which simpler models like the Margules and van Laar are found to be inadequate. In addition, both the Margules and van Laar equations are not readily simplified for multi-component mixtures. The Wilson model conveniently utilises only binary interaction parameters for multicomponent systems~\cite{ThermophysicalProperties,MolecularThermodynamicsOfFluidPhaseEquilibria}. \\
+
+However, the standard Wilson model is unable to predict liquid-liquid equilibrium and consequently many modifications have been developed. The T-K-Wilson model is one such version of the Wilson model. It is also summarised in table \ref{WilsonTable}. The T-K-Wilson model accurately correlates binary liquid-liquid equilibria and, given that binary interaction parameters are calculated from reliable experimental data, produces accurate results for multi-component systems.~\cite{ThermophysicalProperties, ModifiedWilson}.\
+
+%----------------------------------------------NRTL Model----------------------------------------------------------------------------------------%%
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+
+\subsubsection{The Non-Random Two-Liquid (NRTL) Model}\
+
+Similar to the Wilson model, the NRTL model is based on principles of local composition. It was developed by Renon and Prausnitz in 1968. It is capable of handling liquid-liquid phase equilibria and was in fact developed as an attempt to address the inability of  the Wilson model to predict liquid-liquid equilibria. The general form of the NRTL model is shown in table \ref{NRTLTable}~\cite{Dechema, ThermophysicalProperties, ThermodynamicModels, ActivityCoefficientModelApplicationNRTL, LocalCompositionModels, StabilityAnalysis, ReliableComputationBinaryParams}.\\
+
+\begin{table}
+			\caption{The NRTL Model}\label{NRTLTable}
+			\begin{center}
+			\begin{tabularx}{\textwidth}{Xc}
+			\hline
+			\textbf{NRTL Model}&\\
+			\hline
+			\multicolumn{2}{c}{$ \dfrac{G^{E}}{RT} = \sum_{i= 1}^{n} x_{i} \left(\dfrac{\sum_{j= 1}^{n}\tau_{ji}G_{ji}x_{j}}{\sum_{k=1}^{n}x_{k}G_{ki}}\right)$}\\
+			\multicolumn{2}{c}{$ \ln \gamma_{i} = \dfrac{\sum_{j= 1}^{n}\tau_{ji}G_{ji}x_{j}}{\sum_{k=1}^{n}x_{k}G_{ki}} + \sum_{j=1}^{n} \dfrac{x_{j}G_{ij}}{\sum_{k=1}^{n}x_{k}G_{ki}} \left(\tau_{ij} - \dfrac{\sum_{k= 1}^{n}\tau_{kj}G_{kj}x_{k}}{\sum_{k=1}^{n}x_{k}G_{kj}}\right)$}\\
+			where&\\
+			\multicolumn{2}{c}{$ \tau_{ij} = \dfrac{g_{ij}}{RT}$}\\
+			\multicolumn{2}{c}{$ G_{ij} = \exp\left(-\alpha_{ij}\tau_{ij}\right)$}\\
+			\multicolumn{2}{c}{$\tau_{ii} = \tau_{jj} = 0$, $\qquad G_{ii}=G_{jj} =1 $}\\			
+			\hline
+			\end{tabularx}
+			\end{center}
+\end{table}
+
+It contains three adjustable parameters per binary interaction. The parameter $\alpha_{ij}$ is related to the non-randomness of the mixture and when it is set equal to zero the model reduces to the two-suffix Margules equation. It typically has a value between $0.2$ and $0.5$. However, in cases where experimental data is absent $\alpha_{ij}$ may be set arbitrarily~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\\
+
+ As with the Wilson models, reliable multi-component predictions can only be made with the use of binary interaction parameters which have been determined from accurate binary experimental data~\cite{ThermophysicalProperties}.\
+
+%%-------------------------------------------------UNIQUAC Model---------------------------------------------------------------------------------%%
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+
+\subsubsection{The Universal Quasi-Chemical (UNIQUAC) Model}\
+
+\begin{table}
+			\caption{The UNIQUAC Model}\label{UNIQUACTable}
+			\begin{center}
+			\begin{tabularx}{\textwidth}{Xc}
+			\hline
+			\textbf{UNIQUAC Model}&\\
+			\hline
+			\multicolumn{2}{c}{$ \dfrac{G^{E}}{RT} = \dfrac{G^{c}+G^{r}}{RT}$}\\
+			\multicolumn{2}{c}{$ \dfrac{G^{c}}{RT} = \sum_{i=1}^{n} x_{i} \ln \dfrac{\phi_{i}}{x_{i}} + \dfrac{z}{2}\sum_{i=1}^{n}q_{i}x_{i}\ln \dfrac{\theta_{i}}{\phi_{i}}$}\\
+			\multicolumn{2}{c}{$ \dfrac{G^{r}}{RT} = -\sum_{i=1}^{n}q_{i}x_{i}\ln \sum_{j=1}^{n}\theta_{j} \tau_{ji}$}\\
+			where&\\
+			\multicolumn{2}{c}{$ \theta_{i} = \dfrac{x_{i}q_{i}}{\sum_{j=1}^{n}x_{j}q_{j}}$}\\
+			\multicolumn{2}{c}{$ \phi_{i} = \dfrac{x_{i}r_{i}}{\sum_{j=1}^{n}x_{j}r_{j}}$}\\
+			\multicolumn{2}{c}{$ \tau_{ij} = \exp\left(\dfrac{-u_{ij}}{RT}\right)$}\\
+			\multicolumn{2}{c}{$\tau_{ii}= \tau_{jj} = 1$}\\			
+			\multicolumn{2}{c}{$z = 10$}\\			
+			\hline
+			\end{tabularx}
+			\end{center}
+\end{table}
+
+Developed in 1975 by Abrams and Prausnitz, the UNIQUAC equations form a semi-theoretical model. In addition to the interactions between unlike molecules, the size and shape of the molecules have a significant effect on the behaviour of liquid mixtures. The UNIQUAC model comprises of two terms, each accounting for one of the aforementioned factors:~\cite{Dechema, ThermophysicalProperties, MolecularThermodynamicsOfFluidPhaseEquilibria, ThermodynamicModels, ActivityCoefficientModelApplicationUNI, UNIQUAC}\
+\begin{itemize}
+\item Configurational term, $G^{c}$, accounts for entropic contributions due to differences in shape and size of molecules.\
+\item Residual term, $G^{r}$, accounts for enthalpic contributions mainly due to intermolecular forces.\
+\end{itemize}
+
+And the excess Gibbs energy of the mixture is given simply by:\
+
+\begin{equation}
+\dfrac{G^{E}}{RT} = \dfrac{G^{c}+G^{r}}{RT}
+\end{equation}\
+
+The UNIQUAC model manages to predict multi-component liquid-liquid and vapour-liquid equilibria using only pure component and binary interaction parameters. The model equations are summarised in table \ref{UNIQUACTable}. Pure component parameters $r_{i}$ are determined from the volume, and $q_{i}$ from the surface of area of a single molecule. These parameters have been tabulated for large selections of molecules. It has found widespread application largely due to it's realtive accuracy while using only binary interaction parameters~\cite{Dechema, ThermophysicalProperties, MolecularThermodynamicsOfFluidPhaseEquilibria, ActivityCoefficientModelApplicationUNI, StabilityAnalysis, ReliableComputationBinaryParams}.\
+
+%%---------------------------------------------------------The Gibbs-Duhem Equation--------------------------------------------------------------%%
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+\subsection{The Gibbs-Duhem Equation}
+
+The intensive state of each phase in a heterogeneous system is characterised with $m+2$ variables, where $m$ is the number of species. These variables can however not all be specified arbitrarily and the degrees of freedom are subsequently calculated with the help of the Gibbs phase rule. The Gibbs-Duhem equation establishes how these variables are related. Suppose $M$ represents some extensive property of a mixture. It is a function of temperature, pressure and the mole numbers and therefore, the total differential of $M$ is given by~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+
+\begin{equation}
+\mathrm{d}M = \left( \frac{\partial M}{\partial T}\right)_{P, n_{i}} \mathrm{d}T + \left( \frac{\partial M}{\partial P}\right)_{T, n_{i}} \mathrm{d}P + \sum_{i} \bar{M}_{i} \mathrm{d}n_{i} \label{DerivativeExtensiveProperty}
+\end{equation}\
+
+where\
+\begin{equation}
+\bar{M}_{i} \equiv \left(\frac{\partial M}{\partial n_{i}}\right)_{T, P, n_{j}} \label{PartialMolarProperty}
+\end{equation}\
+
+\nomenclature{$M$}{Extensive property of a mixture}
+\nomenclature{$\bar{M}_{i}$}{Partial molar property of component $i$ in a mixture}
+
+In addition, the partial molar properties, defined in equation \ref{PartialMolarProperty}, are related to the extensive property $M$ by Euler's theorem~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+
+\begin{equation}
+M = \sum_{i} \bar{M}_{i} n_{i} \label{Euler}
+\end{equation}\
+
+which, upon differentiation, yields:\
+
+\begin{equation}
+\mathrm{d}M = \sum_{i} \bar{M}_{i}\mathrm{d}n_{i} + \sum_{i} n_{i}\mathrm{d}\bar{M}_{i} \label{DerivativeEuler}
+\end{equation}\
+
+Finally, the Gibbs-Duhem equation is obtained upon substitution of equation \ref{DerivativeEuler} into equation \ref{DerivativeExtensiveProperty}:\
+
+\begin{equation}
+ \left( \frac{\partial M}{\partial T}\right)_{P, n_{i}} \mathrm{d}T + \left( \frac{\partial M}{\partial P}\right)_{T, n_{i}} \mathrm{d}P - \sum_{i} n_{i} \mathrm{d}\bar{M}_{i} = 0 \label{GibbsDuhem}
+\end{equation}\
+
+When the Gibbs-Duhem equation is applied to the Gibbs energy of a mixture we have~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+
+\begin{equation}
+ \left( \frac{\partial G}{\partial T}\right)_{P, n_{i}} = S \label{GibbsTempDerivative}
+\end{equation}
+\begin{equation}
+ \left( \frac{\partial G}{\partial P}\right)_{T, n_{i}} = v\label{GibbsPressureDerivative}
+ \end{equation}
+ \begin{equation}
+ \left( \frac{\partial M}{\partial n_{i}}\right)_{T, P, n_{j}} = \mu_{i}
+\end{equation}
+\begin{equation}
+\therefore S\mathrm{d}T - V \mathrm{P} + \sum_{i} x_{i} \mathrm{d}\mu_{i} = 0 \label{GibbsEnergyGibbsDuhem}
+\end{equation}\
+
+or in terms of excess functions\
+
+\begin{equation}
+\therefore S^{E}\mathrm{d}T - V^{E} \mathrm{P} + \sum_{i} x_{i} \mathrm{d}\mu_{i}^{E} = 0 \label{GibbsEnergyGibbsDuhem}
+\end{equation}\
+
+However, we have\
+
+\begin{equation}
+\bar{G}^{E}_{i} = \mu_{i}^{E} = RT \ln \gamma_{i}
+\end{equation}\
+
+and therefore, at constant pressure and temperature:\
+
+\begin{equation}
+\sum_{i} x_{i} \mathrm{d} \ln \gamma_{i} = 0
+\end{equation}\
+
+%%------------------------------------------------ Activity Coeffiecient Models and EOS----------------------------------------------------------%%
+%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+
+\subsection{Activity Coefficient Models and Equation of State Mixing Rules}
+
+As noted previously, equations of state are generally not very accurate for associating or polar substances. The calculation of the equation of state parameters by suitable mixing rules can dramatically improve the predictions obtained. One such method utilises activity coefficient models to determine some or all parameters of a cubic equation of state~\cite{ThermophysicalProperties}.\\
+
+Standard practice to incorporate an activity coefficient model into an equation of state is with the use of an expression for the excess Helmholtz free energy of a mixture,$A^{E}$, at suitable temperature and pressure. It is defined in a similar manner as all other excess properties as~\cite{ThermophysicalProperties}:\
+
+\begin{equation}
+A^{E}\left(T, v, x\right) = A\left(T, v, x\right) - A^{ideal}\left(T, v, x\right)
+\end{equation}\
+\begin{equation}
+A^{E}\left(T, v, x\right) = A \left(T, v, x\right) - \sum_{i=1}^{n} \left[x_{i}A_{i}\left(T, v_{i}\right) + x_{i}RT\ln x_{i}\right] \label{ExcessHelmholtz}
+\end{equation}\
+
+\nomenclature{$A^{E}$}{Excess Helmholtz free energy of a real mixture $\left[A^{E}\right] = \mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$A^{ideal}$}{Helmholtz free energy of an ideal mixture $\left[A^{ideal}\right] = \mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$A$}{Total Helmholtz free energy of a system $\left[A\right] = \mathrm{\dfrac{J}{mol}}$}
+\nomenclature{$A_{i}$}{Helmholtz free energy of pure component $i$ in a mixture $\left[A^{E}\right] = \mathrm{\dfrac{J}{mol}}$}
+
+Where $A_{i}$ is the molar Helmholtz energy of pure component $i$, $A$ is the total molar Helmholtz energy of the mixture and $A^{ideal}$ is the Helmholtz energy of an ideal mixture.\\
+
+Seeing as most equations of state are defined with $T$ and $v$ as independent variables, for convenience sake the Helmholtz energy is written as a function of the same variables. Also, in order for equation \ref{ExcessHelmholtz} to be consistent with the constant pressure requirement, $v_{i}$ and $v$ are determined by solving the equation of state at the applicable pressure~\cite{ThermophysicalProperties}.\\
+
+The excess Helmholtz free energy is related to the excess Gibbs free energy by:\
+
+\begin{equation}
+G^{E} = A^{E} + Pv^{E}
+\end{equation}\
+\begin{equation}
+G^{E} = A^{E} + P\left(v - \sum_{i=1}^{n} x_{i}v_{i}\right)
+\end{equation}\
+
+Using the generic expression for a cubic equation of state in eqaution \ref{GenericCubicEOS} to derive the Helmholtz free energy, as in equation \ref{HelmholtzFromEOS}, we obtain the following~\cite{ThermophysicalProperties}:\
+\begin{equation}
+\dfrac{A}{RT} = -\ln \left(\dfrac{v}{v - b}\right) - \dfrac{a}{bRT\left(c_{1}- c_{2}\right)}\ln \left(\dfrac{v + c_{1}b}{v + c_{2}b}\right) + \dfrac{A^{ig}}{RT}
+\end{equation}\
+\begin{equation*}
+\therefore \dfrac{G^{E}}{RT} =\sum_{i}x_{i}\ln \left(\dfrac{v_{i} - b_{i}}{v - b}\right) - \dfrac{a}{bRT\left(c_{1}- c_{2}\right)}\ln \left(\dfrac{v + c_{1}b}{v + c_{2}b}\right)
+\end{equation*}
+\begin{equation}
+\cdots + \sum_{i} x_{i} \dfrac{a_{i}}{b_{i}RT\left(c_{1}- c_{2}\right)}\ln \left(\dfrac{v_{i} + c_{1}b_{i}}{v_{i} + c_{2}b_{i}}\right) + \dfrac{Pv}{RT} \label{ExcessGibbsfromEOS}
+\end{equation}
+
+In order to calculate the molar volumes $v$ and $v_{i}$ in equation \ref{ExcessGibbsfromEOS}, the problem may be simplified by using a method proposed by Huron and Vidal~\cite{HuronVidal, Vidal}:\
+\begin{itemize}
+ \item Choosing $P \rightarrow \infty$ then $v \rightarrow b$ and $v_{i} \rightarrow b_{i}$.\
+ \item Assume $b = \sum_{i}x_{i}b_{i}$ and therefore $v^{E} = 0$.\
+ \item Assume $ \lim_{P\rightarrow \infty} Pv^{E} = 0 $.\
+ \end{itemize}
+ Consequently we have~\cite{HuronVidal}:\
+ 
+\begin{equation}
+\dfrac{G^{E}}{RT} = \left( -\dfrac{a}{RTb} + \sum_{i} x_{i}\dfrac{a_{i}}{RTb_{i}}\right)\left(\dfrac{1}{c_{1}- c_{2}}\right)\ln\left(\dfrac{1+c_{1}}{1+ c_{2}}\right) \label{HuronVidal}
+\end{equation}\
+
+This now provides a convenient method by which the composition dependence of $a$ may be determined; by equating equation \ref{HuronVidal} to an activity coefficient model suitable equation of state mixing rules are defined. A similar method, with a different mixing rule for $b$, was applied by Wong and Sandler. In addition, several other schemes, such as low-pressure and zero-pressure methods, have been developed in order to equate equations of state with activity coefficient models.~\cite{WongSandler, Focke, ThermophysicalProperties, ActivityCoefficientEOSModels}.
+
+
+
+
+
