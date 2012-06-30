@@ -1,0 +1,296 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{$\alpha$}]\begingroup Polarizability of a pure substance $\left[\alpha\right] = \mathrm{\dfrac{C^{2}m^{2}}{J}}$\nomeqref {1.1.13}
+		\nompageref{8}
+  \item [{$\bar{\Gamma}_{ij}$}]\begingroup Average potential energy $\left[\bar{\Gamma}_{ij}\right]=\mathrm{J}$\nomeqref {1.1.9}
+		\nompageref{7}
+  \item [{$\bar{\hat{x}}$}]\begingroup Vector of experimentally measured component mole fractions at equilibrium\nomeqref {1.4.46}
+		\nompageref{64}
+  \item [{$\bar{\Lambda}$}]\begingroup Vector of adjustable binary interaction parameters in an excess Gibbs energy model\nomeqref {1.4.46}
+		\nompageref{64}
+  \item [{$\bar{G}_{i}^{ideal}$}]\begingroup Partial molar Gibbs energy of  pure component $i$ in an ideal mixture $\left[\bar{G}_{i}^{ideal}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.32}
+		\nompageref{16}
+  \item [{$\bar{H}_{i}^{ideal}$}]\begingroup Partial molar enthalpy of  pure component $i$ in an ideal mixture $\left[\bar{H}_{i}^{ideal}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.37}
+		\nompageref{17}
+  \item [{$\bar{M}_{i}$}]\begingroup Partial molar property of component $i$ in a mixture\nomeqref {1.3.33}
+		\nompageref{44}
+  \item [{$\bar{S}_{i}^{ideal}$}]\begingroup Partial molar entropy of  pure component $i$ in an ideal mixture $\left[\bar{S}_{i}^{ideal}\right]=\mathrm{\dfrac{J}{molK}}$\nomeqref {1.1.33}
+		\nompageref{16}
+  \item [{$\bar{V}_{i}^{ideal}$}]\begingroup Partial molar volume of  pure component $i$ in an ideal mixture $\left[\bar{V}_{i}^{ideal}\right]=\mathrm{\dfrac{cm^{3}}{mol}}$\nomeqref {1.1.37}
+		\nompageref{17}
+  \item [{$\bar{x}$}]\begingroup Vector of calculated component mole fractions at equilibrium\nomeqref {1.4.40}
+		\nompageref{60}
+  \item [{$\Delta G$}]\begingroup Change in Gibbs energy on mixing $\left[\Delta G\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.53}
+		\nompageref{20}
+  \item [{$\Delta H$}]\begingroup Change in enthalpy on mixing $\left[\Delta H\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.53}
+		\nompageref{20}
+  \item [{$\Delta S$}]\begingroup Change in entropy on mixing $\left[\Delta S\right]=\mathrm{\dfrac{J}{molK}}$\nomeqref {1.1.53}
+		\nompageref{20}
+  \item [{$\Delta T_{int}$}]\begingroup Size of temperature intervals for the calculation of $m$ in the modified van der Waals equation of state\nomeqref {2.2.10}
+		\nompageref{77}
+  \item [{$\Delta V$}]\begingroup Change in molar volume on mixing $\left[\Delta V\right]=\mathrm{\dfrac{cm^{3}}{mol}}$\nomeqref {1.1.53}
+		\nompageref{20}
+  \item [{$\epsilon$}]\begingroup Energy parameter in Mie's potential energy function $\left[\epsilon\right] = \mathrm{J}$ \nomeqref {1.1.21}
+		\nompageref{10}
+  \item [{$\gamma^{L1}_{i}$}]\begingroup Activity coefficient of component $i$ in the first liquid phase of a system containing liquid-liquid equilibrium\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$\gamma^{L1}_{i}$}]\begingroup Activity coefficient of component $i$ in the second liquid phase of a system containing liquid-liquid equilibrium\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$\Gamma_{ij}$}]\begingroup Potential energy between two charged particles, molecules or dipoles $\left[\Gamma_{ij}\right]=\mathrm{J}$\nomeqref {1.1.8}
+		\nompageref{6}
+  \item [{$\Gamma_{ij}$}]\begingroup Potential energy between two molecules $\left[\Gamma_{ij}\right]=\mathrm{J}$\nomeqref {1.1.1}
+		\nompageref{4}
+  \item [{$\Gamma_{T}$}]\begingroup Total potential energy of a system of $N$ molecules $\left[\Gamma_{T}\right] = \mathrm{J}$\nomeqref {1.1.23}
+		\nompageref{11}
+  \item [{$\hat{\varphi_{i}}$}]\begingroup Fugacity coefficient of component $i$ in a vapour mixture\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$\hat{f}_{i}^{L1}$}]\begingroup Fugacity of component $i$ in the first liquid phase of a system containing liquid-liquid equilibrium\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$\hat{f}_{i}^{L2}$}]\begingroup Fugacity of component $i$ in the second liquid phase of a system containing liquid-liquid equilibrium\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$\hat{f}_{i}^{v}$}]\begingroup Fugacity of component $i$ in a vapour mixture\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$\hat{x}_{ik}^{j}$}]\begingroup Experimentally measured liquid-liquid equilibrium mole fraction of component $i$, on tie-line $k$, in phase $j$\nomeqref {1.4.46}
+		\nompageref{64}
+  \item [{$\hat{x}_{ik}^{L1}$}]\begingroup Experimentally measured liquid-liquid equilibrium mole fraction of component $i$, on tie-line $k$, in phase $L1$\nomeqref {1.4.46}
+		\nompageref{64}
+  \item [{$\hat{x}_{ik}^{L2}$}]\begingroup Experimentally measured liquid-liquid equilibrium mole fraction of component $i$, on tie-line $k$, in phase $L2$\nomeqref {1.4.46}
+		\nompageref{64}
+  \item [{$\Lambda_{ij}$}]\begingroup Parameter used in the Wilson model\nomeqref {1.3.22}
+		\nompageref{39}
+  \item [{$\mathit{e}$}]\begingroup Unit charge 1.60218~$\mathrm{\times 10^{-19}~C}$\nomeqref {1.1.6}
+		\nompageref{5}
+  \item [{$\mu_{i}$}]\begingroup Chemical potential of species $i$ $\left[\mu_{i}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.30}
+		\nompageref{16}
+  \item [{$\mu_{i}^{\alpha}$}]\begingroup Chemical potential of species $i$ in phase $\alpha$ $\left[\mu_{i}^{\alpha}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$\nomeqref {1.4.41}
+		\nompageref{61}
+  \item [{$\mu_{i}^{\beta}$}]\begingroup Chemical potential of species $i$ in phase $\beta$ $\left[\mu_{i}^{\beta}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$\nomeqref {1.4.41}
+		\nompageref{61}
+  \item [{$\mu_{i}^{L1}$}]\begingroup Chemical potential of component $i$ in the first liquid phase of a system containing liquid-liquid equilibrium $\left[\mu_{i}^{L1}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$\mu_{i}^{L2}$}]\begingroup Chemical potential of component $i$ in the second liquid phase of a system containing liquid-liquid equilibrium$\left[\mu_{i}^{L2}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$\mu_{i}^{v}$}]\begingroup Chemical potential of component $i$ in a vapour mixture $\left[\mu_{i}^{v}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$\nu_{0i}$}]\begingroup Characteristic electronic frequency of molecule $i$ in unexcited state $\left[\nu_{0i}\right] = \mathrm{\dfrac{1}{s}}$\nomeqref {1.1.17}
+		\nompageref{9}
+  \item [{$\omega$}]\begingroup Acentric factor of component $i$ in a mixture\nomeqref {1.4.37}
+		\nompageref{59}
+  \item [{$\Phi$}]\begingroup Characteristic constant of the cubic equation of state\nomeqref {2.1.15}
+		\nompageref{74}
+  \item [{$\phi_{i}$}]\begingroup Parameter  used to describe orientation of dipole moment $i$ relative to another $\left[\phi_{i}\right] = \mathrm{rad}$\nomeqref {1.1.8}
+		\nompageref{6}
+  \item [{$\pi$}]\begingroup Number of phases in a heterogeneous system\nomeqref {1.2.1}
+		\nompageref{24}
+  \item [{$\psi$}]\begingroup Magnitude of quadrupole moment $\left[\psi\right] = \mathrm{D}$\nomeqref {1.1.10}
+		\nompageref{7}
+  \item [{$\psi_{i}$}]\begingroup Magnitude of quadrupole moment $i$ $\left[\psi\right] = \mathrm{D}$\nomeqref {1.1.12}
+		\nompageref{7}
+  \item [{$\sigma$}]\begingroup Distance parameter in Mie's potential energy function $\left[\sigma\right] = \mathrm{m}$\nomeqref {1.1.22}
+		\nompageref{10}
+  \item [{$\tau$}]\begingroup Magnitude of a dipole moment $\left[\tau\right]=\mathrm{D}$\nomeqref {1.1.7}
+		\nompageref{5}
+  \item [{$\tau^{I}$}]\begingroup Magnitude of induced dipole moment $\left[\tau^{I}\right] = \mathrm{D}$\nomeqref {1.1.13}
+		\nompageref{8}
+  \item [{$\tau_{i}$}]\begingroup Magnitude of a dipole moment $i$ $\left[ \tau_{i}\right]=\mathrm{D}$\nomeqref {1.1.8}
+		\nompageref{6}
+  \item [{$\theta_{i}$}]\begingroup Parameter  used to describe orientation of dipole moment  $i$ relative to another $\left[\theta_{i}\right] = \mathrm{rad}$\nomeqref {1.1.8}
+		\nompageref{6}
+  \item [{$\varepsilon$}]\begingroup Absolute permittivity of a medium $\left[ \varepsilon \right]=\mathrm{\dfrac{C^{2}}{Jm}}$\nomeqref {1.1.6}
+		\nompageref{5}
+  \item [{$\varepsilon_{0}$}]\begingroup Dielectric permittivity of a vacuum 8.85419~$\mathrm{\times 10^{-12}~\dfrac{C^{2}}{Jm}}$\nomeqref {1.1.3}
+		\nompageref{5}
+  \item [{$\varepsilon_{ij}$}]\begingroup Energy parameter used in the derivation of the Wilson model\nomeqref {1.3.22}
+		\nompageref{39}
+  \item [{$\varepsilon_{r}$}]\begingroup Dielectric constant of a medium $\left[ \varepsilon_{r} \right]=\mathrm{\dfrac{C^{2}}{Jm}}$\nomeqref {1.1.6}
+		\nompageref{5}
+  \item [{$A$}]\begingroup Total Helmholtz free energy of a system $\left[A\right] = \mathrm{\dfrac{J}{mol}}$\nomeqref {1.3.45}
+		\nompageref{46}
+  \item [{$a$}]\begingroup Adjustable parameter in the van der Waals equation for correction of attractive forces between molecules\nomeqref {1.3.2}
+		\nompageref{32}
+  \item [{$A^{E}$}]\begingroup Excess Helmholtz energy of a real mixture $\left[A^{E}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.48}
+		\nompageref{19}
+  \item [{$A^{E}$}]\begingroup Excess Helmholtz free energy of a real mixture $\left[A^{E}\right] = \mathrm{\dfrac{J}{mol}}$\nomeqref {1.3.45}
+		\nompageref{46}
+  \item [{$A^{ideal}$}]\begingroup Helmholtz free energy of an ideal mixture $\left[A^{ideal}\right] = \mathrm{\dfrac{J}{mol}}$\nomeqref {1.3.45}
+		\nompageref{46}
+  \item [{$A_{\infty }^{E}$}]\begingroup Helmholtz free energy of an Equation of State at infinite pressure\nomeqref {2.1.15}
+		\nompageref{74}
+  \item [{$a_{c}$}]\begingroup Adjustable parameter in the van der Waals equation evaluated at critical temperature\nomeqref {1.3.10}
+		\nompageref{35}
+  \item [{$A_{EOS}^{E}$}]\begingroup Helmholtz free energy of an Equation of State\nomeqref {2.1.12}
+		\nompageref{73}
+  \item [{$A_{i}$}]\begingroup Helmholtz free energy of pure component $i$ in a mixture $\left[A^{E}\right] = \mathrm{\dfrac{J}{mol}}$\nomeqref {1.3.45}
+		\nompageref{46}
+  \item [{$A_{vp}$}]\begingroup Constant used for the calculation of the vapour pressure of a pure compound as a function of temperature\nomeqref {2.2.9}
+		\nompageref{77}
+  \item [{$b$}]\begingroup Adjustable parameter in the van der Waals equation for correction of repulsive forces between molecules\nomeqref {1.3.2}
+		\nompageref{32}
+  \item [{$B_{vp}$}]\begingroup Constant used for the calculation of the vapour pressure of a pure compound as a function of temperature\nomeqref {2.2.9}
+		\nompageref{77}
+  \item [{$c_{1}$}]\begingroup Characteristic variable to establish the form of a cubic equation of state\nomeqref {1.3.11}
+		\nompageref{35}
+  \item [{$c_{2}$}]\begingroup Characteristic variable to establish the form of a cubic equation of state\nomeqref {1.3.11}
+		\nompageref{35}
+  \item [{$c_{i}$}]\begingroup Proportionality constant for component $i$ in the ideal solution relation\nomeqref {1.1.43}
+		\nompageref{17}
+  \item [{$C_{vp}$}]\begingroup Constant used for the calculation of the vapour pressure of a pure compound as a function of temperature\nomeqref {2.2.9}
+		\nompageref{77}
+  \item [{$d$}]\begingroup Distance between two opposite charges of a dipole $\left[ d\right]=\mathrm{m}$\nomeqref {1.1.7}
+		\nompageref{5}
+  \item [{$d_{i}$}]\begingroup Distance between two opposite charges of a dipole  $i$ or distance from arbitrary origin  of a linear quadrupole $\left[d_{i}\right] = \mathrm{m}$\nomeqref {1.1.8}
+		\nompageref{6}
+  \item [{$D_{vp}$}]\begingroup Constant used for the calculation of the vapour pressure of a pure compound as a function of temperature\nomeqref {2.2.9}
+		\nompageref{77}
+  \item [{$E$}]\begingroup Strength of electric field $\left[E\right] = \mathrm{\dfrac{V}{m}}$\nomeqref {1.1.13}
+		\nompageref{8}
+  \item [{$F$}]\begingroup Electrostatic force between two point charges $\left[F\right]=\mathrm{N}$\nomeqref {1.1.3}
+		\nompageref{5}
+  \item [{$f_{i}$}]\begingroup Fugacity of component $i$ in a mixture\nomeqref {1.3.20}
+		\nompageref{37}
+  \item [{$f_{i}^{0}$}]\begingroup Fugacity of component $i$ in a mixture at an arbitrary reference standard state\nomeqref {1.1.43}
+		\nompageref{17}
+  \item [{$f_{i}^{ideal}$}]\begingroup Fugacity of component $i$ in an ideal mixture\nomeqref {1.1.43}
+		\nompageref{17}
+  \item [{$f_{i}^{pure}$}]\begingroup Fugacity of pure component $i$\nomeqref {1.1.44}
+		\nompageref{18}
+  \item [{$G$}]\begingroup Total Gibbs energy of a system $\left[G\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.45}
+		\nompageref{18}
+  \item [{$g$}]\begingroup Reduced total Gibbs energy of a system, $g = \dfrac{G}{RT}$ \nomeqref {1.4.8}
+		\nompageref{51}
+  \item [{$G^{E}$}]\begingroup Excess Gibbs energy of a real mixture $\left[G^{E}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.45}
+		\nompageref{18}
+  \item [{$G^{ideal}$}]\begingroup Gibbs energy of an ideal mixture $\left[G_{ideal}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.41}
+		\nompageref{17}
+  \item [{$G_{i}$}]\begingroup Gibbs energy of  pure component $i$ in a mixture $\left[G_{i}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.32}
+		\nompageref{16}
+  \item [{$H$}]\begingroup Total enthalpy of a system $\left[H\right]=\mathrm{\dfrac{J}{mol}}$ \nomeqref {1.1.26}
+		\nompageref{15}
+  \item [{$h$}]\begingroup Planck's constant 6.62606 $\mathrm{\times 10^{-34}~Js}$\nomeqref {1.1.17}
+		\nompageref{9}
+  \item [{$H\left(\overline{x}\right)$}]\begingroup Hessian matrix of the Gibbs energy of a mixture, as a function of composition\nomeqref {1.4.8}
+		\nompageref{51}
+  \item [{$H^{E}$}]\begingroup Excess enthalpy of a real mixture $\left[H^{E}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.48}
+		\nompageref{19}
+  \item [{$H^{ideal}$}]\begingroup Enthalpy of an ideal mixture $\left[H_{ideal}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.41}
+		\nompageref{17}
+  \item [{$H_{i}$}]\begingroup Enthalpy of  pure component $i$ in a mixture $\left[H_{i}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.37}
+		\nompageref{17}
+  \item [{$k$}]\begingroup Boltzmann constant 1.38~$\mathrm{\times 10^{-23}~\dfrac{J}{K}}$\nomeqref {1.1.9}
+		\nompageref{7}
+  \item [{$K_{i1}$}]\begingroup Equilibrium constant\nomeqref {1.4.22}
+		\nompageref{57}
+  \item [{$K_{i2}$}]\begingroup Equilibrium constant\nomeqref {1.4.22}
+		\nompageref{57}
+  \item [{$K_{i2}$}]\begingroup Equilibrium constant\nomeqref {1.4.34}
+		\nompageref{59}
+  \item [{$M$}]\begingroup Extensive property of a mixture\nomeqref {1.3.33}
+		\nompageref{44}
+  \item [{$m$}]\begingroup Adjustable parameter for the repulsive term from the Adachi-Lu relation \nomeqref {1.3.10}
+		\nompageref{35}
+  \item [{$m$}]\begingroup Number of components in a heterogeneous system\nomeqref {1.2.1}
+		\nompageref{24}
+  \item [{$N$}]\begingroup Total number of molecules in a system\nomeqref {1.1.23}
+		\nompageref{11}
+  \item [{$n$}]\begingroup Number of moles in a closed system\nomeqref {1.1.26}
+		\nompageref{15}
+  \item [{$N_{int}$}]\begingroup Number of intervals into which the temperature range is divided for the calculation of $m$ in the modified van der Waals equation of state\nomeqref {2.2.10}
+		\nompageref{77}
+  \item [{$N_{L1}$}]\begingroup Total number of moles in the $L1$ liquid phase of a system containing liquid-liquid equilibrium, $\left[N_{L1}\right] = \mathrm{mol}$ \nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$N_{L2}$}]\begingroup Total number of moles in the $L2$ liquid phase of a system containing liquid-liquid equilibrium, $\left[N_{L2}\right] = \mathrm{mol}$ \nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$N_{v}$}]\begingroup Total number of moles in the vapour phase of a system, $\left[N_{v}\right] = \mathrm{mol}$ \nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$nt$}]\begingroup Number of experimentally measured liquid-liquid equilibrium tie-lines for a mixture at a given temperature\nomeqref {1.4.46}
+		\nompageref{64}
+  \item [{$P$}]\begingroup Pressure $\left[P\right]=\mathrm{kPa}$\nomeqref {1.1.45}
+		\nompageref{18}
+  \item [{$p$}]\begingroup Number of degrees of freedom of a heterogeneous system\nomeqref {1.2.1}
+		\nompageref{24}
+  \item [{$P^{c}$}]\begingroup Critical pressure $\left[P_{c}\right] = \mathrm{bar}$\nomeqref {1.3.6}
+		\nompageref{33}
+  \item [{$P_{i}^{c}$}]\begingroup Critical pressure of component $i$ in a mixture $\left[P_{ci}\right] = \mathrm{bar}$ \nomeqref {1.4.37}
+		\nompageref{59}
+  \item [{$P_{vap_{i}}^{actual}$}]\begingroup The vapour pressure of a pure compound determined using an approximation from the property data bank in Poling et.al.~\cite{GasLiquidProperties}\nomeqref {2.2.10}
+		\nompageref{77}
+  \item [{$P_{vap_{i}}^{predicted}$}]\begingroup The vapour pressure of a pure compound predicted by the van der Waals equation of state\nomeqref {2.2.10}
+		\nompageref{77}
+  \item [{$P_{vap}$}]\begingroup Vapour pressure of a pure compound $[bar]$\nomeqref {2.2.9}
+		\nompageref{77}
+  \item [{$Q$}]\begingroup Heat transfer to a closed system from it's surroundings $\left[Q\right] = \frac{\mathrm{J}}{\mathrm{mol}}$\nomeqref {1.2.3}
+		\nompageref{25}
+  \item [{$q_{i}$}]\begingroup Magnitude of point a charge $\left[q_{i}\right]=\mathrm{C}$\nomeqref {1.1.3}
+		\nompageref{5}
+  \item [{$Q_{surr}$}]\begingroup Heat transfer from closed system to it's surroundings $\left[Q_{surr}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$\nomeqref {1.2.3}
+		\nompageref{25}
+  \item [{$R$}]\begingroup Ideal Gas Constant $ 8.314 \mathrm{\dfrac{J}{molK}}$ \nomeqref {1.3.2}
+		\nompageref{32}
+  \item [{$r$}]\begingroup Distance between two point charges $\left[r\right]=\mathrm{m}$\nomeqref {1.1.3}
+		\nompageref{5}
+  \item [{$S$}]\begingroup Total entropy of a system $\left[S\right]=\mathrm{\dfrac{J}{molK}}$ \nomeqref {1.1.26}
+		\nompageref{15}
+  \item [{$S^{E}$}]\begingroup Excess entropy of a real mixture $\left[S^{E}\right]=\mathrm{\dfrac{J}{molK}}$\nomeqref {1.1.48}
+		\nompageref{19}
+  \item [{$S^{ideal}$}]\begingroup Entropy of an ideal mixture $\left[S_{ideal}\right]=\mathrm{\dfrac{J}{molK}}$\nomeqref {1.1.41}
+		\nompageref{17}
+  \item [{$S^{ig}_{i}$}]\begingroup Entropy of component $i$ as an ideal gas $\left[S^{ig}_{i}\right] = \mathrm{\dfrac{J}{mol}}$\nomeqref {1.3.20}
+		\nompageref{37}
+  \item [{$S_{i}$}]\begingroup Entropy of  pure component $i$ in a mixture $\left[S_{i}\right]=\mathrm{\dfrac{J}{molK}}$\nomeqref {1.1.35}
+		\nompageref{17}
+  \item [{$S_{surr}$}]\begingroup Total entropy of the surroundings of a closed system $\left[S_{surr}\right] = \frac{\mathrm{J}}{\mathrm{molK}}$\nomeqref {1.2.3}
+		\nompageref{25}
+  \item [{$T$}]\begingroup Temperature $\left[T\right] = \mathrm{K}$\nomeqref {1.1.9}
+		\nompageref{7}
+  \item [{$T^{c}$}]\begingroup Critical temperature $\left[T_{c}\right] = \mathrm{K}$\nomeqref {1.3.6}
+		\nompageref{33}
+  \item [{$T_{i}^{c}$}]\begingroup Critical temperature of component $i$ in a mixture $\left[T_{ci}\right] = \mathrm{K}$ \nomeqref {1.4.37}
+		\nompageref{59}
+  \item [{$T_{R}$}]\begingroup Relative temperature\nomeqref {1.3.10}
+		\nompageref{35}
+  \item [{$T_{surr}$}]\begingroup Temperature of the surroundings of a closed system $\left[T_{surr}\right] = \mathrm{K}$\nomeqref {1.2.3}
+		\nompageref{25}
+  \item [{$U$}]\begingroup Internal energy of system $\left[U\right] = \mathrm{\dfrac{J}{mol}}$\nomeqref {1.3.13}
+		\nompageref{37}
+  \item [{$u$}]\begingroup Positive constant in the repulsive interaction term of Mie's potential energy function\nomeqref {1.1.21}
+		\nompageref{10}
+  \item [{$U^{E}$}]\begingroup Excess internal energy of a real mixture $\left[U^{E}\right]=\mathrm{\dfrac{J}{mol}}$\nomeqref {1.1.48}
+		\nompageref{19}
+  \item [{$U^{ig}_{i}$}]\begingroup Internal energy of component $i$ as an ideal gas $\left[U^{ig}_{i}\right] = \mathrm{\dfrac{J}{mol}}$\nomeqref {1.3.20}
+		\nompageref{37}
+  \item [{$V$}]\begingroup Total volume of a pure gas or mixture $\left[V\right] = \mathrm{cm^{3}}$\nomeqref {1.3.1}
+		\nompageref{32}
+  \item [{$v$}]\begingroup Molar volume $\left[v\right] = \mathrm{\dfrac{cm^{3}}{mol}}$ \nomeqref {1.3.2}
+		\nompageref{32}
+  \item [{$V^{E}$}]\begingroup Excess volume of a real mixture $\left[V^{E}\right]=\mathrm{\dfrac{cm^{3}}{mol}}$\nomeqref {1.1.48}
+		\nompageref{19}
+  \item [{$V^{ideal}$}]\begingroup Molar volume of an ideal mixture $\left[V_{ideal}\right]=\mathrm{\dfrac{cm^{3}}{mol}}$\nomeqref {1.1.41}
+		\nompageref{17}
+  \item [{$V_{i}$}]\begingroup Molar volume of  pure component $i$ in a mixture $\left[V_{i}\right]=\mathrm{\dfrac{cm^{3}}{mol}}$\nomeqref {1.1.37}
+		\nompageref{17}
+  \item [{$v_{i}$}]\begingroup Molar volume of species $i$ in a mixture $\left[v_{i}\right] = \mathrm{\dfrac{cm^{3}}{mol}}$\nomeqref {1.3.22}
+		\nompageref{39}
+  \item [{$w$}]\begingroup Positive constant in the attractive interaction term of Mie's potential energy function\nomeqref {1.1.21}
+		\nompageref{10}
+  \item [{$x_{ij}$}]\begingroup Mole fraction of species $i$ around a molecule of species $j$ in a mixture\nomeqref {1.3.22}
+		\nompageref{39}
+  \item [{$x_{i}$}]\begingroup Mole fraction of component $i$ in a liquid mixture\nomeqref {1.1.43}
+		\nompageref{17}
+  \item [{$x_{i}^{L1}$}]\begingroup Mole fraction of component $i$ in the liquid phase $L1$ of a system that contains vapour-liquid-liquid or liquid-liquid equilibrium\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$x_{i}^{L2}$}]\begingroup Mole fraction of component $i$ in the liquid phase $L2$ of a system that contains vapour-liquid-liquid or liquid-liquid equilibrium\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$y_{i}$}]\begingroup Mole fraction of component $i$ in a vapour mixture\nomeqref {1.4.20}
+		\nompageref{56}
+  \item [{$z$}]\begingroup Number of binary interactions between neighbouring molecules for a system of $N$ molecules\nomeqref {1.1.23}
+		\nompageref{11}
+  \item [{$z_{i}$}]\begingroup Fractional volume occupied by species $i$ around itself in a mixture\nomeqref {1.3.22}
+		\nompageref{39}
+  \item [{$z_{i}$}]\begingroup Ionic valence of a charged molecule or ion\nomeqref {1.1.6}
+		\nompageref{5}
+  \item [{$z_{i}$}]\begingroup Overall mole fraction of component $i$ in a heterogeneous system\nomeqref {1.4.20}
+		\nompageref{56}
+
+\end{thenomenclature}

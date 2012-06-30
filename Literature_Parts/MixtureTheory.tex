@@ -1,20 +1,13 @@
 
-%\subsection{Molecular Thermodynamics of Liquids}
-%%%------------------------------------------------------------Molecular Thermodynamics--------------------------------------------------------------%%
-%%%------------------------------------------------------------------------------------------------------------------------------------------------------------%%
-%\subsubsection*{Pure Compounds}
-%
-%A simple liquid is assumed to consist of small, uncharged, nonpolar, spherical molecules. Simple liquids are very suitable for theoretical treatment, due to the lack of intermolecular interactions like hydrogen bonding, polar interactions or structural effects, and so on. The molecules of simple liquids therefore interact mainly due to dispersion forces~\cite{MolecularThermPure}. 
-
 \subsection{Mixture Theory and Thermodynamics}
 
-It has been found useful in many fields of science to develop simplified models or theories of natural phenomena. These theories will initially contain only essential behaviour and are then expanded to include many possible exceptions and details. The additional terms are used to describe behaviour which was initially neglected and therefore accounts for deviations of reality from the ideal. This approach has been applied quite successfully in the field of solution thermodynamics.\
+It has been found useful in many fields of science to develop simplified models or theories of natural phenomena. These theories will initially contain only essential behaviour and are then expanded to include many possible exceptions and details. The additional terms are used to describe behaviour which was initially neglected and therefore accounts for deviations of reality from the ideal. This approach has been applied quite successfully in the field of solution thermodynamics~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\\
 
 %%-----------------------------------------------------Fundemental Thermodynamic Properties-----------------------------------------------------%%
 %%------------------------------------------------------------------------------------------------------------------------------------------------------------%%
 \subsubsection{Fundamental Thermodynamic Properties}\
 
-We have the following expression for the Gibbs energy of a closed system at a specific temperature and pressure~\cite{SmithNessAbbott}:\
+We have the following expression for the Gibbs energy, $G$, of a closed system comprising of $n$ moles, in terms of pressure $P$, entropy $S$ and temperature $T$ \cite{SmithNessAbbott}:\
 
 \begin{equation}
 \mathrm{d}\left(nG\right) = \left(nV\right) \mathrm{d}P - \left(nS\right) \mathrm{d}T \label{GibbsClosedSystem}
@@ -58,7 +51,7 @@ This equation forms the basis of solutions thermodynamics. When the Gibbs energy
 
 %%---------------------------------------------------The Ideal Solution and Excess Functions-----------------------------------------------------%%
 %%------------------------------------------------------------------------------------------------------------------------------------------------------------%%
-\subsubsection{Ideal Mixture and Excess Functions} \label{IdealExcessPropertiesSection}\
+\subsubsection{The Ideal Mixture and Excess Functions} \label{IdealExcessPropertiesSection}\
 
 The concept of defining an ideal mixture, and subsequent excess properties to relate this ideal mixture to reality, is similar to how the ideal gas model serves as a reference state for the behaviour of real gasses, and is completed by the introduction of residual properties~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria, SmithNessAbbott}.\\
 
@@ -107,7 +100,7 @@ In a similar manner we can derive:\
 \nomenclature{$V_{i}$}{Molar volume of  pure component $i$ in a mixture $\left[V_{i}\right]=\mathrm{\dfrac{cm^{3}}{mol}}$}
 \nomenclature{$H_{i}$}{Enthalpy of  pure component $i$ in a mixture $\left[H_{i}\right]=\mathrm{\dfrac{J}{mol}}$}
 
-Since the principal of summability holds for the partial properties of ideal mixtures, similar to general partial properties, we finally also have the following for ideal mixtures:\
+Similar to general partial properties, we finally also have the following for ideal mixtures:\
 \begin{equation}
 G^{ideal}\left(T, P, x\right) = \Sigma _{i} x_{i} G_{i}\left(T, P\right) + RT \Sigma _{i} x_{i} \ln x_{i}\label{Gideal}
 \end{equation}
@@ -168,19 +161,17 @@ The excess volume, $V^{E}$, excess entropy, $S^{E}$, excess enthalpy, $H^{E}$, e
 \begin{table}
 			\caption{Summary of similarities between Total property and excess property relations}\label{ExcessPropertyTable}
 			\begin{center}
-			\begin{tabularx}{\textwidth}{X|X}
-			\hline
+			\begin{tabular}{cc}
+			\toprule
 			\textbf{Total Property Relation}&\textbf{Excess Property Relation}\\
-			\hline
-			\multicolumn{1}{c|}{$ S = -\left(\frac{\partial G}{\partial T}\right)_{P,x} $}&\multicolumn{1}{c}{$ S^{E} = -\left(\frac{\partial G^{E}}{\partial T}\right)_{P,x} $}\\
-			\hline
-			\multicolumn{1}{c|}{$V = \left(\frac{\partial G}{\partial P}\right)_{T,x} $}&\multicolumn{1}{c}{$V^{E} = \left(\frac{\partial G^{E}}{\partial P}\right)_{T,x} $}\\
-			\hline
-			\multicolumn{1}{c|}{$H  = G + TS$}&\multicolumn{1}{c}{$H^{E}  = G^{E} + TS^{E}$}\\
-			\multicolumn{1}{c|}{$ = G - T\left(\frac{\partial G}{\partial T}\right)_{P,x}$}&\multicolumn{1}{c}{$ = G^{E} - T\left(\frac{\partial G^{E}}{\partial T}\right)_{P,x}$}\\
-			\multicolumn{1}{c|}{$ = -RT^{2}\left[ \frac{\partial\left(\frac{G}{RT}\right)}{\partial T}\right]_{P,x}$}&\multicolumn{1}{c}{$ = -RT^{2}\left[ \frac{\partial\left(\frac{G^{E}}{RT}\right)}{\partial T}\right]_{P,x}$}\\
-			\hline			
-			\end{tabularx}
+			\midrule
+			\multicolumn{1}{c}{$ S = -\left(\frac{\partial G}{\partial T}\right)_{P,x} $}&\multicolumn{1}{c}{$ S^{E} = -\left(\frac{\partial G^{E}}{\partial T}\right)_{P,x} $}\\
+			\multicolumn{1}{c}{$V = \left(\frac{\partial G}{\partial P}\right)_{T,x} $}&\multicolumn{1}{c}{$V^{E} = \left(\frac{\partial G^{E}}{\partial P}\right)_{T,x} $}\\
+			\multicolumn{1}{c}{$H  = G + TS$}&\multicolumn{1}{c}{$H^{E}  = G^{E} + TS^{E}$}\\
+			\multicolumn{1}{c}{$ = G - T\left(\frac{\partial G}{\partial T}\right)_{P,x}$}&\multicolumn{1}{c}{$ = G^{E} - T\left(\frac{\partial G^{E}}{\partial T}\right)_{P,x}$}\\
+			\multicolumn{1}{c}{$ = -RT^{2}\left[ \frac{\partial\left(\frac{G}{RT}\right)}{\partial T}\right]_{P,x}$}&\multicolumn{1}{c}{$ = -RT^{2}\left[ \frac{\partial\left(\frac{G^{E}}{RT}\right)}{\partial T}\right]_{P,x}$}\\
+			\bottomrule
+			\end{tabular}
 			\end{center}
 \end{table}
 			

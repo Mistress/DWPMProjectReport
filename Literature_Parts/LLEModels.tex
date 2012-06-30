@@ -1,11 +1,11 @@
 %%----------------------------------------------------------------Thermodynamic LLE Models-------------------------------------------------------%%
 %%-----------------------------------------------------------------------------------------------------------------------------------------------%%
 
-Equilibrium based separation processes are common in chemical industry, for example distillation, extraction and absorption. In order to design such process equipment accurate knowledge of transport properties, phase equilibrium data etc. is essential. However, the list of possible mixtures is endless, even at only a limited set of temperatures and pressures. It is therefore understandably inconceivable that experimental data would be available for every possible combination of species. It is in fact often the case that experimental data is not available for a specific system at the applicable temperature, pressure and composition. In such cases reliable methods of correlation are required. Thermodynamic models provide such methods by which the required properties of mixtures can be deduced, extrapolated or correlated from available pure component and mixture data. The judicious use of suitable thermodynamic models is therefore a vital tool in the chemical engineering design industry~\cite{SmithNessAbbott, GasLiquidProperties, ThermophysicalProperties}.\\
+Equilibrium based separation processes are common in chemical industry, for example distillation, extraction and absorption. In order to design such process equipment accurate knowledge of transport properties, phase equilibrium data etc. is essential. However, the list of possible mixtures is endless, even at only a limited set of temperatures and pressures. It is therefore understandably inconceivable that experimental data would be available for every possible combination of species. It is in fact often the case that experimental data is not available for a specific system at the applicable temperature, pressure and composition. In such cases reliable methods of correlation are required. Thermodynamic models provide such methods by which the required properties of mixtures can be deduced, extrapolated or correlated from available pure component and mixture data. The judicious use of suitable thermodynamic models is therefore a vital tool in the field of chemical engineering~\cite{SmithNessAbbott, GasLiquidProperties, ThermophysicalProperties}.\\
 
 In the case of Liquid-liquid equilibria thermodynamic models may take the form of excess Gibbs energy models and equations of state. Equations of state find widespread application for both property and phase equilibrium predictions. They are the preferable method by which high-pressure vapour-liquid equilibria is calculated for systems of non-associating molecules. Excess Gibbs energy or activity coefficient models, i.e. expressions for $\frac{G^{E}}{RT}$ from which activity coefficients are calculated, normally provide more accurate predictions for associating systems~\cite{ThermophysicalProperties}.\\
 
-Whether a specific model is suitable for the problem at hand is determined by it's ability to accommodate the specific type of liquid-liquid phase equilibria. The ability of a activity coefficient model to accurately predict liquid-liquid equilibria poses a significant problem; seeing as the activity coefficients it predicts are the only thermodynamic contributions used in the equilibrium calculation, as opposed to the supplementary role played by thermodynamic models in vapour-liquid equilibria calculations~\cite{SmithNessAbbott, GasLiquidProperties}.\\
+Whether a specific model is suitable for the problem at hand is determined by it's ability to accommodate the specific type of liquid-liquid phase equilibria. The ability of a activity coefficient model to accurately predict liquid-liquid equilibria is of significant importance; seeing as the activity coefficients it predicts are the only thermodynamic contributions used in the equilibrium calculation, as opposed to the supplementary role played by thermodynamic models in vapour-liquid equilibria calculations~\cite{SmithNessAbbott, GasLiquidProperties}.\\
 
 %%---------------------------------------------------------------------Equation of State---------------------------------------------------------%%
 %%-----------------------------------------------------------------------------------------------------------------------------------------------%%
@@ -19,7 +19,7 @@ Some equations of state are applicable to the gas phase, some to the liquid phas
 %%-----------------------------------------------------------------------------------------------------------------------------------------------%%
 %%-----------------------------------------------------van der Waals Equations of State----------------------------------------------------------%%
 
-\subsubsection{van der Waals Equation of State}\
+\subsubsection{van der Waals Equation of State}\label{vanderWaalsEOSSection}\
 
 The simplest equation of state is known as the ideal gas law, which can be stated as follows for an ideal gas mixture:\
 \begin{equation}
@@ -68,13 +68,13 @@ b = \dfrac{ RT^{c}}{8P^{c}} \label{Constb}
 \nomenclature{$P^{c}$}{Critical pressure $\left[P_{c}\right] = \mathrm{bar}$}
 \nomenclature{$T^{c}$}{Critical temperature $\left[T_{c}\right] = \mathrm{K}$}
 
-Figure \ref{roots} illustrates how the vapour-liquid equilibrium pressure and the roots of the van der Waals equation are related.\\
+Figure \ref{rootsLit} illustrates how the vapour-liquid equilibrium pressure and the roots of the van der Waals equation are related.\\
 				
 \begin{figure}[t]
 \begin{center}
 \resizebox{0.7\textwidth}{!}{\input{Drawings/pstex/roots.pstex_t}}\\
 \end{center}
-\caption{Roots of the Van der Waals equation of state} \label{roots}
+\caption{Roots of the Van der Waals equation of state} \label{rootsLit}
 \end{figure}
 
 The van der Waals equation is applied to mixtures by utilising suitable combining rules. It is common practice to calculate the attractive parameter $a$ for a mixture by~\cite{ThermophysicalProperties}:\
@@ -95,7 +95,7 @@ These combining- or mixing rules are regularly used in conjunction with modern c
 The predictions provided by the standard van der Waals equation are usually found to be qualitatively accurate but quantitatively rather poor. Predicted densities in the region of the critical point are particularly inaccurate and the vapour-liquid equilibrium curve is found to deviate from reality. The two most apparent ways in which the van der Waals equation can be improved are~\cite{ThermophysicalProperties, ThermodynamicModels}:\
 \begin{itemize}
 \item The crude expression for the free volume which neglects many body interactions can be improved by using the correct rigid sphere model for the repulsive term.\
-\item The attractive term, which assumes a uniform distribution of molecules over the entire temperature range, can be improved by utilising empirical modifications for term 1 of \ref{vdWaals}.\
+\item The attractive term, which assumes a uniform distribution of molecules over the entire temperature range, can be improved by utilising empirical modifications for term 1 of equation \ref{vdWaals}.\
 \end{itemize}
 
 The application of equations of state are however usually at sub-critical temperatures and under these conditions the contribution to inaccuracy of the repulsive term is considered insignificant in comparison to that of the attractive term. Consequently, most modifications to the van der Waals equation took the form of improvements to the attractive term~\cite{ThermophysicalProperties, EOSModification}.\\
@@ -121,44 +121,44 @@ P = \dfrac{RT}{v - b} - \dfrac{a\left(T\right)}{\left(v + c_{1}b\right)\left(v +
 \nomenclature{$c_{1}$}{Characteristic variable to establish the form of a cubic equation of state}
 \nomenclature{$c_{2}$}{Characteristic variable to establish the form of a cubic equation of state}
 
-Parameters $c_{1}$ and $c_{2}$ are integer variables which determine the shape of the specific cubic equation of state. In addition, the variable $a$ is considered to be temperature dependant in all modified cubic equations of state; the functional form of which was determined by fitting experimental vapour pressure data. Modern cubic equations of state which find widespread practical application are summarised in table \ref{CubicEOSTable}~\cite{ThermophysicalProperties, GasLiquidProperties, EOSModification}.\\
+Parameters $c_{1}$ and $c_{2}$ are integer variables which determine the shape of the specific cubic equation of state. In addition, the variable $a$ is considered to be temperature dependant in all modified cubic equations of state; the functional form of which is determined by fitting experimental vapour pressure data. Modern cubic equations of state which find widespread practical application are summarised in table \ref{CubicEOSTable}~\cite{ThermophysicalProperties, GasLiquidProperties, EOSModification}.\\
 
 Which form of cubic equation is used is determined by which properties are to be predicted. The most common approach is to choose a formulation in such a way that produces the most accurate liquid densities and vapour pressures~\cite{GasLiquidProperties}.\\
 	
 \begin{table}
 			\caption{Cubic Equations of State}\label{CubicEOSTable}
 			\begin{center}
-			\begin{tabularx}{\textwidth}{XX}
-			\hline
+			\begin{tabular}{cc}
+			\toprule
 			\textbf{van der Waals}&\\
-			\hline
+			\midrule
 			\multicolumn{2}{c}{ $P = \dfrac{RT}{v - b} - \dfrac{a}{v^{2}}$}\\
 			\multicolumn{2}{c}{$a_{i}  = \dfrac{27\left(RT_{i}^{c}\right)^{2}}{64P_{i}^{c}}$, $\qquad b_{i} = \dfrac{RT_{i}^{c}}{8P_{i}^{c}}$}\\
 			\multicolumn{2}{c}{$a = \left(\sum_{i} x_{i} \sqrt{a_{i}}\right)^{2}$}\\
-			\hline
+			\midrule
 			\textbf{Redlich - Kwong }&\\
-			\hline
+			\midrule
 			\multicolumn{2}{c}{$P = \dfrac{RT}{v - b} - \dfrac{a}{v\left(v +b\right)\sqrt{T}}$}\\
 			\multicolumn{2}{c}{$a_{i}  = 0.42748 \dfrac{R^{2}\left(T_{i}^{c}\right)^{2.5}}{P_{i}^{c}}$,  $\qquad b_{i} = 0.08664 \dfrac{RT_{i}^{c}}{P_{i}^{c}}$}\\
 			\multicolumn{2}{c}{$a = \sum_{i}\sum_{j} x_{i}x_{j}\left(1-k_{ij}\right) \sqrt{a_{i}a_{j}} $}\\
-			\hline
+			\midrule
 			\textbf{Soave-Redlich-Kwong}  & \\
-			\hline
+			\midrule
 			\multicolumn{2}{c}{$P = \dfrac{RT}{v - b} - \dfrac{a \alpha }{v\left(v +b\right)}$}\\
 			\multicolumn{2}{c}{$a_{i}  = 0.42747 \dfrac{\left(RT_{i}^{c}\right)^{2}}{P_{i}^{c}}$, $\qquad b_{i} = 0.08664 \dfrac{RT_{i}^{c}}{P_{i}^{c}}$}\\
 			\multicolumn{2}{c}{$\alpha_{i} = \left[1+ n_{i}\left(1- \sqrt{T_{R,i}}\right)\right]^{2}$}\\
 			\multicolumn{2}{c}{$n_{i} = 0.48508 + 1.55171 \omega_{i} - 0.15613 \omega_{i}^{2}$}\\
 			\multicolumn{2}{c}{$a \alpha = \sum_{i}\sum_{j} x_{i}x_{j}\left(1-k_{ij}\right) \sqrt{a_{i} \alpha_{i}a_{j} \alpha_{j}} $}\\
-			\hline
+			\midrule
 			\textbf{Peng-Robinson}&\\
-			\hline
+			\midrule
 			\multicolumn{2}{c}{$P = \dfrac{RT}{v - b} - \dfrac{a \alpha}{v\left(v +b\right)+ b\left(v -b\right)}$}\\
 			\multicolumn{2}{c}{$a_{i}  = 0.45724 \dfrac{\left(RT_{i}^{c}\right)^{2}}{P_{i}^{c}}$, $\qquad b_{i} = 0.07780 \dfrac{RT_{i}^{c}}{P_{i}^{c}}$}\\
 			\multicolumn{2}{c}{$\alpha_{i} = \left[1+ n_{i}\left(1- \sqrt{T_{R,i}}\right)\right]^{2}$}\\
 			\multicolumn{2}{c}{$n_{i} = 0.37464 + 1.54226 \omega_{i} - 0.26992 \omega_{i}^{2}$}\\
 		    \multicolumn{2}{c}{$a \alpha = \sum_{i}\sum_{j} x_{i}x_{j}\left(1-k_{ij}\right) \sqrt{a_{i} \alpha_{i}a_{j} \alpha_{j}} $}\\
-			\hline			
-			\end{tabularx}
+			\bottomrule			
+			\end{tabular}
 			\end{center}
 \end{table}
 
@@ -307,25 +307,25 @@ From which the activity coefficients of each component in the mixture may be der
 \begin{table}
 			\caption{The Wilson Model}\label{WilsonTable}
 			\begin{center}
-			\begin{tabularx}{\textwidth}{Xc}
-			\hline
+			\begin{tabular}{cc}
+			\toprule
 			\textbf{Wilson Model}&\\
-			\hline
+			\midrule
 			\multicolumn{2}{c}{$\dfrac{G^{E}}{RT} = - \sum_{i=1}^{n} x_{i} \ln \left(\sum_{j=1}^{n}x_{j}\Lambda_{ij}\right)$}\\
 			\multicolumn{2}{c}{$ \ln \gamma_{i} = 1- \ln\left(\sum_{j=1}^{n}x_{j}\Lambda_{ij}\right) - \sum_{k=1}^{n} \dfrac{x_{k}\Lambda_{ki}}{\sum_{j=1}^{n}x_{j}\Lambda_{kj}}$}\\
 			where&\\
 			\multicolumn{2}{c}{$\Lambda_{ij} = \dfrac{v_{j}}{v_{i}}\exp\left(\dfrac{-\lambda_{ij}}{RT}\right)$}\\
 			\multicolumn{2}{c}{$\Lambda_{ii} = 1$}\\
 			\multicolumn{2}{c}{$\Lambda_{ij} \neq \Lambda_{ji}$}\\			
-			\hline
+			\midrule
 			\textbf{T-K-Wilson Model}&\\
-			\hline
+			\midrule
 			\multicolumn{2}{c}{$\dfrac{G^{E}}{RT} = \sum_{i=1}^{n} x_{i} \ln \left(\dfrac{\sum_{j=1}^{n}x_{j}v_{ij}}{\sum_{j=1}^{n}x_{j}\Lambda_{ij}}\right)$}\\	
 			\multicolumn{2}{c}{$ \ln \gamma_{i} = \ln \left(\dfrac{\sum_{j=1}^{n}x_{j}v_{ij}}{\sum_{j=1}^{n}x_{j}\Lambda_{ij}}\right) + \sum_{k=1}^{n} x_{k}\left(\dfrac{v_{ki}}{\sum_{j=1}^{n}x_{j}v_{kj}}-\dfrac{\Lambda_{ki}}{\sum_{j=1}^{n}x_{j} \Lambda_{kj}}\right)$}\\
 			where&\\
 			\multicolumn{2}{c}{$v_{ij} = \dfrac{v_{j}}{v_{i}}$}\\			
-			\hline
-			\end{tabularx}
+			\bottomrule
+			\end{tabular}
 			\end{center}
 \end{table}
 
@@ -343,18 +343,18 @@ Similar to the Wilson model, the NRTL model is based on principles of local comp
 \begin{table}
 			\caption{The NRTL Model}\label{NRTLTable}
 			\begin{center}
-			\begin{tabularx}{\textwidth}{Xc}
-			\hline
+			\begin{tabular}{cc}
+			\toprule
 			\textbf{NRTL Model}&\\
-			\hline
+			\midrule
 			\multicolumn{2}{c}{$ \dfrac{G^{E}}{RT} = \sum_{i= 1}^{n} x_{i} \left(\dfrac{\sum_{j= 1}^{n}\tau_{ji}G_{ji}x_{j}}{\sum_{k=1}^{n}x_{k}G_{ki}}\right)$}\\
 			\multicolumn{2}{c}{$ \ln \gamma_{i} = \dfrac{\sum_{j= 1}^{n}\tau_{ji}G_{ji}x_{j}}{\sum_{k=1}^{n}x_{k}G_{ki}} + \sum_{j=1}^{n} \dfrac{x_{j}G_{ij}}{\sum_{k=1}^{n}x_{k}G_{ki}} \left(\tau_{ij} - \dfrac{\sum_{k= 1}^{n}\tau_{kj}G_{kj}x_{k}}{\sum_{k=1}^{n}x_{k}G_{kj}}\right)$}\\
 			where&\\
 			\multicolumn{2}{c}{$ \tau_{ij} = \dfrac{g_{ij}}{RT}$}\\
 			\multicolumn{2}{c}{$ G_{ij} = \exp\left(-\alpha_{ij}\tau_{ij}\right)$}\\
 			\multicolumn{2}{c}{$\tau_{ii} = \tau_{jj} = 0$, $\qquad G_{ii}=G_{jj} =1 $}\\			
-			\hline
-			\end{tabularx}
+			\bottomrule
+			\end{tabular}
 			\end{center}
 \end{table}
 
@@ -370,10 +370,10 @@ It contains three adjustable parameters per binary interaction. The parameter $\
 \begin{table}
 			\caption{The UNIQUAC Model}\label{UNIQUACTable}
 			\begin{center}
-			\begin{tabularx}{\textwidth}{Xc}
-			\hline
+			\begin{tabular}{cc}
+			\toprule
 			\textbf{UNIQUAC Model}&\\
-			\hline
+			\midrule
 			\multicolumn{2}{c}{$ \dfrac{G^{E}}{RT} = \dfrac{G^{c}+G^{r}}{RT}$}\\
 			\multicolumn{2}{c}{$ \dfrac{G^{c}}{RT} = \sum_{i=1}^{n} x_{i} \ln \dfrac{\phi_{i}}{x_{i}} + \dfrac{z}{2}\sum_{i=1}^{n}q_{i}x_{i}\ln \dfrac{\theta_{i}}{\phi_{i}}$}\\
 			\multicolumn{2}{c}{$ \dfrac{G^{r}}{RT} = -\sum_{i=1}^{n}q_{i}x_{i}\ln \sum_{j=1}^{n}\theta_{j} \tau_{ji}$}\\
@@ -383,15 +383,15 @@ It contains three adjustable parameters per binary interaction. The parameter $\
 			\multicolumn{2}{c}{$ \tau_{ij} = \exp\left(\dfrac{-u_{ij}}{RT}\right)$}\\
 			\multicolumn{2}{c}{$\tau_{ii}= \tau_{jj} = 1$}\\			
 			\multicolumn{2}{c}{$z = 10$}\\			
-			\hline
-			\end{tabularx}
+			\bottomrule
+			\end{tabular}
 			\end{center}
 \end{table}
 
 Developed in 1975 by Abrams and Prausnitz, the UNIQUAC equations form a semi-theoretical model. In addition to the interactions between unlike molecules, the size and shape of the molecules have a significant effect on the behaviour of liquid mixtures. The UNIQUAC model comprises of two terms, each accounting for one of the aforementioned factors:~\cite{Dechema, ThermophysicalProperties, MolecularThermodynamicsOfFluidPhaseEquilibria, ThermodynamicModels, ActivityCoefficientModelApplicationUNI, UNIQUAC}\
 \begin{itemize}
-\item Configurational term, $G^{c}$, accounts for entropic contributions due to differences in shape and size of molecules.\
-\item Residual term, $G^{r}$, accounts for enthalpic contributions mainly due to intermolecular forces.\
+\item The configurational term, $G^{c}$, accounts for entropic contributions due to the differences in shape and size of molecules.\
+\item The residual term, $G^{r}$, accounts for enthalpic contributions mainly due to intermolecular forces.\
 \end{itemize}
 
 And the excess Gibbs energy of the mixture is given simply by:\
@@ -400,7 +400,7 @@ And the excess Gibbs energy of the mixture is given simply by:\
 \dfrac{G^{E}}{RT} = \dfrac{G^{c}+G^{r}}{RT}
 \end{equation}\
 
-The UNIQUAC model manages to predict multi-component liquid-liquid and vapour-liquid equilibria using only pure component and binary interaction parameters. The model equations are summarised in table \ref{UNIQUACTable}. Pure component parameters $r_{i}$ are determined from the volume, and $q_{i}$ from the surface of area of a single molecule. These parameters have been tabulated for large selections of molecules. It has found widespread application largely due to it's realtive accuracy while using only binary interaction parameters~\cite{Dechema, ThermophysicalProperties, MolecularThermodynamicsOfFluidPhaseEquilibria, ActivityCoefficientModelApplicationUNI, StabilityAnalysis, ReliableComputationBinaryParams}.\
+The UNIQUAC model manages to predict multi-component liquid-liquid and vapour-liquid equilibria using only pure component and binary interaction parameters. The model equations are summarised in table \ref{UNIQUACTable}. Pure component parameters $r_{i}$ are determined from the volume, and $q_{i}$ from the surface of area of a single molecule. These parameters have been tabulated for large selections of molecules. The UNIQUAC equation has found widespread application largely due to it's realtive accuracy while using only binary interaction parameters~\cite{Dechema, ThermophysicalProperties, MolecularThermodynamicsOfFluidPhaseEquilibria, ActivityCoefficientModelApplicationUNI, StabilityAnalysis, ReliableComputationBinaryParams}.\
 
 %%---------------------------------------------------------The Gibbs-Duhem Equation--------------------------------------------------------------%%
 %%-----------------------------------------------------------------------------------------------------------------------------------------------%%

@@ -1,16 +1,18 @@
+
 \section{Binary Interaction Parameter Calculation from Binary Liquid-liquid Equilibrium Data}
 \subsection{Bi-Level Optimization Method}
 								
-As discussed in section \ref{ModelParameterEstimationSection}, a method proposed by Bollas et.al. and Mitsos et.al. employs a bi-level optimization technique to estimate the binary interaction parameters for activity coefficient models. A similar method was applied to calculate the binary parameters for the NRTL, UNIQUAC and DWPM models from experimental binary mixture liquid-liquid equilibrium data~\cite{BilevelOptimization, BilevelOptimization2}.\\
+As discussed in section \ref{ModelParameterEstimationSection}, a method proposed by \citeauthor{BilevelOptimization2}, \citeyear{BilevelOptimization2}, employs a bi-level optimization technique to estimate the binary interaction parameters for activity coefficient models. A similar method was applied to calculate the binary parameters for the NRTL, UNIQUAC and DWPM models from experimental binary mixture liquid-liquid equilibrium data~\cite{BilevelOptimization, BilevelOptimization2}.\\
 
 In order to use this method, complete experimental tie-line data is required at each temperature. In other words, phase envelope data with measured compositions of only one of the phases at a selected temperature, is insufficient. For the purposes of this investigation tie-line data for a number of binary systems were obtained from the Dechema liquid-liquid data collection~\cite{Dechema}. The binary mixtures for which interaction parameters are calculated, and the corresponding original sources are given in table \ref{BinarySystemsandReferences}.\\
 
-\begin{table}
-\begin{tabularx}{\textwidth}{Xc}
-\hline
+\begin{table}[h]
+\caption{Binary mixtures for which binary interaction parameters are calculated and experimental data sources}
+\centering
+\begin{tabular}{lc}
+\toprule
 \textbf{Binary Mixture}&\textbf{Data Source}\\
-\hline
-\hline
+\midrule
 2-Hexanol and Water& \citeauthor{GinningsandWebb},(\citeyear{GinningsandWebb}) \cite{GinningsandWebb} \\
 13-Dimethyl Benzene and Water& \citeauthor{ChernoglazovaandSimulin},(\citeyear{ChernoglazovaandSimulin}) \cite{ChernoglazovaandSimulin}\\
 Aniline and Water&\citeauthor{Campbell},(\citeyear{Campbell}) \cite{Campbell}\\
@@ -20,10 +22,10 @@ Ethyl Ester Acetic Acid and Water&\citeauthor{Merriman},(\citeyear{Merriman}) \c
 %Nitro Methane and Cyclohexane&\citeauthor{},(\citeyear{}) \cite{}\\
 Methanol and Heptane&\citeauthor{TagliaviniArich},(\citeyear{TagliaviniArich}) \cite{TagliaviniArich}\\
 Methanol and Hexane&\citeauthor{RadiceKnickle},(\citeyear{RadiceKnickle}) \cite{RadiceKnickle}\\
-\hline
-\end{tabularx}\\
-\caption{Binary mixtures for which binary interaction parameters are calculated and experimental data sources} \label{BinarySystemsandReferences}
-\end{table}\
+\bottomrule
+\end{tabular}\\
+\label{BinarySystemsandReferences}
+\end{table}
 
 For each model, the set of binary interaction parameters at a specified temperature determines the shape of the Gibbs energy function versus composition, and ultimately the predicted liquid-liquid equilibrium. However, the suitability of a set of binary parameters is determined by the accuracy with which the predicted equilibrium phase splits can match the experimentally measured compositions, or the overall phase diagram of that mixture. A bi-level optimization technique contains two nested optimizations, where:\
 
@@ -35,16 +37,16 @@ For each model, the set of binary interaction parameters at a specified temperat
 The overall goal function for this approach should minimize some measure of total error over all experimental measurements, either at each specified temperature or over an entire range of temperatures. For the purposes of this investigation, equation \ref{GoalParams} below is used to calculate the optimum set of parameters at each temperature.\
 
 \begin{equation}
-\min_{\overline{\Lambda}} E = \sum_{k=1}^{P} \left[x_{k}-x_{k}^{\prime}\left(\overline{\Lambda}\right)\right]^{2} \label{GoalParams}
+\min_{\overline{\Lambda}} E = \sum_{k=1}^{\pi} \left[\hat{x}_{k}-x_{k}\left(\overline{\Lambda}\right)\right]^{2} \label{GoalParams}
 \end{equation}\
 
-Where $P$ represents the number of phases in equilibrium. For binary systems, no more than two phases are observed and therefore equation \ref{GoalParams} becomes:\
+Where $\pi$ represents the number of phases in equilibrium. For the binary systems studied, no more than two phases are observed and therefore equation \ref{GoalParams} becomes:\
 
 \begin{equation}
-\min_{ x_{\alpha}^{\prime}, x_{\beta}^{\prime}} E = \left[x_{\alpha}-x_{\alpha}^{\prime}\left(\overline{\Lambda}\right)\right]^{2} + \left[x_{\beta}-x_{\beta}^{\prime}\left(\overline{\Lambda}\right) \right]^{2} \label{GoalParamsBinary}
+\min_{ x_{\alpha}, x_{\beta}} E = \left[\hat{x}_{\alpha}-x_{\alpha}\left(\overline{\Lambda}\right)\right]^{2} + \left[\hat{x}_{\beta}-x_{\beta}\left(\overline{\Lambda}\right) \right]^{2} \label{GoalParamsBinary}
 \end{equation}\
 
-Where $x_{\alpha}$ represents the experimentally measured composition of one of the liquid phases, and $x_{\beta}$ that of the second phase. Similarly, $x_{\alpha}^{\prime}\left(\overline{\Lambda}\right)$ and $x_{\beta}^{\prime}\left(\overline{\Lambda}\right)$ represent the equilibrium phase compositions predicted by the mixture model, and $\overline{\Lambda}$ represents the set of adjustable binary parameters of each model.\\
+Where $\hat{x}_{\alpha}$ represents the experimentally measured composition of one of the liquid phases, and $\hat{x}_{\beta}$ that of the second phase. Similarly, $x_{\alpha}\left(\overline{\Lambda}\right)$ and $x_{\beta}\left(\overline{\Lambda}\right)$ represent the equilibrium phase compositions predicted by the mixture model, and $\overline{\Lambda}$ represents the set of adjustable binary parameters of each model.\\
 
 To simplify the expressions used to calculate phase equilibrium, the change of Gibbs energy on mixing, $\Delta G_{mix}$, as a function of mixture composition is used to model the Gibbs energy surface. The steps whereby the binary interaction parameters are determined for each of the models are as follows:\
 
@@ -54,20 +56,20 @@ To simplify the expressions used to calculate phase equilibrium, the change of G
 		\begin{enumerate}
 		\item If the current model is the DWPM calculate the pure component parameters according to equation \ref{DWPMPureParamT}.\
 		\item Using a suitable numerical algorithm, determine the optimal set of adjustable binary parameters,$\overline{\Lambda}$, by minimizing the goal function in equation \ref{GoalParamsBinary}. \label{BinaryParamsOptStep}\
-		Where the predicted equilibrium phase compositions, $x_{\alpha}^{\prime}$ and $x_{\beta}^{\prime}$, are calculated as follows:\
+		Where the predicted equilibrium phase compositions, $x_{\alpha}$ and $x_{\beta}$, are calculated as follows:\
 		\begin{enumerate}
 			\item Using a suitable numerical method, find the common tangent to the $\Delta G_{mix}$ curve by solving for the two compositions that 			both satisfy the following equations, within a set tolerance: \label{PhaseEquilOptStep}\
 			\begin{eqnarray}
-		 	\dfrac{\Delta G_{mix}\left(x_{\alpha}^{\prime}\right)- \Delta G_{mix}\left(x_{\beta }^{\prime}\right)}{x_{\alpha}^{\prime}-					x_{\beta}^{\prime}} - \dfrac{\mathrm{d}\Delta G_{mix}\left(x_{\alpha}^{\prime}\right)}{\mathrm{d}x_{1}} =0\label{GoalPhaseEq1}\\
-		 	\dfrac{\mathrm{d} \Delta G_{mix}\left(x_{\alpha}^{\prime}\right)}{\mathrm{d}x_{1}} - \dfrac{\mathrm{d}\Delta G_{mix}\left(x_{\beta}^{\prime}\right)}{\mathrm{d}x_{1}}=0\label{GoalPhaseEq2}\
+		 	\dfrac{\Delta G_{mix}\left(x_{\alpha}\right)- \Delta G_{mix}\left(x_{\beta }\right)}{x_{\alpha}-					x_{\beta}} - \dfrac{\mathrm{d}\Delta G_{mix}\left(x_{\alpha}\right)}{\mathrm{d}x_{1}} =0\label{GoalPhaseEq1}\\
+		 	\dfrac{\mathrm{d} \Delta G_{mix}\left(x_{\alpha}\right)}{\mathrm{d}x_{1}} - \dfrac{\mathrm{d}\Delta G_{mix}\left(x_{\beta}\right)}{\mathrm{d}x_{1}}=0\label{GoalPhaseEq2}\
 			\end{eqnarray}\
-			\item To ensure that the solution,$\langle x_{\alpha}^{\prime}, x_{\beta}^{\prime}\rangle$, is in fact an equilibrium solution, check that:\
+			\item To ensure that the solution,$\langle x_{\alpha}, x_{\beta}\rangle$, is in fact an equilibrium solution, check that:\
 			\begin{equation}
 			 T\left(x_{m}\right)-\Delta G_{mix}\left(x_{m}\right) \leq0 \qquad \forall \; 0\leq x_{m} \leq 1 \label{PhaseEquilTPConstraints}
 			\end{equation}\
 			Where:\
 			\begin{eqnarray}
-			T\left(x_{m}\right) = \Delta G_{mix}\left(x_{\alpha}^{\prime}\right) -\dfrac{\Delta G_{mix}\left(x_{\alpha}^{\prime}\right)- \Delta G_{mix}\left(x_{\beta }^{\prime}\right)}{x_{\alpha}^{\prime}-x_{\beta}^{\prime}}\left[x_{\alpha}^{\prime} -x_{m}\right]\nonumber\\
+			T\left(x_{m}\right) = \Delta G_{mix}\left(x_{\alpha}\right) -\dfrac{\Delta G_{mix}\left(x_{\alpha}\right)- \Delta G_{mix}\left(x_{\beta }\right)}{x_{\alpha}-x_{\beta}}\left[x_{\alpha} -x_{m}\right]\nonumber\\
 			m = 1,2,3 \cdots M_{int} \nonumber
 			\end{eqnarray}\
 			And $M_{int}$ is some arbitrary number of intervals into which the composition range is divided.\\
@@ -77,49 +79,35 @@ To simplify the expressions used to calculate phase equilibrium, the change of G
 	\end{enumerate}
 \end{enumerate}\
 
-The method described above was implemented in the Python programming language. All $\Delta G_{mix}$ function evaluations were performed using wrapped FORTRAN 95 code, in order to improve the execution time required for the optimizations. The details and parameters of the numerical methods used for the phase equilibrium calculation and the parameter estimation are summarised in tables \ref{PhaseEqOptParam} and \ref{ParamOptParam}.\\ 
+The method described above was implemented in the Python programming language. All $\Delta G_{mix}$ function evaluations were performed using wrapped FORTRAN 95 code, in order to improve the execution time required for the optimizations. The details and parameters of the numerical methods used for the phase equilibrium calculation and the parameter estimation are summarised in table \ref{OptParam}.\\ 
 
-\begin{table}
-\begin{tabularx}{\textwidth}{l|c}
-\hline
-\textbf{Parameter}&\textbf{Value}\\
-\hline
-\hline
-\textbf{Design Variables}&$x_{\alpha}^{\prime}$ and $x_{\beta}^{\prime}$\\
-\textbf{Bounds}&$0 \leq x_{\alpha}^{\prime} \leq 1$ and $0 \leq x_{\beta}^{\prime} \leq 1 $\\
-\textbf{Goal Function}& Solve equations \ref{GoalPhaseEq1} and \ref{GoalPhaseEq2} \\
-\textbf{Termination Tolerance on Design Variables}&$10^{-5}$\\
-\textbf{Termination Tolerance on Function Values}&$10^{-5}$\\
-\textbf{Maximum Number of Function Evaluations}&1000\\
-\textbf{Maximum Number of Iterations}&500\\				
-\textbf{Optimiser }&fsolve\\
-\textbf{Algorithm}&MINPACKs hybrd and hybrj \\
-\hline
-\end{tabularx}\\
-\caption{Optimisation Parameters for Phase Equilibrium Calculation} \label{PhaseEqOptParam}			
+\begin{landscape}
+\vspace*{\fill}
+\begin{table}[hp]
+\caption{Optimisation Parameters for Bi-level Optimization Approach}
+\centering
+\begin{tabular}{lcc}
+\toprule
+&\textbf{Phase Equilibrium} & \textbf{Model Parameters}\\
+\midrule
+\textbf{Design Variables}&$x_{\alpha}$ and $x_{\beta}$&$\overline{\Lambda}$\\
+\textbf{Bounds}&$0 \leq x_{\alpha} \leq 1$ and $0 \leq x_{\beta} \leq 1 $&Large Arbitrary Range\\
+\textbf{Goal Function}& Solve equations \ref{GoalPhaseEq1} and \ref{GoalPhaseEq2}&Equation \ref{GoalParams} \\
+\textbf{Termination Tolerance on Design Variables}&$10^{-5}$&$10^{-5}$\\
+\textbf{Termination Tolerance on Function Values}&$10^{-5}$&$10^{-5}$\\
+\textbf{Maximum Number of Function Evaluations}&1000&1000\\
+\textbf{Maximum Number of Iterations}&500&500\\				
+\textbf{Optimiser }&fsolve&fmin-l-bfgs-b\\
+\textbf{Algorithm}&MINPACKs hybrd and hybrj& L-BFGS-B \\
+\bottomrule
+\end{tabular}\\
+\label{OptParam}			
 \end{table}\
+\vspace*{\fill}
+\end{landscape}
 
-\begin{table}
-\begin{tabularx}{\textwidth}{l|c}
-\hline
-\textbf{Parameter}&\textbf{Value}\\
-\hline
-\hline
-\textbf{Design Variables}& Model Adjustable Parameters\\
-\textbf{Goal Function}&Equation \ref{GoalParams}\\
-\textbf{Termination Tolerance on Design Variables}&$10^{-5}$\\
-\textbf{Termination Tolerance on Function Values}&$10^{-5}$\\
-\textbf{Maximum Number of Function Evaluations}&1000\\
-\textbf{Maximum Number of Iterations}&500\\				
-\textbf{Optimiser }&fmin-l-bfgs-b\\
-\textbf{Algorithm}& L-BFGS-B \\
-\hline
-\end{tabularx}\\
-\caption{Optimisation Parameters for Model Parameter Calculation} \label{ParamOptParam}			
-\end{table}\
-
-%%----------------------------------------------------Pseudo Analytical Approach----------------------------------------------------------------%%
-%%----------------------------------------------------------------------------------------------------------------------------------------------%%
+%%-------------------------------Pseudo Analytical Approach----------------------------------------------------%%
+%%---------------------------------------------------------------------------------------------------------------%%
 				
 \subsection{Pseudo Analytical Approach}\label{BinaryPAMethodSection}
 
@@ -128,22 +116,22 @@ Calculating the binary model parameters using a bi-level optimization method, do
 \begin{itemize}
 \item[$\bullet$] Solving the phase equilibrium problem in itself, is already a deceptively simple one. By nesting this problem into the parameter optimization, another complex optimization problem, it becomes that much more complex and computationally very expensive. \
 \item[$\bullet$] The complexity and computational inefficiency becomes even more significant for higher order mixtures.\
-\item[$\bullet$] The known experimental compositions are never matched exactly. Strictly speaking, even if the optimizer routine converges successfully, the error made by the model prediction is still only minimized.\
+\item[$\bullet$] Even if the optimizer routine converges successfully, the known experimental compositions are never matched exactly.\
 \end{itemize}\
 
 A method combining the idea of common tangent calculation with the direct equation solving approach is now considered. If a binary mixture is unstable at some temperature,  the following is known at the compositions of the two incipient phases:\
 
 \begin{eqnarray}
 g\left(x_{\alpha}\right) &=& f\left(x_{\alpha}\right) \label{KnownEqPropery1}\\
-\frac{\mathrm{d}g\left(x_{\alpha}\right)}{\mathrm{d}x} &=& \frac{\mathrm{d}f\left(x_{\alpha}\right)}{\mathrm{d}x}\\
+\frac{\mathrm{d}g\left(x_{\alpha}\right)}{\mathrm{d}x} &=& \frac{\mathrm{d}f\left(x_{\alpha}\right)}{\mathrm{d}x_{1}}\\
 g\left(x_{\beta}\right) &=& f\left(x_{\beta}\right)\\
-\frac{\mathrm{d}g\left(x_{\beta}\right)}{\mathrm{d}x} &=& \frac{\mathrm{d}f\left(x_{\beta}\right)}{\mathrm{d}x}\label{KnownEqPropery2} 
+\frac{\mathrm{d}g\left(x_{\beta}\right)}{\mathrm{d}x_{1}} &=& \frac{\mathrm{d}f\left(x_{\beta}\right)}{\mathrm{d}x_{1}}\label{KnownEqPropery2} 
 \end{eqnarray}\
 
-Where $x_{\alpha}$ and $x_{\beta}$ are the compositions of the two liquid phases in equilibrium, $g\left(x\right) = \dfrac{G\left(x\right)}{RT}$, and $f\left(x\right)$ is the common tangent line which intercepts the Gibbs energy curve at the two equilibrium compositions:\
+Where $x_{\alpha}$ and $x_{\beta}$ are the compositions of the two liquid phases in equilibrium, $g\left(x_{1}\right) = \dfrac{G\left(x_{1}\right)}{RT}$, and $f\left(x_{1}\right)$ is the common tangent line which intercepts the Gibbs energy curve at the two equilibrium compositions:\
 
 \begin{equation}
-f\left(x\right) = mx + c \label{TangentEquation}
+f\left(x_{1}\right) = mx_{1} + c \label{TangentEquation}
 \end{equation}\
 
 See figure \ref{BinaryParameterPAMethodDrawing} for clarification. For binary systems, the NRTL, UNIQUAC and DWPM models each have two binary interaction parameters, which are unknown and assumed to be temperature dependant. Also, in equation \ref{TangentEquation}, $m$ and $c$ are unknown. Therefore, at a given temperature and with the equilibrium compositions already known, the properties in equations \ref{KnownEqPropery1} through \ref{KnownEqPropery2} describe a fully defined system of 4 equations, with 4 unknowns. If a solution to this system can be found, the model parameters calculated thereby will predict the measured phase equilibrium exactly.\\
@@ -165,23 +153,23 @@ The benefits of this pseudo-analytic approach are:\
 
 Considering the system of equations reveals that, given that which is known about the phase equilibrium, the number of properties that can be enforced on the shape of the $\Delta G_{mix}$ curve etc., is fixed. In other words, given the system of 4 equations, one can only solve for 4 unknowns and not 3 or 5. If, for example, a mixture model requires 5 interaction parameters to model a binary system, all 5 parameters can not be determined independently. Alternatively, additional degrees of freedom need to be fixed, either by enforcing another desired property by means of an equation, or by arbitrarily fixing the superfluous parameters.\\
 
-The system of equations, for each model, cannot be solved analytically and therefore a numerical method is utilised to solve it; hence the name, pseudo-analytical method. When the model parameters are known and the phase equilibrium compositions are calculated,  a number of constraints are implemented to ensure physically insignificant solutions are disregarded. The constraints which are enforced are as follows:\
+The equations, for each model studied here, are highly non-linear. Therefore the system cannot be solved analytically and a numerical method is utilised to solve it; hence the name, pseudo-analytical method. When the model parameters are known and the phase equilibrium compositions are calculated,  a number of constraints are implemented to ensure physically insignificant solutions are disregarded. The constraints which are enforced are as follows:\
 
 \begin{itemize}
 \item[$\bullet$] $c \leq 0$
 \item[$\bullet$] $f\left(1\right) \leq 0$
-\item[$\bullet$] $x_{\alpha}^{\prime} - x_{\beta}^{\prime} \geq 0.1$, to ensure that the solution does not converge to the trivial solution $x_{\alpha}^{\prime} = x_{\beta}^{\prime}$.
+\item[$\bullet$] $x_{\alpha} - x_{\beta} \geq 0.1$, to ensure that the solution does not converge to the trivial solution $x_{\alpha} = x_{\beta}$.
 \end{itemize}\
 
 This pseudo-analytical approach was implemented using Python, and again all $\Delta G_{mix}$ evaluations were done using wrapped FORTRAN code, to improve the required running time. The pseudo-analytical method was used to determine the binary interaction parameters for the same binary mixtures as before, in table \ref{BinarySystemsandReferences}.\\				
 
-%%--------------------------------------------------------------------Ternary Mixture Parameters-------------------------------------------------%%
-%%-----------------------------------------------------------------------------------------------------------------------------------------------%%
+%%----------------------------------------------------Ternary Mixture Parameters---------------------------------%%
+%%---------------------------------------------------------------------------------------------------------------%%
 \section{Binary Interaction Parameter Calculation from Ternary Liquid-liquid Equilibrium Data}
 
-\subsection{Pseudo Analytical Approach}
+\subsection{Pseudo Analytical Approach}\label{TernaryPAMethodSection}
 
-The bi-level optimization method for the estimation of model interaction parameters, can be applied to higher order systems. And again, although the concept is intuitive and straight-forward, the application thereof becomes more difficult for systems of higher dimensions. In addition, the increase in dimensions results in a further increase in computational complexity.\\
+The bi-level optimization method for the estimation of model interaction parameters, can be applied to higher order systems. And again, although the concept seems intuitive and straight-forward, the application thereof is computationally complex and even more so for systems of higher dimensions.\\
 
 The common tangent line which determines the phase equilibrium compositions in binary mixture liquid-liquid equilibria, translates to a common tangent plane for ternary mixtures. The problem of parameter estimation and phase stability analysis for ternary mixtures is a problem in three dimensions. Also, unlike binary mixtures, more than one tie-line exists at a single temperature and more than 2 phases may co-exist simultaneously. The pseudo-analytical approach for the calculation of activity coefficient model parameters, as discussed in section \ref{BinaryPAMethodSection}, can be easily extrapolated for application to ternary mixtures.\\
 
@@ -194,15 +182,15 @@ x_{1} + x_{2} + x_{3} = 1
 For two phases, $\alpha$ and $\beta$ in liquid-liquid equilibrium, we know:\
 
 \begin{eqnarray}
-g\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right) = f\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right) \label{KnownTernaryProperty1} \\
-g\left(x_{1}^{\beta}, x_{2}^{\beta}\right) = f\left(x_{1}^{\beta}, x_{2}^{\beta}\right)\\
-\dfrac{\mathrm{d} g}{\mathrm{d}x_{1}}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right) = \dfrac{\mathrm{d} f}{\mathrm{d}x_{1}}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right)\\
-\dfrac{\mathrm{d} g}{\mathrm{d}x_{1}}\left(x_{1}^{\beta}, x_{2}^{\beta}\right) = \dfrac{\mathrm{d} f}{\mathrm{d}x_{1}}\left(x_{1}^{\beta}, x_{2}^{\beta}\right)\\
-\dfrac{\mathrm{d} g}{\mathrm{d}x_{2}}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right) = \dfrac{\mathrm{d} f}{\mathrm{d}x_{2}}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right)\\
-\dfrac{\mathrm{d} g}{\mathrm{d}x_{2}}\left(x_{1}^{\beta}, x_{2}^{\beta}\right) = \dfrac{\mathrm{d} f}{\mathrm{d}x_{2}}\left(x_{1}^{\beta}, x_{2}^{\beta}\right) \label{KnownTernaryProperty2}
+g\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right) = f_{1}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right) \label{KnownTernaryProperty1} \\
+g\left(x_{1}^{\beta}, x_{2}^{\beta}\right) = f_{1}\left(x_{1}^{\beta}, x_{2}^{\beta}\right)\\
+\dfrac{\mathrm{d} g}{\mathrm{d}x_{1}}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right) = \dfrac{\mathrm{d} f_{1}}{\mathrm{d}x_{1}}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right)\\
+\dfrac{\mathrm{d} g}{\mathrm{d}x_{1}}\left(x_{1}^{\beta}, x_{2}^{\beta}\right) = \dfrac{\mathrm{d} f_{1}}{\mathrm{d}x_{1}}\left(x_{1}^{\beta}, x_{2}^{\beta}\right)\\
+\dfrac{\mathrm{d} g}{\mathrm{d}x_{2}}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right) = \dfrac{\mathrm{d} f_{1}}{\mathrm{d}x_{2}}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right)\\
+\dfrac{\mathrm{d} g}{\mathrm{d}x_{2}}\left(x_{1}^{\beta}, x_{2}^{\beta}\right) = \dfrac{\mathrm{d} f_{1}}{\mathrm{d}x_{2}}\left(x_{1}^{\beta}, x_{2}^{\beta}\right) \label{KnownTernaryProperty2}
 \end{eqnarray}\
 
-Where $x_{1}^{\alpha}$ and $x_{2}^{\alpha}$ are the compositions of components 1 and 2 in phase $\alpha$ respectively, and similarly $x_{1}^{\beta}$ and $x_{2}^{\beta}$ are the compositions of components 1 and 2 in phase $\beta$ respectively. And $f\left(x_{1}, x_{2}\right)$ is the common tangent plane to both phases $\alpha$ and $\beta$:\
+Where $x_{1}^{\alpha}$ and $x_{2}^{\alpha}$ are the compositions of components 1 and 2 in phase $\alpha$ respectively, and similarly $x_{1}^{\beta}$ and $x_{2}^{\beta}$ are the compositions of components 1 and 2 in phase $\beta$ respectively. And $f_{1}\left(x_{1}, x_{2}\right)$ is the common tangent plane to both phases $\alpha$ and $\beta$:\
 
 \begin{equation}
 f_{1}\left(x_{1}, x_{2}\right) = a_{1}x_{1} + b_{1}x_{2} +c_{1} \label{TangentPlane13D}
@@ -216,7 +204,7 @@ If the information of another tie-line at the same temperature is known however,
 f_{2}\left(x_{1}, x_{2}\right) = a_{2}x_{1} + b_{2}x_{2} +c_{2} \label{TangentPlane23D}
 \end{equation}\
 
-Where $a_{2}$, $b_{2}$ and $c_{2}$ are also unknown. At one experimental temperature however, the $\Delta G_{mix}$ surface is defined by the same binary parameters for both tie-lines. Consequently, using information from two experimentally measured tie-lines, and the properties in equations \ref{KnownTernaryProperty1} to \ref{KnownTernaryProperty2}, a system of 12 equations and 12 unknowns can be defined. This system may then be solved, using some suitable numerical algorithm, to calculate the 6 unknown model interaction parameters and the 6 parameters, $a_{1}$, $b_{1}$, $c_{1}$, $a_{2}$, $b_{2}$ and $c_{2}$, from then tangent plane equations \ref{TangentPlane13D} and \ref{TangentPlane23D}.\\
+Where $a_{2}$, $b_{2}$ and $c_{2}$ are also unknown. At one experimental temperature however, the $\Delta G_{mix}$ surface is defined by the same binary parameters for both tie-lines. Consequently, using information from two experimentally measured tie-lines, and the properties in equations \ref{KnownTernaryProperty1} to \ref{KnownTernaryProperty2}, a system of 12 equations and 12 unknowns can be defined. This system may then be solved, using some suitable numerical algorithm, to calculate the 6 unknown model interaction parameters and the 6 tangent plane parameters, $a_{1}$, $b_{1}$, $c_{1}$, $a_{2}$, $b_{2}$ and $c_{2}$, from equations \ref{TangentPlane13D} and \ref{TangentPlane23D}.\\
 
 The reverse calculation, that of the equilibrium compositions and phase diagram, when the model interaction parameters are known is however not determined using the exact same set of equations. While equations \ref{KnownTernaryProperty1} to \ref{KnownTernaryProperty2} still hold, only one tangent plane is considered for a single tie-line:\
 
@@ -240,20 +228,20 @@ The parametric equations of the line in \ref{Tieline3D2} can be written as:\
 
 \begin{eqnarray}
 x_{1} = x_{1}^{\alpha} + \left(x_{1}^{\beta} - x_{1}^{\alpha}\right)t\\
-x_{2} = x_{2}^{\alpha} + \left(x_{2}^{\beta} - x_{2}^{\alpha}\right)t\label{TernaryParametricEquation1}\
+x_{2} = x_{2}^{\alpha} + \left(x_{2}^{\beta} - x_{2}^{\alpha}\right)t\label{TernaryParametricEquation1}\\
 g\left(x_{1}, x_{2}\right) =  g^{\alpha}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right) + \left[g^{\beta}\left(x_{1}^{\beta}, x_{2}^{\beta}\right) - g^{\alpha}\left(x_{1}^{\alpha}, x_{2}^{\alpha}\right)\right]t \label{TernaryParametricEquation2}
 \end{eqnarray}\
 
-Equation \ref{TernaryParametricEquation1} and \ref{TernaryParametricEquation2} can be combined to eliminate $t$. The resulting equation is then used together with equations \ref{KnownTernaryProperty1} to \ref{KnownTernaryProperty2} to define a system of 7 equations. Where the model parameters are unknown, the equilibrium compositions $x_{1}^{\alpha}$, $x_{2}^{\alpha}$, $x_{1}^{\beta}$ and $x_{2}^{\beta}$, and the parameters of the common tangent plane, $a$, $b$ and $c$, are unknown. Therefore, a fully specified system of 7 equations and 7 unknowns result, which again can be solved using a suitable numerical method.\\
+Equation \ref{TernaryParametricEquation1} and \ref{TernaryParametricEquation2} can be combined to eliminate $t$. The resulting equation is then used together with equations \ref{KnownTernaryProperty1} to \ref{KnownTernaryProperty2} to define a system of 7 equations. Where the model parameters are known, the equilibrium compositions $x_{1}^{\alpha}$, $x_{2}^{\alpha}$, $x_{1}^{\beta}$ and $x_{2}^{\beta}$, and the parameters of the common tangent plane, $a$, $b$ and $c$, are unknown. Therefore, a fully specified system of 7 equations and 7 unknowns result, which again can be solved using a suitable numerical method.\\
 
-A method whereby the unstable composition regions of a ternary mixture can be identified by analysis of the Hessian matrix of the Gibbs energy surface, is described in section \ref{PhaseStabilityComputationalSection}. A general algorithm for the calculation of ternary phase diagrams was also discussed. When applying such an algorithm, similar to the one proposed by Solokhin et.al., the aforementioned phase composition calculation method can now be used to calculate a number of tie-lines. The phase diagram for a ternary mixture using a mixture model for which the binary interaction parameters are known can also be predicted. The present algorithm used to calculate a number of ternary phase diagrams is summarised as follows:\
+A method whereby the unstable composition regions of a ternary mixture can be identified, by analysis of the Hessian matrix of the Gibbs energy surface, is described in section \ref{PhaseStabilityComputationalSection}. A general algorithm for the calculation of ternary phase diagrams, proposed by \citeauthor{HessianPhaseDiagramConstruction},\citeyear{HessianPhaseDiagramConstruction}, was also discussed. When applying such an algorithm together with the aforementioned equilibrium phase calculation method, the entire ternary phase diagram can be predicted. The algorithm used here to calculate a number of ternary phase diagrams is summarised as follows~\cite{HessianPhaseDiagramConstruction, HessianPhaseEquilibriumCriterion}:\
 
 \begin{enumerate}
 \item Import the known model parameters from a saved data file.\
 \item Create composition arrays for components 1 and 2, with $N_{int}$ intervals over the composition range $0\leq x_{i}\leq1$, for $i =1, 2$. \
-\item At each physically significant $\left\langle x_{1} x_{2}\right\rangle$ evaluate the Hessian matrix of the Gibbs energy surface.\
+\item At each physically significant $\left\langle x_{1}, x_{2}\right\rangle$ evaluate the Hessian matrix of the Gibbs energy surface.\
 \item Using a connected component labelling algorithm, determine the number of unconnected unstable regions.\
-\item For every unstable region which contains a binary phase separation:\label{UnstableBinariesStep}\
+\item For every unstable region which exhibits a binary phase split:\label{UnstableBinariesStep}\
 \begin{enumerate}
 	\item Starting at the binary mixture, calculate the binary phase separation compositions.\
 	\item From the midpoint of the tie-line between the the previously calculated equilibrium phases $\alpha$ and $\beta$, take a step to a point $m$, perpendicular to the tie-line, into the unstable region. The step size is set proportional to the length of the tie-line.\label{NewmStep1}\
@@ -262,7 +250,7 @@ A method whereby the unstable composition regions of a ternary mixture can be id
 \end{enumerate}
 \item For isolated regions of instability:\label{UnstableIsolatedStep}\
 \begin{enumerate}
-	\item Select any random point inside the region as the firs starting point $m$ and calculate the corresponding phase separation through that point.\
+	\item Select any random point inside the region as the first starting point $m$ and calculate the corresponding phase separation through that point.\
 	\item From the midpoint of the tie-line between the the previously calculated equilibrium phases $\alpha$ and $\beta$, take a step to a point $m$, perpendicular to the tie-line, in the positive direction. The step size is set proportional to the length of the tie-line.\label{NewmStep2}\
 	\item If the mixture is unstable at the new point $m$, and the previous tie-line is not smaller than some predetermined tolerance, calculate the new equilibrium separation at $m$ and return to step \ref{NewmStep2}.\
 	\item If the mixture is stable at $m$ or the calculated tie-line is smaller than the selected small tolerance, take this halfway point as the plait point of that region, and proceed to calculate the tie-lines in the negative direction from the original tie-line in a similar manner until the entire isolated region is explored.\
@@ -270,20 +258,21 @@ A method whereby the unstable composition regions of a ternary mixture can be id
 \item Draw cubic-splines through the endpoints of the calculated tie-lines for each region to complete the phase diagram.\
 \end{enumerate}\
 
-Software was developed using the Python programming language to perform the parameter estimation from ternary liquid-liquid equilibria, and to calculat the predicted phase diagrams for the DWPM model using the method described here. The ternary mixtures and the corresponding original references are given in table \ref{TernarySystemsandReferences}.\
+Software was developed using the Python programming language to perform the parameter estimation from ternary liquid-liquid equilibria, and to calculate the predicted phase diagrams for the DWPM model using the method described here. The ternary mixtures and the corresponding original references are given in table \ref{TernarySystemsandReferences}.\
 
-\begin{table}
-\begin{tabularx}{\textwidth}{Xc}
-\hline
+\begin{table}[h]
+\caption{Ternary mixtures for which binary interaction parameters are calculated and experimental data sources}
+\centering
+\begin{tabular}{lc}
+\toprule
 \textbf{Ternary Mixture}&\textbf{Data Source}\\
-\hline
-\hline
+\midrule
 1-Hexanol and Nitromethane and Water&\citeauthor{SazonovMarkuzinFilippov},(\citeyear{SazonovMarkuzinFilippov}) \cite{SazonovMarkuzinFilippov} \\
-1-Nonanol and Nitromethane and Water&\citeauthor{SazonovChernysheva},(\citeyear{SazonovChernysheva}) \cite{SazonovChernysheva} \\
+%1-Nonanol and Nitromethane and Water&\citeauthor{SazonovChernysheva},(\citeyear{SazonovChernysheva}) \cite{SazonovChernysheva} \\
 Cyclohexane and Benzene and Nitromethane& \citeauthor{WeckHunt},(\citeyear{WeckHunt}) \cite{WeckHunt} \\
 Heptane and Hexane and Methanol& \citeauthor{Wittrig},(\citeyear{Wittrig}) \cite{Wittrig} \\
-Water and Dimethyl Sulfoxide and Tetrahydrofuran & \citeauthor{FoucaultDurandCamachoGoffic},(\citeyear{FoucaultDurandCamachoGoffic}) \cite{FoucaultDurandCamachoGoffic}\\
-\hline
-\end{tabularx}\\
-\caption{Ternary mixtures for which binary interaction parameters are calculated and experimental data sources} \label{TernarySystemsandReferences}
+%Water and Dimethyl Sulfoxide and Tetrahydrofuran & \citeauthor{FoucaultDurandCamachoGoffic},(\citeyear{FoucaultDurandCamachoGoffic}) \cite{FoucaultDurandCamachoGoffic}\\
+\bottomrule
+\end{tabular}\\
+\label{TernarySystemsandReferences}
 \end{table}\

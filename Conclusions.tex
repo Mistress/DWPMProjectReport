@@ -1,0 +1,47 @@
+
+Binary interaction parameter estimation, for the NRTL, UNIQUAC and DWPM models, from experimental liquid-liquid equilibrium data, was performed successfully for a number of binary and ternary liquid mixtures. A bi-level optimization method previously suggested for this purpose by \citeauthor{BilevelOptimization2}, \citeyear{BilevelOptimization2}, was applied to binary mixture data using the Python programming language. While this approach seems logical and intuitive, difficulties were encountered with the implementation thereof. As a result, consistent and repeatable parameter values could not be calculated using this method~\cite{BilevelOptimization2}.\\
+
+Due to the difficulties with the use of the bi-level optimization approach, an equation solving method was developed whereby model interaction parameters can be calculated directly from experimental tie-line data. By this so-called pseudo-analytical approach, a system of six equations is formulated at each experiential temperature. Then, by means of some numerical method, the set of equations is solved for six unknowns, which include the model interaction parameters.\\
+
+The pseudo-analytical approach has the benefit of matching exactly the experimental equilibrium compositions. In addition, the equation solving approach is computationally simple and easy to implement, in comparison to the bi-level optimization approach. Binary interaction parameters for the DWPM, NRTL and UNIQUAC models were calculated for a number of binary mixtures using this approach. The algorithm was found to converge relatively rapidly and consistently for all binary mixtures studied.\\
+
+An additional benefit of the pseudo-analytical method is that it can be applied in a reverse manner, to calculate the equilibrium phase compositions predicted by an excess Gibbs energy model, when the model parameters are known. The same set of equations derived and used for the parameter estimation is solved for, instead of the model parameters, the phase compositions. This approach was implemented successfully to calculate the predicted phase split and phase diagrams, using the DWPM, NRTL and UNIQUAC models, of all the binary mixtures studied.\\
+
+Binary mixtures of organic compounds are observed to exhibit at most one liquid miscibility gap. Theoretically however, binary mixtures may form up to four distinct liquid phases, or two liquid-liquid phase splits. Such behaviour is probably more likely for systems containing polymers and electrolytes. In this investigation, only real mixtures of organic compounds, which exhibit one binary phase split, were studied. It was found that the DWPM model, with fixed values of $s_{1}= \nicefrac{1}{2}$ and $s_{2}= \nicefrac{1}{2}$, is sufficient to model thier phase behaviour. The software developed for this investigation can nonetheless accommodate different values for each $s_{i}$. The form of the model used here, which is equivalent to the three parameter Wilson model, performs at least as well as the NRTL and UNIQUAC models to predict binary phase behaviour.\\
+
+It is however possible that more complex phase behaviour can be correlated using the DWPM model. A method for calculating the $s_{i}$ parameters, together with the binary interaction parameters, from such data was suggested. The suggested pseudo-analytical method is again a simple equation solving approach, similar to the one used here for parameter estimation from conventional binary mixture behaviour, and is based on the same set of equations as before. This approach potentially offers the following advantages:\
+
+\begin{itemize}
+\item The experimental phase compositions can be matched exactly.
+\item Uncommon thermodynamic behaviour can be enforced through dictating the shape of the Gibbs energy curve.
+\item The equation solving approach is likely to be computationally less expensive and easier to implement than alternative optimization approaches.
+\end{itemize}\
+
+The pseudo-analytical approach developed for parameter estimation from binary solubility data was expanded for application to ternary liquid-liquid equilibrium data. A system of twelve equations was formulated which, together with the data from two experimentally measured tie-lines, can be used to calculate the binary interaction parameters of an excess Gibbs energy model. This method was successfully applied to determine the parameters for the DWPM model for two ternary mixtures.\\
+
+As in the binary case, all $s_{i}$ parameters of the DWPM model were arbitrarily set equal to $\nicefrac{1}{2}$. This form of the model was found to be adequate to model the phase behaviour of ternary mixtures which contain only one phase split at a given temperature. While it is not common, experimentally measured phase diagrams of some ternary mixtures do contain multiple two-phase regions. Such is the case of the mixture  1-Hexanol, Nitro-Methane and Water at $294.15~\mathrm{K}$ and $296.15~\mathrm{K}$, which has been observed to form three two-phase regions. The current pseudo-analytic method is inadequate to determine binary interaction parameters from such data.\\
+
+As in the binary case, it is possible that by allowing each $s_{i}$ to be distinct and including them in the parameter estimation exercise, that more complex phase behaviour can easily be modelled with the DWPM model. A method was suggested whereby this could be investigated.\\
+
+Finally, the current pseudo analytic approach was combined with an algorithm proposed by \citeauthor{HessianPhaseDiagramConstruction}, \citeyear{HessianPhaseDiagramConstruction}, to determine the entire phase diagrams of the two ternary mixtures, for which the DWPM model parameters had been calculated earlier~\cite{HessianPhaseDiagramConstruction}.\\
+
+In this investigation the pseudo-analytical method used for parameter estimation was applied directly to experimental binary and ternary data. No attempts were made to reduce the experimental data available. If the method is therefore applied to data of poor quality, or data containing considerable random and experimental errors, significant prediction errors may result from the use of the calculated parameters.\\
+
+In the case of ternary liquid-liquid equilibrium data, multiple tie-lines exist at a given temperature. When a number of experimental tie-line compositions are available, a choice therefore exists of which tie-lines to use for binary parameter estimation by the pseudo-analytical approach. For the ternary systems studied here, an arbitrary selection was made and the parameters approved by inspection of the resulting phase diagrams. A more scientific method may however be applied in future to select the tie-lines for these calculations. In order to calculate a set of parameters which statistically better match all the experimental data points, the pseudo analytical parameter estimation method may be nested inside an overall error minimization routine. Thereby ensuring that the entire phase diagram is accurately reproduced.\\
+
+The conclusions can therefore be summarised as follows:\
+The following conclusions were drawn:\
+\begin{itemize}
+\item The double-weighted power mean model, in the form of the modified Wilson model, has been found to be adequately flexible to reproduce experimental binary and ternary data with single two-phase regions.\
+\item The pseudo-analytical approach, formulated for excess Gibbs energy model parameter estimation, was applied successfully to all binary mixtures studied and ternary mixtures with single two-phase regions.\
+\item Similarly, the pseudo-analytical approach for equilibrium phase calculation, was applied successfully to all binary mixtures studied and ternary mixtures with single two-phase regions.\
+\item The pseudo-analytical approach was easily implemented and produced repeatable results.\
+\end{itemize}
+
+And the following recommendations are made for future investigations:\
+\begin{itemize}
+\item A modified pseudo-analytical approach should be applied to fit the adjustable parameters of the double-weighted power mean model, as well as the binary interaction parameters, to data of systems containing multiple liquid miscibility gaps.\
+\item By correlating unusual liquid-liquid equilibrium data, the ability of the double-weighted power mean model to accurately reproduce such behaviour can be investigated.\
+\item A statistical method for tie-line selection or overall parameter optimization, in conjunction with the pseudo-analytical method for parameter estimation from ternary data, should be investigated.\
+\item The use of a suitable data reduction technique, for binary and ternary data, should be explored in order to increase the confidence in the calculated model parameters.
+\end{itemize}

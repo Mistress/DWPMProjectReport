@@ -5,23 +5,23 @@ The intermolecular forces present between individual molecules ultimately determ
 
 Quantitative models as well as analytical relations from statistical mechanics are often only applied to simple, idealised systems of real matter. Consequently, our limited understanding of intermolecular interactions are used in an approximate manner to extrapolate from simple cases the overall properties of complex systems and mixtures.The theory of intermolecular forces do nonetheless provide useful insights into the thermodynamic properties and phase behaviour of real systems. In addition, molecular simulation with the aid of modern computer capabilities can provide predictions of bulk fluid properties from quantitative knowledge of the governing intermolecular forces~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\\
 
-The interactions between molecules in close proximity to one another can be either attractive or repulsive. The ultimate consequences of these interactions are observed, for example, when a vapour condenses from a liquid; which would not be possible in the absence of attractive intermolecular forces. Similarly, the virtual incompressibility of condensed phases are a testament to the presence of repulsive intermolecular forces. Configurational properties of matter are determined by the balance of attractive and repulsive interactions~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\\
+The interactions between molecules in close proximity to one another can be either attractive or repulsive. The ultimate consequences of these interactions are observed, for example, when a vapour condenses to form a liquid; which would not be possible in the absence of attractive intermolecular forces. Similarly, the virtual incompressibility of condensed phases are a testament to the presence of repulsive intermolecular forces. Configurational properties of matter are determined by the balance of attractive and repulsive interactions~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\\
 
 The most significant of intermolecular interactions are electrostatic, induction, dispersion and chemical forces. These intermolecular forces are expressed with the aid of potential energy functions; similar to moving particles which have kinetic energy due to their relative motion, the potential energy of a particle results from the position of particles relative to each other. In general the force, $F$, acting between two molecules is given by~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
 
 \begin{equation}
-F\left(r, \theta, \phi...\right) = -\nabla\Gamma\left(r, \theta, \phi...\right) \
+F\left(r, \theta, \phi...\right) = -\nabla\Gamma_{ij}\left(r, \theta, \phi...\right) \
 \end{equation}\
 
-\nomenclature{$\Gamma$}{Potential energy between two molecules $\left[\Gamma\right]=\mathrm{J}$}
+\nomenclature{$\Gamma_{ij}$}{Potential energy between two molecules $\left[\Gamma_{ij}\right]=\mathrm{J}$}
 
-Where $\Gamma$ denotes the potential energy shared by these two molecules, and $r$, $\theta$, $\phi$ etc. are the parameters required to express the separation between and orientation of two non-spherical molecules relative to each other. For two spherically symmetric particles, separated by distance $r$~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+Where $\Gamma_{ij}$ denotes the potential energy shared by these two molecules, and $r$, $\theta$, $\phi$ etc. are the parameters required to express the separation between and orientation of two non-spherical molecules relative to each other. For two spherically symmetric particles, separated by distance $r$~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
 
 \begin{equation}
-F = -\frac{\mathrm{d}\Gamma}{\mathrm{d}r}
+F = -\frac{\mathrm{d}\Gamma_{ij}}{\mathrm{d}r}
 \end{equation}\
 
-Theoretically, the work required to separate two spherical particles from some finite $r$ to infinity is given by $-\Gamma\left(r\right)$.\\
+Theoretically, the work required to separate two spherical particles from some finite $r$ to infinity is given by $-\Gamma_{ij}\left(r\right)$.\\
 
 %Convention dictates that attractive forces are negative and repulsive forces are positive
 %%-----------------------------------Electrostatic Forces-------------------------------------------------%%
@@ -45,15 +45,13 @@ Where $F$ denotes the resulting force between two point charges, a distance of $
 \varepsilon = \varepsilon_{0} \varepsilon_{r}
 \end{equation}\
 
-
 After integration of equation \ref{Electrostatic Force}, the potential energy between two spherical molecules in a vacuum is expressed by equation \ref{Electrostatic Potential}.\
 
 \begin{equation}
 \Gamma_{ij} = \frac{q_{i}q_{j}}{4 \pi \varepsilon_{0} r} + C_{0} \label{Electrostatic Potential}
 \end{equation}\
 
-
-The constant of integration, $C_{0}$, reduces to zero when it is assumed, according to common convention, that $\Gamma\left(r\right)\vert_{r =\infty}~=~0$. For charged molecules $q_{i}$ and $q_{j}$ are multiples of the unit charge $\mathit{e}$, and consequently  the potential energy between two ions can be determined from~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+The constant of integration, $C_{0}$, reduces to zero when it is assumed, according to common convention, that $\Gamma_{ij}\left(r\right)\vert_{r =\infty}~=~0$. For charged molecules $q_{i}$ and $q_{j}$ are multiples of the unit charge $\mathit{e}$, and consequently  the potential energy between two ions can be determined from~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
 
 \begin{equation}
 \Gamma_{ij} = \frac{z_{i}z_{j}\mathit{e}^{2}}{4 \pi \varepsilon r}
@@ -67,19 +65,19 @@ The constant of integration, $C_{0}$, reduces to zero when it is assumed, accord
 In addition to charged particles, electrostatic forces can also be observed between particles that do not have a net charge. For example, in the case of molecules that have electric couples or permanent dipoles. Dipoles arise due to the uneven distribution of electric charge in asymmetric molecules. Generally, the larger the assymetry of a molecule, the larger the resulting dipole moment. For two charges held a distance of $d$ apart, the dipole moment is given by~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
 
 \begin{equation}
-\mu = \mathit{e} d \label{DipoleMoment}
+\tau = \mathit{e} d \label{DipoleMoment}
 \end{equation}\
 
 \nomenclature{$d$}{Distance between two opposite charges of a dipole $\left[ d\right]=\mathrm{m}$}
-\nomenclature{$\mu$}{Magnitude of a dipole moment $\left[ \mu\right]=\mathrm{D}$}
+\nomenclature{$\tau$}{Magnitude of a dipole moment $\left[\tau\right]=\mathrm{D}$}
 
 For two dipole moments in proximity to each other, the resulting potential energy is a function of the distance between and orientation of the four dipole charges. Figure \ref{DipoleDrawing} illustrates the parameters used to characterise the orientation of the dipole moments relative to each other. If the distance between the dipoles, $r$, is large in comparison to $d_{i}$ and $d_{j}$ the potential energy can be calculated according to~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
 
 \begin{equation}
-\Gamma_{ij} = -\frac{\mu_{i}\mu_{j}}{4 \pi \varepsilon_{0} r^{3}}\left[2 \cos\theta_{i}\cos\theta_{j} - \sin\theta_{i}\sin\theta{j}\cos\left(\phi_{i}-\phi_{j}\right)\right] \label{Dipole Potential}
+\Gamma_{ij} = -\frac{\\tau_{i}\tau_{j}}{4 \pi \varepsilon_{0} r^{3}}\left[2 \cos\theta_{i}\cos\theta_{j} - \sin\theta_{i}\sin\theta{j}\cos\left(\phi_{i}-\phi_{j}\right)\right] \label{Dipole Potential}
 \end{equation}\
 
-\nomenclature{$\mu_{i}$}{Magnitude of a dipole moment $i$ $\left[ \mu\right]=\mathrm{D}$}
+\nomenclature{$\tau_{i}$}{Magnitude of a dipole moment $i$ $\left[ \tau_{i}\right]=\mathrm{D}$}
 \nomenclature{$\theta_{i}$}{Parameter  used to describe orientation of dipole moment  $i$ relative to another $\left[\theta_{i}\right] = \mathrm{rad}$}
 \nomenclature{$\phi_{i}$}{Parameter  used to describe orientation of dipole moment $i$ relative to another $\left[\phi_{i}\right] = \mathrm{rad}$}
 \nomenclature{$d_{i}$}{Distance between two opposite charges of a dipole  $i$ or distance from arbitrary origin  of a linear quadrupole $\left[d_{i}\right] = \mathrm{m}$}
@@ -97,7 +95,7 @@ A maximum in this resulting potential energy is observed when like charges of ea
 The average potential energy due to polar interactions can be calculated by averaging all $\Gamma_{ij}$ over all orientations and weighting each orientation according to the Boltzmann factor. For two ideal dipoles $i$ and $j$ ($r \le d$), a fixed distance $r$ apart in a vacuum, the average potential energy is then:~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}\
 
 \begin{equation}
-\bar{\Gamma}_{ij} = -\frac{2}{3}\frac{\mu_{i}^{2}\mu_{j}^{2}}{\left(4 \pi \varepsilon_{0}\right)^{2}kt.^{6}}+\cdots \label{Dipole Potential Average}
+\bar{\Gamma}_{ij} = -\frac{2}{3}\frac{\tau_{i}^{2}\tau_{j}^{2}}{\left(4 \pi \varepsilon_{0}\right)^{2}kt.^{6}}+\cdots \label{Dipole Potential Average}
 \end{equation}\
 
 \nomenclature{$T$}{Temperature $\left[T\right] = \mathrm{K}$}
@@ -109,10 +107,10 @@ Intermolecular interactions due to polar forces can be very significant and smal
 Molecules with higher order multiples such as quadrupoles, octapoles, hexadecapoles etc. also exist. Quadrupoles arise when charge concentrates at four seperate locations in a molecule. Intermolecular interactions due to quadrupole forces can have significant effects on the thermodynamic properties of a substance however, the effects are much less pronounced than that of dipole forces. Due to the very short range of higher order multipole forces the effect of these interactions become negligible for higher order multipoles. The quadrupole moment can be calculated by summation of the second moments of the charges, as in equation \ref{Quadrupole Force} below. Figure \ref{QuadrupoleDrawing} provides a schematic representation of molecules with linear quadrupoles~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\
 
 \begin{equation}
-Q = \Sigma_{i} \mathit{e}_{i} d_{i}^{2} \label{Quadrupole Force}
+\psi = \Sigma_{i} \mathit{e}_{i} d_{i}^{2} \label{Quadrupole Force}
 \end{equation}\
 
-\nomenclature{$Q$}{Magnitude of quadrupole moment $\left[Q\right] = \mathrm{D}$}
+\nomenclature{$\psi$}{Magnitude of quadrupole moment $\left[\psi\right] = \mathrm{D}$}
 
 \begin{figure}
 \begin{center}
@@ -125,13 +123,14 @@ The potential energy resulting from the interactions of permanent quadrupoles wi
 
 For dipole-quadrupole interactions:\
 \begin{equation}
-\bar{\Gamma}_{ij} = - \frac{\mu_{i}^{2} Q_{j}^{2}}{\left(4\pi\varepsilon_{0}\right)^{2}kTr^{8}} +\cdots \label{Dipole-Quad Potential Average}
+\bar{\Gamma}_{ij} = - \frac{\tau_{i}^{2} \psi_{j}^{2}}{\left(4\pi\varepsilon_{0}\right)^{2}kTr^{8}} +\cdots \label{Dipole-Quad Potential Average}
 \end{equation}\
 For quadrupole-quadrupole interactions:\
 \begin{equation}
-\bar{\Gamma}_{ij} = -\frac{7}{40} \frac{Q_{i}^{2} Q_{j}^{2}}{\left(4\pi\varepsilon_{0}\right)^{2}kTr^{10}} +\cdots \label{Quadrupole-Quad Potential Average}
+\bar{\Gamma}_{ij} = -\frac{7}{40} \frac{\psi_{i}^{2} \psi_{j}^{2}}{\left(4\pi\varepsilon_{0}\right)^{2}kTr^{10}} +\cdots \label{Quadrupole-Quad Potential Average}
 \end{equation}\
 
+\nomenclature{$\psi_{i}$}{Magnitude of quadrupole moment $i$ $\left[\psi\right] = \mathrm{D}$}
 
 %%----------------------------------------Induction Forces-----------------------------------------------%%
 %%-----------------------------------------------------------------------------------------------------------%%
@@ -142,27 +141,27 @@ Induction forces are encountered when non-polar molecules are in the vicinity of
 In moderate electric fields the induced dipole moment is directly proportional to the field strength. The proportionality constant is termed the polarizability, which is a constant property of the substance for symmetric molecules and a function of orientation for asymmetric molecules~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\
 
 \begin{equation}
-\mu^{i} = \alpha E
+\tau^{I} = \alpha E
 \end{equation}\
 
-\nomenclature{$\mu^{i}$}{Magnitude of induced dipole moment $\left[\mu^{i}\right] = \mathrm{D}$}
+\nomenclature{$\tau^{I}$}{Magnitude of induced dipole moment $\left[\tau^{I}\right] = \mathrm{D}$}
 \nomenclature{$\alpha$}{Polarizability of a pure substance $\left[\alpha\right] = \mathrm{\dfrac{C^{2}m^{2}}{J}}$}
 \nomenclature{$E$}{Strength of electric field $\left[E\right] = \mathrm{\dfrac{V}{m}}$}
 
 The resulting force between a permanent dipole and the nearby induced dipole in the non polar molecule is always attractive. The associated average potential energy can be calculated using the Debye equation~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
 
 \begin{equation}
-\bar{\Gamma}_{ij} = -\frac{\alpha_{i}\mu_{j}^{2}}{\left(4\pi\varepsilon_{0}\right)^{2}r^{6}}
+\bar{\Gamma}_{ij} = -\frac{\alpha_{i}\tau_{j}^{2}}{\left(4\pi\varepsilon_{0}\right)^{2}r^{6}}
 \end{equation}\
 
 The average potential energy due to induced dipoles between two permanent dipoles or two quadrupoles are calculated according to equations \ref{InducedDipole} and \ref{InducedQaud}, respectively~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\
 
 \begin{equation}
-\bar{\Gamma}_{ij} = -\frac{\alpha_{i}\mu_{j}^{2} + \alpha_{j}\mu_{i}^{2}}{\left(4\pi\varepsilon_{0}\right)^{2}r^{6}} \label{InducedDipole}
+\bar{\Gamma}_{ij} = -\frac{\alpha_{i}\tau_{j}^{2} + \alpha_{j}\tau_{i}^{2}}{\left(4\pi\varepsilon_{0}\right)^{2}r^{6}} \label{InducedDipole}
 \end{equation}\
 
 \begin{equation}
-\bar{\Gamma}_{ij} = -\frac{2}{3}\frac{\alpha_{i}Q_{j}^{2} + \alpha_{j}Q_{i}^{2}}{\left(4\pi\varepsilon_{0}\right)^{2}r^{8}} \label{InducedQaud}
+\bar{\Gamma}_{ij} = -\frac{2}{3}\frac{\alpha_{i}\psi_{j}^{2} + \alpha_{j}\psi_{i}^{2}}{\left(4\pi\varepsilon_{0}\right)^{2}r^{8}} \label{InducedQaud}
 \end{equation}\
 
 %%----------------------------------------Dispersion Forces----------------------------------------------%%
@@ -197,28 +196,28 @@ From equations \ref{ModifiedLondonEquation} and \ref{ModifiedLondonEquationPureC
 Calculations confirm that dispersion forces tend to be far from negligible, even for polar substances, and are normally much more significant than induction forces. When molecules are in such close proximity that the electron clouds overlap, London's equation does not hold. In such cases interactions between molecules become repulsive and are not well understood. The total potential energy due to attractive and repulsive forces are calculated as follows, according to Mie's equation~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
 
 \begin{equation}
-\Gamma_{Total} = \frac{A}{r^{n}}-\frac{B}{r^{m}} \label{MiePotentialShort}
+\Gamma_{Total} = \frac{A}{r^{u}}-\frac{B}{r^{w}} \label{MiePotentialShort}
 \end{equation}\
 
-$A$, $B$, $n$, and $m$ are positive constants. The first term in equation \ref{MiePotentialShort} represents the repulsive interactions and the second term the attractive interactions. It was investigated extensively by Lennard-Jones and is the basis for a variety of physiochemical calculations. It can be rewritten as~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+$A$, $B$, $u$, and $w$ are positive constants. The first term in equation \ref{MiePotentialShort} represents the repulsive interactions and the second term the attractive interactions. It was investigated extensively by Lennard-Jones and is the basis for a variety of physiochemical calculations. It can be rewritten as~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
 
 \begin{equation}
-\Gamma = \epsilon \frac{\left( \frac{n^{n}}{m^{m}} \right)^{\frac{1}{\left(n-m\right)}}}{n-m}\left[\left(\frac{\sigma}{r}\right)^{n}-\left(\frac{\sigma}{r}\right)^{m}\right] \label{MiePotentialLong}
+\Gamma = \epsilon \frac{\left( \frac{u^{u}}{w^{w}} \right)^{\frac{1}{\left(u-w\right)}}}{u-w}\left[\left(\frac{\sigma}{r}\right)^{u}-\left(\frac{\sigma}{r}\right)^{w}\right] \label{MiePotentialLong}
 \end{equation}\
  
 \nomenclature{$\epsilon$}{Energy parameter in Mie's potential energy function $\left[\epsilon\right] = \mathrm{J}$ } 
-\nomenclature{$n$}{Positive constant in the repulsive interaction term of Mie's potential energy function}
-\nomenclature{$m$}{Positive constant in the attractive interaction term of Mie's potential energy function}
+\nomenclature{$u$}{Positive constant in the repulsive interaction term of Mie's potential energy function}
+\nomenclature{$w$}{Positive constant in the attractive interaction term of Mie's potential energy function}
  
-Where $\epsilon = -\Gamma_{min}$ and $\sigma = r$ at $\Gamma = 0$. London proved that $m = 6$ and normally $n$ is taken as $12$ for computational convenience, although better agreement with experimental data is obtained when allowing $n$ to be an adjustable parameter. When $n = 6$ and $m = 12$ are substituted into equation \ref{MiePotentialLong}, an expression for the Lennard-Jones potential is obtained~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
+Where $\epsilon = -\Gamma_{min}$ and $\sigma = r$ at $\Gamma = 0$. London proved that $w = 6$ and normally $u$ is taken as $12$ for computational convenience, although better agreement with experimental data is obtained when allowing $u$ to be an adjustable parameter. When $u = 6$ and $w = 12$ are substituted into equation \ref{MiePotentialLong}, an expression for the Lennard-Jones potential is obtained~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
 
 \begin{equation}
-\Gamma = 4\epsilon\left[\left(\frac{\sigma}{r}\right)^{n}-\left(\frac{\sigma}{r}\right)^{m}\right] \label{LennardJones}
+\Gamma = 4\epsilon\left[\left(\frac{\sigma}{r}\right)^{u}-\left(\frac{\sigma}{r}\right)^{w}\right] \label{LennardJones}
 \end{equation}\
 
 \nomenclature{$\sigma$}{Distance parameter in Mie's potential energy function $\left[\sigma\right] = \mathrm{m}$}
 
-The Lennard-Jones potential yields the potential energy between two molecules as a function of the distance of seperation between them, with two parameters $\epsilon$ and $\sigma$. Then energy parameter, $\epsilon$, is equal to the negative of the minimum in energy and the distance parameter, $\sigma$, is the seperation between molecules when the potential energy is zero. The constants $\epsilon$, $\sigma$ and $n$ can all be estimated from numerous physical properties and experimental measurements, such as viscosity, compressibility, specific heat and second virial coefficients~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\\
+The Lennard-Jones potential yields the potential energy between two molecules as a function of the distance of seperation between them, with two parameters $\epsilon$ and $\sigma$. Then energy parameter, $\epsilon$, is equal to the negative of the minimum in energy and the distance parameter, $\sigma$, is the seperation between molecules when the potential energy is zero. The constants $\epsilon$, $\sigma$ and $u$ can all be estimated from numerous physical properties and experimental measurements, such as viscosity, compressibility, specific heat and second virial coefficients~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\\
 
 Mie's potential, and consequently equations \ref{MiePotentialShort} through \ref{LennardJones}, are only valid for isolated, nonpolar, spherically symmetric molecules. Consequently, certain simplifying assumptions are required in order to derive a relationship which holds for non-dilute media and condensed phases. For a condensed phase at conditions similar to that at the triple point, we assume that only interactions between neighbouring pairs of molecules make a significant contribution to the potential energy. Then, for $N$ molecules and $z$ binary interactions, the total potential energy of the system~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}:\
 
@@ -233,13 +232,13 @@ Mie's potential, and consequently equations \ref{MiePotentialShort} through \ref
 Upon substitution of equation \ref{TotalPotential} into equation \ref{MiePotentialShort}:\
 
 \begin{equation}
-\Gamma_{T} = \frac{1}{2}Nz \left(\frac{A}{r^{n}}-\frac{B}{r^{m}}\right) \label{TotalPotentialBinary}
+\Gamma_{T} = \frac{1}{2}Nz \left(\frac{A}{r^{u}}-\frac{B}{r^{w}}\right) \label{TotalPotentialBinary}
 \end{equation}\
 
-Equation \ref{TotalPotentialBinary} can be modified to account for interactions between non-neighbouring molecules by introducing two parameters $s_{n}$ and $s_{m}$, as in equation \ref{TotalPotentialInteractions}. These constants are normally close to unity and can be calculated from lattice geometry for crystalline substances~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\
+Equation \ref{TotalPotentialBinary} can be modified to account for interactions between non-neighbouring molecules by introducing two parameters $s_{u}$ and $s_{w}$, as in equation \ref{TotalPotentialInteractions}. These constants are normally close to unity and can be calculated from lattice geometry for crystalline substances~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\
 
 \begin{equation}
-\Gamma_{T} = \frac{1}{2}Nz \left(\frac{s_{n}A}{r^{n}}-\frac{s_{m}B}{r^{m}}\right) \label{TotalPotentialInteractions}
+\Gamma_{T} = \frac{1}{2}Nz \left(\frac{s_{u}A}{r^{u}}-\frac{s_{w}B}{r^{w}}\right) \label{TotalPotentialInteractions}
 \end{equation}\
 
 %%----------------------------------------Structural Effects----------------------------------------------%%
@@ -264,8 +263,6 @@ Hydrophobic effects are mainly responsible for the insolubility of non-polar and
 
 %%----------------------------------------Chemical Forces----------------------------------------------%%
 %%-----------------------------------------------------------------------------------------------------------%%
-
-
 \subsubsection{Chemical Forces}\
 
 Chemical forces are specific attractions which lead to the formation of new chemical species. Not surprisingly, chemical forces contribute significantly to the thermodynamic properties of mixtures or solutions. No simple, quantitative equations, as for physical interactions, can be formulated to describe chemical interactions between molecules and consequently only qualitative relations are used to link these to overall mixture properties. Among the numerous chemical interactions of import to solution thermodynamics is complex formation, electron-donor and -acceptor interactions, hydrogen bonding and acid-base reactions~\cite{MolecularThermodynamicsOfFluidPhaseEquilibria}.\\

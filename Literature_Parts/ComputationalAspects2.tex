@@ -1,25 +1,317 @@
 %%-------------------------------Phase Equilibrium----------------------------------------------------------------%%
 %%----------------------------------------------------------------------------------------------------------------%%
-\subsection{Phase Equilibrium Calculation Strategies}
+\subsection{Phase Equilibrium Calculation}
 
-Assuming that a liquid mixture is unstable at some overall composition, the resulting phase equilibrium can be calculated using one of two approaches:~\cite{PhaseEquilCalcsESandGEM}\
+Phase equilibrium calculations normally follow one of two approaches:~\cite{PhaseEquilCalcsESandGEM}\
 
 \begin{itemize}
 \item Equation solving methods.\
 \item Gibbs energy minimization methods.
 \end{itemize}
 
-The equation solving approach is based on the requirement that the chemical potential, or activity, of each component must be equal in all phases. As such, it is also commonly known as the iso-activity method. The combination of expressions for the activity of each component, with component and overall mass balances yield a set of equations. The resulting set of equations can then be solved, either directly or by means of some numerical method~\cite{PhaseEquilCalcsESandGEM}.\
+The equation solving approach is based on the requirement that the chemical potential, or activity, of each component must be equal in all phases. As such, it is also referred to as the iso-activity method. Expressions for the activity of each component in each phase is combined with component and overall mass balances, to obtain a set of fully defined equations. This resulting set of equations can then be solved simultaneously or by means of equation-decoupling methods~\cite{PhaseEquilCalcsESandGEM, ThermodynamicModels, ComputerCalculationsVLEandLLE}.\\
 
-The Gibbs free energy approach 
+The equality of the activity of each component in each phase is however only a necessary, not sufficient, condition for equilibrium. The requirement for equilibrium is that the Gibbs free energy of the system is at a global minimum. Consequently, the second approach attempts to minimize an expression for the Gibbs free energy by means of some numerical method~\cite{PhaseEquilCalcsESandGEM, ThermodynamicModels}.\\
+
+The equation solving approach is historically favoured by engineers and in practice, for simulations which require repeated and multiple phase equilibrium calculations, due to the computational efficiency thereof. On the other hand, researchers prefer the Gibbs energy minimization technique because it represents the actual thermodynamic solution and is more reliable than the former method~\cite{PhaseEquilCalcsESandGEM}.\\
+
+In a study performed by \citeauthor{PhaseEquilCalcsESandGEM}, \citeyear{PhaseEquilCalcsESandGEM}, several equation solving approaches and Gibbs energy minimization techniques where applied to two and three phase equilibrium problems. They concluded that the equation solving approach, by means of the well known Rachford Rice mean value theorem, was the most efficient and reliable method for two-phase equilibrium calculations. However, for systems where more than two phases are present or the number of phases in equilibrium is uncertain, the only reliable technique is the overall  minimization of Gibbs energy~\cite{PhaseEquilCalcsESandGEM}.\\
 
 
+\subsubsection{Equation Solving Approach}\
 
-	\subsubsection{Equation Solving Approaches}\
-	\subsubsection{Gibbs Free Energy Minimization}\
+The equation solving technique for the calculation of liquid-liquid equilibrium can be seen as a simplification of that technique for the calculation of vapour-liquid-liquid equilibrium. In the case of vapour-liquid-liquid equilibria, the following relationships are known~\cite{PhaseEquilCalcsESandGEM, HybridFlashCalculations}:\
+\begin{enumerate}
+\item The overall mass balance\
+	\begin{equation}
+	N = N_{v} + N_{L1} + N_{L2} \label{OverallMassBalance}
+	\end{equation}\	
 	
+	Where $N$ is the total number of moles in the system, $N_{v}$ the number of moles in the vapour phase, $N_{L1}$ the number of moles in the first liquid phase and $N_{L2}$ the number of moles in the second liquid phase.\
 
+\item The component mass balances for $nc$ components
+	\begin{equation}
+	z_{i}N = y_{i}N_{v} + x_{i}^{L1}N_{L1} + x_{i}^{L2}N_{L2} \quad \forall \quad i = 1, 2,\ldots, nc \label{ComponentMassBalance}
+	\end{equation}\
+	
+	Where $z_{i}$ is the overall mole fraction of component $i$ in the heterogeneous system and $y_{i}$ is the mole fraction of that component in the vapour phase. The mole fraction of each component in the first and second liquid phase is given by $x_{i}^{L1}$ and $x_{i}^{L2}$ , respectively.\
+
+\item For each phase the mole fractions of all components must sum to unity and therefore\
+	\begin{eqnarray}
+	\sum_{i=1}^{nc} x_{i}^{L1} = 1 \label{PhaseL1Fractions}\\
+	\sum_{i=1}^{nc} x_{i}^{L2} = 1\\
+	\sum_{i=1}^{nc} y_{i} = 1 \label{PhaseVFractions}
+	\end{eqnarray}\
+	
+\item At equilibrium, the chemical potential of each component is identical in each phase
+
+	\begin{eqnarray}
+	\mu_{i}^{v} = \mu_{i}^{L1} \quad \forall \quad i = 1, 2,\ldots, nc\label{VLLEEqualChemicalPotential1}\\
+	\mu_{i}^{v} = \mu_{i}^{L2} \quad \forall \quad i = 1, 2,\ldots, nc\label{VLLEEqualChemicalPotential2}
+	\end{eqnarray}\
+
+	Where $\mu_{i}^{v}$, $\mu_{i}^{L1}$ and $\mu_{i}^{L2}$ respectively represent the chemical potential of component $i$ in the vapour phase, the first liquid phase and the second liquid phase.\
+
+\end{enumerate}
+
+Equations \ref{VLLEEqualChemicalPotential1} and \ref{VLLEEqualChemicalPotential2} can be expressed in terms of fugacities~\cite{PhaseEquilCalcsESandGEM, ComputerCalculationsVLEandLLE}:\
+
+\begin{eqnarray}
+\hat{f}_{i}^{v} = \hat{f}_{i}^{L1} \quad \forall \quad i = 1, 2,\ldots, nc\label{VLLEEqualFugacity1}\\
+\hat{f}_{i}^{v} = \hat{f}_{i}^{L2} \quad \forall \quad i = 1, 2,\ldots, nc\label{VLLEEqualFugacity2}
+\end{eqnarray}\
+
+Or in terms of mole fractions, fugacity coefficients and activity coefficients~\cite{PhaseEquilCalcsESandGEM, ComputerCalculationsVLEandLLE}:\
+\begin{eqnarray}
+\hat{\varphi}_{i}y_{i}P = \gamma^{L1}_{i}x_{i}^{L1}f_{i} \quad \forall \quad i = 1, 2,\ldots, nc \label{VLLEEqualFugacity1Coefficient}\\
+\hat{\varphi}_{i}y_{i}P = \gamma^{L2}_{i}x_{i}^{L2}f_{i} \quad \forall \quad i = 1, 2,\ldots, nc \label{VLLEEqualFugacity2Coefficient}
+\end{eqnarray}\
+
+Where $\hat{f}_{i}^{v}$ is the fugacity of component $i$ in the vapour phase, $\hat{f}_{i}^{L1}$ the fugacity of component $i$ in the first liquid phase, $\hat{f}_{i}^{L2}$ the fugacity of component $i$ in the second liquid phase and $f_{i}$ the pure species fugacity of component $i$. The vapour phase fugacity coefficient of component $i$ is given by $\hat{\varphi_{i}}$, and $\gamma^{L1}_{i}$ and $\gamma^{L2}_{i}$ represent the liquid activity coefficients in the first and second liquid phase respectively.\\
+
+\nomenclature{$\mu_{i}^{v}$}{Chemical potential of component $i$ in a vapour mixture $\left[\mu_{i}^{v}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$}
+\nomenclature{$\mu_{i}^{L1}$}{Chemical potential of component $i$ in the first liquid phase of a system containing liquid-liquid equilibrium $\left[\mu_{i}^{L1}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$}
+\nomenclature{$\mu_{i}^{L2}$}{Chemical potential of component $i$ in the second liquid phase of a system containing liquid-liquid equilibrium$\left[\mu_{i}^{L2}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$}
+\nomenclature{$N_{v}$}{Total number of moles in the vapour phase of a system, $\left[N_{v}\right] = \mathrm{mol}$ }
+\nomenclature{$N_{L1}$}{Total number of moles in the $L1$ liquid phase of a system containing liquid-liquid equilibrium, $\left[N_{L1}\right] = \mathrm{mol}$ }
+\nomenclature{$N_{L2}$}{Total number of moles in the $L2$ liquid phase of a system containing liquid-liquid equilibrium, $\left[N_{L2}\right] = \mathrm{mol}$ }
+\nomenclature{$z_{i}$}{Overall mole fraction of component $i$ in a heterogeneous system}
+\nomenclature{$x_{i}^{L1}$}{Mole fraction of component $i$ in the liquid phase $L1$ of a system that contains vapour-liquid-liquid or liquid-liquid equilibrium}
+\nomenclature{$x_{i}^{L2}$}{Mole fraction of component $i$ in the liquid phase $L2$ of a system that contains vapour-liquid-liquid or liquid-liquid equilibrium}
+\nomenclature{$y_{i}$}{Mole fraction of component $i$ in a vapour mixture}
+\nomenclature{$\hat{f}_{i}^{v}$}{Fugacity of component $i$ in a vapour mixture}
+\nomenclature{$\hat{f}_{i}^{L1}$}{Fugacity of component $i$ in the first liquid phase of a system containing liquid-liquid equilibrium}
+\nomenclature{$\hat{f}_{i}^{L2}$}{Fugacity of component $i$ in the second liquid phase of a system containing liquid-liquid equilibrium}
+\nomenclature{$\hat{\varphi_{i}}$}{Fugacity coefficient of component $i$ in a vapour mixture}
+\nomenclature{$\gamma^{L1}_{i}$}{Activity coefficient of component $i$ in the first liquid phase of a system containing liquid-liquid equilibrium}
+\nomenclature{$\gamma^{L1}_{i}$}{Activity coefficient of component $i$ in the second liquid phase of a system containing liquid-liquid equilibrium}
+
+Usually $N$ and $z_{i}$ are known and the component mole fractions in each of the resulting equilibrium phases, $V$, $L1$ and $L2$ are unknown. Expressions for the fugacity coefficient of the vapour phase is often obtained from suitable equations of state while the liquid phase activity coefficients are generally expressed  as a function of composition by a suitable activity coefficient model~\cite{PhaseEquilCalcsESandGEM, ThermodynamicModels}.\\
+
+Equations \ref{OverallMassBalance} through \ref{VLLEEqualChemicalPotential2} therefore represent $3nc + 4$ equations with $3nc +3$ unknowns. In order to balance the number of equations and unknowns, equations \ref{PhaseL1Fractions} to \ref{PhaseVFractions} are often reduced into two equations~\cite{PhaseEquilCalcsESandGEM}.\\
+
+The most conceptually straight-forward method for the solution of the system of equations is the simultaneous equation solving technique. Moreover, generic numeric algorithms for the solution of sets of equations are readily available and often included in software packages. However, these generic algorithms have been applied to phase equilibrium problems with limited success. Gradient based methods often fail because the Jacobian matrix becomes ill-conditioned and when the Jacobian matrix is constructed using numerical derivatives, this approach becomes even more problematic~\cite{PhaseEquilCalcsESandGEM}.\\
+
+In a study performed by \citeauthor{PhaseEquilCalcsESandGEM}, \citeyear{PhaseEquilCalcsESandGEM}, using the default parameter settings, a number of these generic algorithms were found to perform poorly for phase equilibrium problems. Tweaking of the algorithm parameters for each individual mixture studied, which is tedious and generally impractical, yielded only slight improvements in  performance~\cite{PhaseEquilCalcsESandGEM}.\\
+
+An alternative formulation of the equilibrium relations is obtained by defining equilibrium constants $K_{i1}$ and $K_{i2}$ as follows~\cite{PhaseEquilCalcsESandGEM, ThermodynamicModels, ComputerCalculationsVLEandLLE, HybridFlashCalculations}:\
+
+\begin{eqnarray}
+K_{i1} = \dfrac{y_{i}}{x_{i}^{L1}} \quad \forall \quad i = 1, 2,\ldots, nc \label{EquilibriumK1VLLE}\\
+K_{i2} = \dfrac{y_{i}}{x_{i}^{L2}} \quad \forall \quad i = 1, 2,\ldots, nc \label{EquilibriumK2VLLE}
+\end{eqnarray}\
+
+\nomenclature{$K_{i1}$}{Equilibrium constant}
+\nomenclature{$K_{i2}$}{Equilibrium constant}
+
+Therefore, equations \ref{VLLEEqualFugacity1Coefficient} and \ref{VLLEEqualFugacity2Coefficient} become:\
+
+\begin{eqnarray}
+\hat{\varphi}_{i}K_{i1}P = \gamma^{L1}_{i}f_{i} \quad \forall \quad i = 1, 2,\ldots, nc \label{VLLEEqualFugacity1K}\\
+\hat{\varphi}_{i}K_{i2}P = \gamma^{L2}_{i}f_{i} \quad \forall \quad i = 1, 2,\ldots, nc \label{VLLEEqualFugacity2K}
+\end{eqnarray}\
+
+Substituting eqautions \ref{EquilibriumK1VLLE} and \ref{EquilibriumK2VLLE} into the component mass balances in equation \ref{ComponentMassBalance} yields:\
+
+\begin{eqnarray}
+y_{i} = \dfrac{z_{i}K_{i1}K_{i2}}{K_{i1}K{i2}+\beta_{L1}K_{i2}\left(1-K_{i1}\right) + \beta_{L2}K_{i1}\left(1-K_{i2}\right)}  \quad \forall \quad i = 1, 2,\ldots, nc \label{VapourMoleFractionK}\\
+x_{i}^{L1} = \dfrac{z_{i}K_{i2}}{K_{i1}K{i2}+\beta_{L1}K_{i2}\left(1-K_{i1}\right) + \beta_{L2}K_{i1}\left(1-K_{i2}\right)}  \quad \forall \quad i = 1, 2,\ldots, nc\\
+x_{i}^{L2} = \dfrac{z_{i}K_{i1}}{K_{i1}K{i2}+\beta_{L1}K_{i2}\left(1-K_{i1}\right) + \beta_{L2}K_{i1}\left(1-K_{i2}\right)}  \quad \forall \quad i = 1, 2,\ldots, nc \label{LiquidMoleFractionK}
+\end{eqnarray}\
+
+Where $\beta_{L1}$ and $\beta_{L2}$ are the fractions of the total number of moles in the first liquid phase and in the second liquid phase, respectively.\\
+
+The well known Rachford-Rice formulation can now be obtained by combining equations \ref{PhaseL1Fractions} to \ref{PhaseVFractions} into two equations and substituting the expressions for the component mole fractions from equations \ref{VapourMoleFractionK} through \ref{LiquidMoleFractionK} into the resulting expressions~\cite{PhaseEquilCalcsESandGEM, ThermodynamicModels, ComputerCalculationsVLEandLLE, HybridFlashCalculations}:\
+
+\begin{eqnarray}
+\sum_{i=1}^{nc}\left(y_{i}-x_{i}^{L1}\right) = \sum_{i=1}^{nc}\dfrac{z_{i}K_{i2}\left(K_{i1}-1\right)}{K_{i1}K{i2}+\beta_{L1}K_{i2}\left(1-K_{i1}\right) + \beta_{L2}K_{i1}\left(1-K_{i2}\right)} = 0\\
+\sum_{i=1}^{nc}\left(y_{i}-x_{i}^{L2}\right) = \sum_{i=1}^{nc}\dfrac{z_{i}K_{i1}\left(K_{i2}-1\right)}{K_{i1}K{i2}+\beta_{L1}K_{i2}\left(1-K_{i1}\right) + \beta_{L2}K_{i1}\left(1-K_{i2}\right)} = 0
+\end{eqnarray}\
+
+In the case of vapour-liquid or liquid-liquid equilibria, the above formulation can be simplified by setting the appropriate number of moles for the absent phase equal to 0 in equations \ref{OverallMassBalance} and \ref{ComponentMassBalance}. The sum of the mole fractions for the absent phase therefore also becomes irrelevant and the corresponding expressions from equations \ref{PhaseL1Fractions} to \ref{PhaseVFractions} is eliminated. Similarly, the chemical potential of the absent phase is irrelevant and is therefore eliminated from equations \ref{VLLEEqualChemicalPotential1} and \ref{VLLEEqualChemicalPotential2}. The result is a system of $2nc+1$ equations and unknowns. For the case of liquid-liquid equilibrium we then have ~\cite{PhaseEquilCalcsESandGEM, HybridFlashCalculations}:\
+
+\begin{eqnarray}
+N = N_{L1} + N_{L2} \label{LLEOverallMassBalance}\\
+z_{i}N = x_{i}^{L1}N_{L1} + x_{i}^{L2}N_{L2} \quad \forall \quad i = 1, 2,\ldots, nc \label{LLEComponentMassBalance}\\
+\mu_{i}^{L1} = \mu_{i}^{L2} \quad \forall \quad i = 1, 2,\ldots, nc \label{LLEEqualChemicalPotential}
+\end{eqnarray}\
+
+The equilibrium requirement in equation \ref{LLEEqualChemicalPotential} can also be expressed in terms of the activity coefficients and mole fractions:\
+
+\begin{equation}
+\gamma^{L1}_{i}x_{i}^{L1} = \gamma^{L2}_{i}x_{i}^{L2} \quad \forall \quad i = 1, 2,\ldots, nc
+\end{equation}\
+.
+We define the equilibrium constants $K_{i}$ as follows:\
+
+\begin{equation}
+K_{i} = \dfrac{x_{i}^{L1}}{x_{i}^{L2}} \quad \forall \quad i = 1, 2,\ldots, nc\label{LLEEquilibriumConstant} \\
+\end{equation}\
+
+\nomenclature{$K_{i2}$}{Equilibrium constant}
+
+By substituting equation \ref{LLEEquilibriumConstant} into equation \ref{LLEComponentMassBalance}, and utilising equation \ref{LLEOverallMassBalance} with the following definition of the phase fraction $\beta$:\
+
+\begin{equation}
+\beta = \dfrac{N_{L2}}{N}
+\end{equation}\
+
+The Rachford-Rice formulation becomes~\cite{PhaseEquilCalcsESandGEM, ComputerCalculationsVLEandLLE, HybridFlashCalculations, PhaseEquilCalcsEasyandHard}:\
+
+\begin{equation}
+\sum_{i=1}^{nc}\left(x_{i}^{L1} - x_{i}^{L2}\right) = \sum_{i=1}^{nc} \dfrac{z_{i}\left(K_{i}-1\right)}{1+\beta\left(K_{i}-1\right)} =0
+\end{equation}\
+
+The unknown phase fractions in the Rachford-Rice formulations are normally be solved for by means of some iterative technique. Given an initial estimate of the applicable equilibrium constants, the phase distribution and the implied phase compositions can be calculated. The initial values of the equilibrium constants are then updated and the phase fractions recalculated using the new equilibrium constants. This process of successive substitution is repeated until the equilibrium constants converge~\cite{ComputerCalculationsVLEandLLE, ThermodynamicModels, HybridFlashCalculations}.\\
+
+In the case of vapour-liquid equilibria, initial estimates for the equilibrium constants can be made using ideal behaviour or Raoult's law. Alternatively, Wilson's approximation has also been found to provide reasonable initial estimates~\cite{ComputerCalculationsVLEandLLE, ThermodynamicModels, PhaseEquilCalcsEasyandHard}:\
+
+\begin{equation}
+\ln K_{i} = \ln \left(\dfrac{P_{i}^{c}}{P}\right) + 5.373\left(1+ \omega_{i}\right)\left[1-\dfrac{T_{i}^{c}}{T}\right]
+\end{equation}\
+
+\nomenclature{$P_{i}^{c}$}{Critical pressure of component $i$ in a mixture $\left[P_{ci}\right] = \mathrm{bar}$ }
+\nomenclature{$T_{i}^{c}$}{Critical temperature of component $i$ in a mixture $\left[T_{ci}\right] = \mathrm{K}$ }
+\nomenclature{$\omega$}{Acentric factor of component $i$ in a mixture}
+
+Where $P_{i}^{c}$ and $T_{i}^{c}$ represent the critical pressure and critical temperature, respectively, of component $i$ in the mixture, and $\omega_{i}$ is the acentric factor of component $i$. No simple, corresponding initialisation technique exists for liquid-liquid equilibria calculations~\cite{ComputerCalculationsVLEandLLE, ThermodynamicModels}.\\
+
+For low pressure vapour-liquid equilibria and for systems which do not deviate drastically from the ideal, the method of successive substitution normally converges easily. However, at high pressures, when non-ideal behaviour is pronounced or near the critical point, convergence is usually more difficult. In the case of liquid-liquid equilibria, especially near the plait point, the equilibrium constants may be strong functions of the composition and convergence may be very slow. Variations of the successive substitution method and acceleration techniques have been developed. Generally these variations involve modified techniques whereby the equilibrium constants are updated in the outer loop, after calculation of the phase distributions.~\cite{ComputerCalculationsVLEandLLE, ThermodynamicModels, HybridFlashCalculations, PhaseEquilCalcsEasyandHard}.\\
+
+The method of successive substitution has two major disadvantages namely, inefficiency for situations which vary greatly from the ideal, and convergence to the trivial solution when inadequate initial estimates are used for the equilibrium constants. Nonetheless, the method is simple, relatively easy to apply and has also been found to be very reliable for two-phase systems. Even though the equal activity requirement is only a necessary, and not a sufficient condition, the method does converge to the actual solution, representing a minimum in the Gibbs energy, with the exception of some polymer mixtures and mixtures containing strong electrolytes.~\cite{ThermodynamicModels, ComputerCalculationsVLEandLLE, HybridFlashCalculations}.\\
+
+\subsubsection{Gibbs Free Energy Minimization Approaches}\
+	
+A system is at equilibrium when it has achieved a minimum in overall Gibbs energy. Consequently, for the Gibbs free energy minimization technique, the problem is stated as follows~\cite{PhaseEquilCalcsESandGEM, GlobalOptPhaseAndChemicalEquil, GlobalOptAndAnalysisGibbsEnergy}:\
+
+\begin{equation}
+\min_{\mathrm{w.r.t.} \bar{x}} G\left(\bar{x}\right) = \sum_{j=1}^{\pi} G_{j}\left(x_{i}^{j}\right)\label{GlobalGibbsMinProblem}\\
+\end{equation}\
+
+Subject to\
+\begin{eqnarray}
+\sum_{i}^{nc} x_{i}^{j} = 1\label{GlobalGibbsConstraint1}\\
+0 \leq x_{i}^{j} \leq 1 \quad \forall \quad i = 1, 2, \ldots, nc \quad \mathrm{and} \quad j = 1, 2, \ldots, \pi \label{GlobalGibbsConstraint2}
+\end{eqnarray}\
+
+\nomenclature{$\bar{x}$}{Vector of calculated component mole fractions at equilibrium}
+
+Where $\bar{x}$ is a vector of $nc \times \pi$ component mole fractions, $x_{i}^{j}$ is the mole fraction of component $i$ in phase $j$, $\pi$ is the number of phases in equilibrium and $G_{j}$ is the Gibbs energy per mole of phase $j$.\\
+
+Various approaches and algorithms have been suggested to solve the above problem. They include implementations of Newton's method, linear programming methods, steepest descent methods, Lagrangian transformation methods and numerous others. The equality and inequality constraints listed in equations \ref{GlobalGibbsConstraint1} and \ref{GlobalGibbsConstraint2}, respectively, are linear. However, the equations used to model the fugacity and activity coefficients in equation \ref{GlobalGibbsMinProblem} are often complex and highly non-linear~\cite{GlobalOptPhaseAndChemicalEquil, GlobalOptAndAnalysisGibbsEnergy, PhaseEquilCalcsESandGEM}.\\ 
+
+Consequently, multiple local minima may exist and the solution obtained is regularly dependant on the chosen starting point for the calculation. The dominant concern therefore, when using the Gibbs energy minimization technique, is that the chosen algorithm must converge to the unique global minimum. Convergence to the trivial solution, where the composition of each phase is calculated as identical, is a common problem encountered when using this approach to solve liquid-liquid equilibrium problems~\cite{GlobalOptPhaseAndChemicalEquil, GlobalOptAndAnalysisGibbsEnergy, PhaseEquilCalcsESandGEM}.\\
+
+At the equilibrium solution, for two phases $\alpha$ and $\beta$, the chemical potential must be equal for each species in each phase:\
+
+\begin{equation}
+\mu_{i}^{\alpha} = \mu_{i}^{\beta} \quad \forall \quad i = 1, 2,\ldots, nc
+\end{equation}
+	
+\nomenclature{$\mu_{i}^{\alpha}$}{Chemical potential of species $i$ in phase $\alpha$ $\left[\mu_{i}^{\alpha}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$}
+\nomenclature{$\mu_{i}^{\beta}$}{Chemical potential of species $i$ in phase $\beta$ $\left[\mu_{i}^{\beta}\right] = \frac{\mathrm{J}}{\mathrm{mol}}$}
+
+However, at the local  minima of the overall Gibbs energy function, and therefore at the false solutions to the phase equilibrium problem, this relationship also holds. The tangent plane criterion can be applied to determine whether the calculated solution is stable and represents the global solution~\cite{GlobalOptAndAnalysisGibbsEnergy, ThermodynamicModels, GlobalOptPhaseAndChemicalEquil}.\\
+
+In section \ref{TPDSection} the tangent plane criterion, as applied to a binary mixture, was discussed. The principle is applicable and easily extrapolated to multi-component mixtures. Where $\bar{z}$ represents the composition vector  of one of the equilibrium phases, corresponding to a local minimum in the overall Gibbs energy, a tangent to the Gibbs energy of mixing of that phase or hyperplane at $\bar{z}$ is defined by the chemical potential at $\bar{z}$. If the distance between the Gibbs energy of mixing surface and the hyperplane at $\bar{z}$ is everywhere positive over the feasible region of compositions, then the local solution represents a stable equilibrium solution and an overall minimum in the Gibbs energy~\cite{GlobalOptAndAnalysisGibbsEnergy, ThermodynamicModels, ReliablePhaseStability}.\\
+
+For a multi-component mixture, where $\Delta g$ is the reduced Gibbs energy of mixing, the equilibrium problem can therefore be stated in terms of the tangent plane distance $F$:\
+\begin{equation}
+\min_{\mathrm{w.r.t.} \bar{x}} F\left(\bar{x}\right) = \Delta g\left(\bar{x}\right) -\Delta g\left(\bar{z}\right) - \sum_{i=1}^{nc} \dfrac{\partial \Delta g}{\partial x_{i}}\left[x_{i}-z_{i}\right]\label{TangentPlaneGoal}
+\end{equation}\
+
+Subject to\
+\begin{eqnarray}
+\sum_{i}^{nc} x_{i} = 1\\
+0 \leq x_{i} \leq 1 \quad \forall \quad i = 1, 2, \ldots, nc 
+\end{eqnarray}\
+
+The problem stated in equation \ref{TangentPlaneGoal} is however similar in structure to the overall Gibbs energy minimization problem stated in equation \ref{GlobalGibbsMinProblem}. Therefore, multiple minima exist and the convergence of a local optimization technique to a non-negative tangent plane distance, does not imply that the corresponding equilibrium solution is correct~\cite{GlobalOptAndAnalysisGibbsEnergy, ReliablePhaseStability}.\\
+
+Fortunately a number of approaches have been developed which guarantee convergence to the theoretical global minimum of the overall Gibbs energy. For example, Mc~Donald and Floudas have suggested re-writing the objective function into a format which allows the use of the GOP algorithm. They also utilized a branch and bound method, whereby the mathematical structure of the problem is used to construct convex under-estimators of non-convex functions. The resulting mathematical representation can then be analysed over the entire composition range and all solutions can be detected~\cite{GlobalOptAndAnalysisGibbsEnergy, GlobalOptPhaseAndChemicalEquil}.\\
+
+While the branch and bound methods do theoretically guarantee the calculation of the global minimum, in practice they may fail due to rounding errors. This does however become unlikely when the variables are scaled correctly. Nevertheless, interval Newton methods are an alternative which automatically correct rounding errors and may be used for stability analysis in conjunction with any excess Gibbs energy or equation of state models~\cite{ReliablePhaseStability, IntervalAnalysisPhaseStability}.\\
+
+Stochastic methods, such as simulated annealing and genetic algorithms, have also been applied successfully. One major advantage of these methods is that they are applicable to models with any mathematical structure, and even to problems with unknown structure. A study performed by \citeauthor{PhaseEquilCalcsESandGEM}, \citeyear{PhaseEquilCalcsESandGEM}, found that both simulated annealing and genetic algorithms where reliable but that genetic algorithms are more efficient. It is however also noted that, with the increase in modern computational power, the reliability and accuracy of the chosen method is of greater importance than the efficiency thereof~\cite{PhaseEquilCalcsESandGEM}.\\
 
 %%---------------------Parameter Estimation------------------------------------------------------------------------%
 %%-----------------------------------------------------------------------------------------------------------------%
 \subsection{Model Parameter Estimation} \label{ModelParameterEstimationSection}
+
+Published experimental liquid-liquid equilibrium data has historically been more difficult to obtain than vapour-liquid equilibrium data. According to \citeauthor{LLERetrieval}, \citeyear{LLERetrieval}, this can be attributed to the following factors~\cite{LLERetrieval}:\
+
+\begin{itemize}
+\item Experimental liquid-liquid equilibrium measurements are often made as they are needed for a particular purpose, with little motivation to publish.\
+\item Correlation of liquid-liquid equilibrium data is numerically more complex than for vapour-liquid equilibrium.\
+\item Temperature variations normally have a significant effect on liquid-liquid equilibria.\
+\item Distillation is more widely used in industry and plays a larger economic role than extraction.
+\end{itemize}
+
+Nonetheless, published liquid-liquid experimental data is available for a number of binary, ternary and quaternary systems. The Dechema liquid-liquid equilibrium data collection is a compilation of such data for systems containing water and organic compounds. It is not surprising that notable differences exist between measured equilibrium data, for identical systems, obtained from different sources. Impurities present in the mixture components, which are used for experimental procedures, may account for some of these discrepancies~\cite{EvaluationModelParameters, Dechema, LLERetrieval}.\\
+
+All experimental measurements are susceptible to random and systematic errors. Systematic errors occur as a result of experimental procedure and generally result in a consistent deviation of the measured variable from reality. Random errors are unavoidable statistical variations in the measured variables. The presence of random and systematic errors yield uncertainties in the model parameters calculated from experimental data and predictions made using these calculated parameters. It is also therefore rather unlikely that any model will reproduce multiple sets of experimental data, or multiple data points, exactly~\cite{EvaluationModelParameters, ActivityCoefficientModelApplicationUNI, ActivityCoefficientModelApplicationNRTL}.\\
+
+Due to the inherent inaccuracy of experimental data, it is advantageous to reduce available data whenever possible. A large number of data points enables statistical analysis, and used together with a suitable data reduction technique, increases the reliability of model parameters calculated from the measurements~\cite{EvaluationModelParameters, ActivityCoefficientModelApplicationUNI, ActivityCoefficientModelApplicationNRTL}.\\
+
+Using experimental liquid-liquid equilibrium data, binary interaction parameters can be calculated directly by solving a set of equations based on the equilibrium requirements. For a binary system, given two experimentally measured phase compositions and two unknown model parameters, a fully defined set of equations can be formulated. In other words, a maximum of two model parameters can be calculated from a single binary tie-line. Similarly, a maximum of three model parameters are determined with data from one ternary tie-line. However, the equations involved are normally highly non-linear in nature and the number of solutions, if any, are not known beforehand. ~\cite{LLECorrelation, ReliableComputationBinaryParams}.\\ 
+
+Parameter estimation for Gibbs energy models, from experimental mutual solubility data, can follow one of two approaches. These approaches stem from the two methods used to calculate liquid-liquid equilibrium using these models. The first approach minimizes the difference in activities predicted by the model at the experimentally measured equilibrium compositions, by adjusting the model parameters. The second approach attempts to minimize the error between the experimentally measured equilibrium compositions and the compositions predicted by the model. The goal functions for these two approaches, in equations \ref{ParameterEstApproach1} and \ref{ParameterEstApproach2}, illustrate the difference~\cite{LLECorrelation}.\\
+
+Minimization of the difference in activities:\
+\begin{equation}
+\min_{w.r.t. \bar{\Lambda}} F\left(\bar{\hat{x}}, \bar{\Lambda}\right) = \sum_{k=1}^{nt}\sum_{i=1}^{nc} W_{ik}\left[\hat{x}_{ik}^{L1}\gamma_{ik}^{L1}\left(\hat{x}_{ik}^{L1}, \bar{\Lambda}\right) - \hat{x}_{ik}^{L2}\gamma_{ik}^{L2}\left(\hat{x}_{ik}^{L2}, \bar{\Lambda}\right)\right]^{2} \label{ParameterEstApproach1}
+\end{equation}\
+Minimization of the difference between measured and predicted equilibrium compositions:\
+\begin{equation}
+\min_{w.r.t. \bar{\Lambda}} F\left(\bar{x}, \bar{\hat{x}}, \bar{\Lambda}\right) = \sum_{k=1}^{nt}\sum_{i=1}^{nc}\sum_{j=1}^{\pi} W_{ijk} \left[\hat{x}_{ik}^{j}-x_{ik}^{j}\left(\bar{\Lambda} \right)\right]^{2} \label{ParameterEstApproach2}
+\end{equation}\
+
+\nomenclature{$\bar{\Lambda}$}{Vector of adjustable binary interaction parameters in an excess Gibbs energy model}
+\nomenclature{$\bar{\hat{x}}$}{Vector of experimentally measured component mole fractions at equilibrium}
+\nomenclature{$nt$}{Number of experimentally measured liquid-liquid equilibrium tie-lines for a mixture at a given temperature}
+\nomenclature{$\hat{x}_{ik}^{j}$}{Experimentally measured liquid-liquid equilibrium mole fraction of component $i$, on tie-line $k$, in phase $j$}
+\nomenclature{$\hat{x}_{ik}^{L1}$}{Experimentally measured liquid-liquid equilibrium mole fraction of component $i$, on tie-line $k$, in phase $L1$}
+\nomenclature{$\hat{x}_{ik}^{L2}$}{Experimentally measured liquid-liquid equilibrium mole fraction of component $i$, on tie-line $k$, in phase $L2$}
+
+Where the number of experimentally measured tie-lines, at a constant temperature and pressure, is given by $nt$. The experimentally measured compositions of component $i$ on tie-line $k$, in phase $j$, $L1$ and $L2$, respectively, are given by $\hat{x}_{ik}^{j}$, $\hat{x}_{ik}^{L1}$ and $\hat{x}_{ik}^{L2}$. The vectors $\bar{x}$ and $\bar{\hat{x}}$ represent the sets of model predicted and experimentally measured equilibrium compositions, and the set of model parameters is represented by the vector $\bar{\Lambda}$. $W_{ik}$ and $W_{ijk}$ is the weight associated with component $i$ on tie-line $k$ and ,if applicable, in phase $j$.\\
+
+The advantages and disadvantages of each of these two methods are similar to that of the corresponding phase equilibrium calculation approach. Equation \ref{ParameterEstApproach1}, which attempts to equalise the activity of each component in each phase, does not express the actual objective of the parameter estimation exercise. The accurate representation of measured equilibrium compositions is normally what is desired, which is expressed directly by equation \ref{ParameterEstApproach2}~\cite{LLECorrelation, BilevelOptimization2}.\\
+
+In addition, as exhaustively discussed by now, the equal activity requirement is not a sufficient requirement for phase equilibrium. All parameter estimation techniques based on this method require an additional step to guarantee that the final value of the goal function, and consequently the optimum set of model parameters, is in-fact evaluated at the equilibrium solution~\cite{LLECorrelation, BilevelOptimization}.\\
+ 
+However, in order to evaluate the goal function in equation \ref{ParameterEstApproach2}, the predicted equilibrium compositions need to be calculated for each current set of model parameters $\bar{\Lambda}$. This is in itself a complex mathematical problem and also requires precautions to avoid convergence to local minima of the Gibbs energy function. Consequently, model parameter estimation using this approach is computationally more expensive than the equal activity approach~\cite{LLECorrelation}.\\
+
+Equations \ref{ParameterEstApproach1} utilises the absolute difference in component activities in each phase. Similarly, equation \ref{ParameterEstApproach2} uses and absolute difference between calculated and measured equilibrium compositions. When objective functions are based on absolute measures of error, the calculated optimum model parameters could still result in large relative errors as component activity or composition becomes small. A number of relative objective functions can be formulated in order to assign equal importance to deviations in all regions of the phase diagram. Equations \ref{ParameterEstRelative1} and \ref{ParameterEstRelative2} below are two examples of such relative objective functions~\cite{LLECorrelation}.\\
+
+\begin{eqnarray}
+F = \sum_{k=1}^{nt}\sum_{i=1}^{nc} \left[\ln \left(\hat{x}_{ik}^{L1}\gamma_{ik}^{L1}\right) - \ln \left(\hat{x}_{ik}^{L2}\gamma_{ik}^{L2}\right) \right]^{2} \label{ParameterEstRelative1}\\
+F = \sum_{k=1}^{nt}\sum_{i=1}^{nc}\sum_{j=1}^{\pi}  \left[\dfrac{\hat{x}_{ik}^{j}-x_{ik}^{j}}{\hat{x}_{ik}^{j}+x_{ik}^{j}}\right]^{2} \label{ParameterEstRelative2}
+\end{eqnarray}\
+
+The mathematical flexibility of excess Gibbs energy models allows their application to liquid-liquid equilibria. However, most excess Gibbs energy models are capable of modelling phase equilibria which is much more complex than the behaviour observed in reality. For example, when using the NRTL model to correlate liquid-liquid equilibrium data, it is likely that multiple sets of parameters exist which satisfy the equal activity requirement. Consider the phase behaviour for a binary mixture depicted in figure \ref{IncorrectParamDrawing}, taken from \citeauthor{BilevelOptimization2}, \citeyear{BilevelOptimization2}. In all five cases, at the experimentally measured phase compositions, the equal activity requirement is satisfied~\cite{BilevelOptimization, BilevelOptimization2, ReliableComputationBinaryParams}.\\
+
+
+\begin{figure}[t]
+\begin{center}
+\resizebox{0.5\textwidth}{!}{\input{Drawings/pstex/IncorrectParameterEstim.pstex_t}}\\
+\end{center}
+\caption{Unsuitable interaction parameters predicting thermodynamically incorrect phase behaviour} \label{IncorrectParamDrawing}
+\end{figure}	
+
+Only one phase split is observed experimentally for the hypothetical mixture in figure \ref{IncorrectParamDrawing}, at the given temperature and pressure. In $\left(a\right)$ through $\left(d\right)$ the equilibrium compositions are measured as $x_{1}^{L1} = 0.2$ and $x_{1}^{L2} = 0.8$. In figure \ref{IncorrectParamDrawing} $\left(e\right)$ the experimental equilibrium compositions are $x_{1}^{L1} = 0.1$ and $x_{1}^{L2} = 0.4$. The following observations are made for each of the sub-figures~\cite{BilevelOptimization2}:\
+
+\begin{enumerate}[(a)]
+\item The model predicts the observed phase split correctly. Parameters which yield metastable phases are eliminated; either by ensuring that the Gibbs energy of mixing has no more inflection points than the data necessitates, or by enforcing the tangent plane stability criterion.\
+\item While the phase split predicted by the model is thermodynamically correct, an unstable phase split may be calculated when these parameters are used in conjunction with the equation solving approach, or a local optimization method is used for the Gibbs energy minimization.\
+\item Here, the model predicts the composition of the two liquid phases correctly however, it also predicts the presence of a third liquid phase at equilibrium, which is not observed experimentally.\
+\item The selected model parameters yield an unstable phase split at the experimentally measured phase compositions, predicting two phase splits and the presence of four liquid phases.\
+\item The model predicts a stable phase split at the measured phase compositions in this case, but it also predicts the presence of another spurious phase split.
+\end{enumerate}
+
+When correlating phase equilibrium data, model parameters are chosen according to quantitative measures of error while qualitative evaluations are rarely performed. As a result thereof published parameters have often been found to be incorrectly fitted to experimental data. The use of which can result in significant predictive and modelling errors. A set of model parameters which minimises a selected goal function, is of little practical use if the thermodynamic behaviour it predicts is inaccurate. The examples in figure \ref{IncorrectParamDrawing} demonstrate that the resulting model predictions should be analysed during parameter calculation, or at least confirmed thereafter~\cite{BilevelOptimization, BilevelOptimization2, ReliableComputationBinaryParams}.\\
+
+\citeauthor{BilevelOptimization2}, \citeyear{BilevelOptimization2}, formulated a bi-level optimization method whereby convergence to unsuitable parameters is avoided during the calculation procedure. The bi-level approach consists of two nested optimizations. The outer level program attempts to minimize the error between the measured and predicted phase equilibrium compositions. The Gibbs energy minimization routine, for the calculation of the predicted phase equilibrium compositions, is contained within the inner level. In addition, within the inner level programs, a number of requirements are enforced as constraints to the outer level program. For example, the scenarios depicted in figure \ref{IncorrectParamDrawing} $\left(d\right)$ and $\left(e\right)$ are avoided by including the tangent plane stability tests as constraints. Figure \ref{IncorrectParamDrawing} $\left(d\right)$ is excluded by firstly, ensuring that the predicted equilibrium compositions are connected by the same tangent and secondly, that the tangent plane is below the Gibbs energy surface. Figure \ref{IncorrectParamDrawing} $\left(e\right)$ can be excluded by requiring that the tangents at all compositions, outside the the equilibrium compositions, are everywhere below the Gibbs energy surface. Finally, parameters resulting in prediction of a spurious phase, as in the case of figure \ref{IncorrectParamDrawing} $\left(c\right)$, are removed by a constraint that requires that the Gibbs energy surface is strictly above that at the predicted phase equilibrium, for all other compositions~\cite{BilevelOptimization2}.\\
+
+\citeauthor{ReliableComputationBinaryParams}, \citeyear{ReliableComputationBinaryParams}, suggest an alternative approach. They applied an interval-Newton method to rigorously determine all possible parameters, within an arbitrarily large initial range, which satisfy the equal activity requirement. The phase behaviour predicted by each set of candidate parameters is then analysed. If a given set of parameters yield equilibrium compositions which fail the tangent plane stability test, they are eliminated. Similarly, parameters which predict multiple miscibility gaps, which have not been physically observed, are excluded. This approach can be used to determine whether the parameter estimation problem has any, one or many solutions. This can also be of some practical use, to determine the suitability of a chosen model to correlate a given set of experimental data~\cite{ReliableComputationBinaryParams}.\\
+
+%local composition models used in predictive manner...

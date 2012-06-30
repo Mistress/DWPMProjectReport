@@ -1,80 +1,124 @@
- \documentclass[a4paperm,bezier,amstex]{report}
+\documentclass[a4paperm,bezier,amstex]{report}
 
 \special{papersize=210mm,297mm}
-%\documentclass[preprint]{elsarticle}
 \renewcommand{\baselinestretch}{1.4}
 \usepackage[latin1]{inputenc}
 \usepackage[12pt]{extsizes}
-\footskip = 50pt
+\footskip =1.5cm
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{moreverb}
 \usepackage{makeidx}
 \usepackage{nomencl}
-\usepackage{tabularx}
+\usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{units}
 \usepackage{psfrag}
-\usepackage[left=2 cm,right=2 cm,top=2 cm, bottom=1.5 cm]{geometry}
-\usepackage{graphicx}
-\usepackage{color} 
+\usepackage[left=2.5 cm, right=2.5 cm,top=2 cm, bottom=1.5 cm]{geometry}
+\usepackage[color]{graphicx}
 \usepackage{epsfig}
 \usepackage[numbers, sort]{natbib}
+\usepackage{enumerate}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{lscape}
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{siunitx}
+\usepackage[dvipdfm, breaklinks]{hyperref}
 
 %\numberwithin{equation}{subsection}
 \numberwithin{equation}{section}
 \numberwithin{figure}{section}
-%\input{psfig}
-\author{Desire\'{e} Strauss}
-\title{Weighted-Power-Mean Mixture Model for the Gibbs Energy of Fluid Mixtures:\\
-Composite Document}
+\title{Double-Weighted Power Mean Mixture Model for the Gibbs Energy of Fluid Mixtures: Modelling of Liquid-Liquid Equilibria}
+\author{}
+\date{}
 \makenomenclature
-\DeclareMathSizes{14}{14}{14}{14}%
+\DeclareMathSizes{12}{12}{12}{12}%
 
 \begin{document}
 \setlength{\parindent}{0pt}
-
+\pagestyle{empty}
+\pagenumbering{gobble}
+\renewcommand{\dateseparator}{-}
+%%----------------------------------------------Cover/Title------------------------------------------------------%%
 \begin{titlepage}
-\date{}
+\vspace*{\fill}
+\begin{center}
 \begin{LARGE}
-\maketitle
-\thispagestyle{empty}
+{\Huge \bfseries  Double-Weighted Power Mean Mixture Model for the Gibbs Energy of Fluid Mixtures: Modelling of Liquid-Liquid Equilibria}\\
+\bigskip
+\emph{by}\\
+Desire\'{e} Strauss\\
+\vspace*{\fill}
 \end{LARGE}
+\end{center}
 \end{titlepage}
 
-
-\thispagestyle{empty}
+%%----------------------------------------------Title page------------------------------------------------------%%
+\begin{titlepage}
 \begin{center}
-\begin{Large}
 \begin{LARGE}
- {Weighted-Power-Mean Mixture Model for the Gibbs Energy of Fluid Mixtures}\\
-\end{LARGE}
+{\Huge \bfseries  Double-Weighted Power Mean Mixture Model for the Gibbs Energy of Fluid Mixtures: Modelling of Liquid-Liquid Equilibria}\\
 \bigskip
-by \\
+\emph{by}\\
 Desire\'{e} Strauss\\
-\bigskip 
+22151789\\
+\bigskip
+Institute of Applied Materials\\
 Department of Chemical Engineering\\
-University of Pretoria
-\end{Large}
+University of Pretoria\\
+\bigskip
+\emph{Supervisors:}\\
+Prof. Walter W. Focke and Mr. Carl Sandrock\\
+\vfill
+\end{LARGE}
 \end{center}
+\end{titlepage}
+%%--------------------------------------------Synopsis-----------------------------------------------------------%%
+\cleardoublepage 
+\pagestyle{plain}
+\pagenumbering{roman}
+\begin{center}
+\begin{LARGE}
+{\Huge \bfseries  Double-Weighted Power Mean Mixture Model for the Gibbs Energy of Fluid Mixtures: Modelling of Liquid-Liquid Equilibria}\\
+\vspace*{30pt}
+\end{LARGE}
+\end{center}
+{\Huge \bfseries Synopsis}
+\vspace*{20pt}
+\addcontentsline{toc}{chapter}{Synopsis}
+\input{Synopsis.tex}
 \pagebreak
+{\Huge \bfseries Acknowledgements}
+\vspace*{20pt}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\input{Acknowledgements.tex}
+\pagebreak\
+\newcounter{PageDummy}
+\setcounter{PageDummy}{\value{page}}
 
-\thispagestyle{empty}
+%%--------------------------------------------TOC----------------------------------------------------------------%%
+\pagestyle{empty}
+\pagenumbering{gobble}
+
 \tableofcontents
-\pagebreak
+\pagebreak	
+%%--------------------------------------------Nomencl------------------------------------------------------------%%
+\cleardoublepage 
+\pagestyle{plain}
+\pagenumbering{roman}
+\setcounter{page}{\value{PageDummy}}
 
-\pagenumbering{arabic}
-
-	\chapter*{Introduction}\
-	\addcontentsline{toc}{chapter}{Introduction}
-		\input{Introduction.tex}
-	
-	\pagebreak	
 	\addcontentsline{toc}{chapter}{Nomenclature}
 	\printnomenclature%
-	\pagebreak
-	
+	\pagebreak	
+%%---------------------------------------------Body---------------------------------------------------------------%%
+\pagenumbering{arabic}
+	\chapter*{Introduction}\
+	\addcontentsline{toc}{chapter}{Introduction}
+	\input{Introduction.tex}
+
 	\chapter{Literature Survey and Theoretical Background}
 		\section{Fluid Thermodynamics}
 		\input{Literature_Parts/InterMolecularForces.tex}
@@ -98,19 +142,24 @@ University of Pretoria
 	
 	\chapter{Results and Discussion}
 		\input{Results_Parts/ResultsPartBinaries.tex}
+		\input{Results_Parts/ResultsPartTernaries.tex}
 				
-	\chapter{Conclusions}
-		
-	\chapter{Appendices}
-	\section{Predicted Gibbs Energy Curves for Binary Mixtures}\label{AppendixGibbsPlotsBinaries}
-		\input{AppendixBinaries.tex}
-	
-	\chapter*{Acknowledgements}
-	\addcontentsline{toc}{chapter}{Acknowledgements}
-							
+	\chapter{Conclusions and Recommendations}
+		\input{Conclusions.tex}
 		
 	\bibliographystyle{plainnat}
+    \renewcommand{\bibname}{References}
 	\addcontentsline{toc}{chapter}{References}
 	\bibliography{References}
+		
+	\appendix
+	\chapter*{Appendices}
+	\addcontentsline{toc}{chapter}{Appendices}
+	\renewcommand\thesection{\Alph{section}}
+	\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+	\section{Gibbs Energy Curves of Binary Mixtures}\label{AppendixGibbsPlotsBinaries}
+		\input{Appendices/AppendixBinaries.tex}
+	%\section{Gibbs Energy Surfaces of Ternary Mixtures}\label{AppendixGibbsPlotsTernaries}
+	%	\input{Appendices/AppendixTernaries.tex}
 		
 \end{document}

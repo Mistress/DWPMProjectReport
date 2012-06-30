@@ -1,5 +1,5 @@
 \begin{picture}(0,0)%
-\includegraphics{DipoleDrawing.pstex}%
+\includegraphics{Drawings/pstex/DipoleDrawing}%
 \end{picture}%
 \setlength{\unitlength}{4144sp}%
 %

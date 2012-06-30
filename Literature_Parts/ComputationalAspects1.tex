@@ -1,18 +1,7 @@
-%%------------------------------------------------Challenges and Importance/Future Importance-------------------------------------------------------%
-%%--------------------------------------------------------------------------------------------------------------------------------------------------%
-\subsection{Challenges in and Importance of Phase Equilibrium Calculation}
-
-%%--------------------------------------------------Data Sources and Data Reduction-----------------------------------------------------------------%
-%%--------------------------------------------------------------------------------------------------------------------------------------------------%
-\subsection{Data Sources and Data Reduction}
-
-
-%%------------------------------------------------------Phase Equilibrium Calcs-------------------------------------------------------------------%
-%%---------------------------------------------------------------------------------------------------------------------------------------------------%
 
 \subsection{Phase Stability}\label{PhaseStabilityComputationalSection}
 
-\subsubsection{Tangent Plane Analysis}\ 
+\subsubsection{Tangent Plane Analysis}\label{TPDSection}\ 
 	
 In liquid-liquid equilibria, the requirement that the chemical potential or fugacity of each component be equal in each phase, is only a necessary condition. A necessary and sufficient condition is, as discussed in sections \ref{PhaseEqStabilitySection} and \ref{LiquidLiquidEquilibriaSection}, that the overall Gibbs energy be at a global minimum.\\
 
@@ -28,8 +17,7 @@ The amount of component $i$ is given by $m_{i} \delta n$. In order for the mixtu
 \sum_{i = 1}^{C} m_{i}\left[\mu_{i}\left(z_{2}\right) - \mu_{i}\left(z_{1}\right)\right] \geq 0 \label{GibbsTangentPlaneCondition}
 \end{equation}\
 
-Consider now the Gibbs energy of mixing of the binary mixture depicted in figure \ref{TangentPlaneAnalysisDrawing}. The mixture at composition $z_{1}$ splits into two phases with compositions $x_{\alpha}$ and $x_{\beta}$. The Gibbs energy of mixing of the resulting system and the change in Gibbs energy is given in equation \ref{GMixNew} and equation \ref{ChangeGMixPhaseSplit}, respectively~\cite{ThermodynamicModels}.\
-
+Consider now the Gibbs energy of mixing of the binary mixture depicted in figure \ref{TangentPlaneAnalysisDrawing}. The mixture at composition $z_{1}$ splits into two phases with compositions $x_{\alpha}$ and $x_{\beta}$. The Gibbs energy of mixing of the resulting system and the change in Gibbs energy is given in equation \ref{GMixNew} and equation \ref{ChangeGMixPhaseSplit}, respectively~\cite{ThermodynamicModels, PhaseEquilCalcsEasyandHard}.\
 
 \begin{figure}[t]
 \begin{center}
@@ -43,13 +31,13 @@ G_{new} = \kappa G_{mix}\left(x_{\alpha}\right) + \left(1-\kappa\right)G_{mix}\l
 \Delta G_{mix} = \kappa G_{mix}\left(x_{\alpha}\right) + \left(1-\kappa\right)G_{mix}\left(x_{\beta}\right) - G_{mix}\left(z_{1}\right) \label{ChangeGMixPhaseSplit}
 \end{eqnarray}\
 
-Where $\kappa$ represents the fraction of the mixture in the phase at composition $x_{\alpha}$. The tie-line connecting the two points at $x_{\alpha}$ and $x_{\beta}$, on the $G_{mix}$ curve is given by~\cite{ThermodynamicModels}:\
+Where $\kappa$ represents the fraction of the mixture in the phase at composition $x_{\alpha}$. The tie-line connecting the two points at $x_{\alpha}$ and $x_{\beta}$, on the $G_{mix}$ curve is given by~\cite{ThermodynamicModels, PhaseEquilCalcsEasyandHard}:\
 
 \begin{equation}
 G_{tieline}\left(x\right) = G_{mix}\left(x_{\alpha}\right) + \dfrac{G_{mix}\left(x_{\beta}\right) - G_{mix}\left(x_{\alpha}\right)}{x_{\beta}-x_{\alpha}}\left(x - x_{\alpha}\right) \label{TielineAlphaBeta}
 \end{equation}\
 
-The expression in equation \ref{TielineAlphaBeta} is, upon inspection, at $x = z_{1}$ equivalent to the expression for the $G_{new}$. The phase split will therefore result in a decrease of the overall Gibbs energy if $G_{tieline}\left(z_{1}\right) < G_{mix}\left(z_{1}\right)$. Equilibrium is achieved when the tie-line corresponds to the common tangent at compositions $\alpha$ and $\beta$. The equation for the line tangent to the $G_{mix}$ at $z$ is given by~\cite{ThermodynamicModels}:\
+The expression in equation \ref{TielineAlphaBeta} is, upon inspection, at $x = z_{1}$ equivalent to the expression for the $G_{new}$. The phase split will therefore result in a decrease of the overall Gibbs energy if $G_{tieline}\left(z_{1}\right) < G_{mix}\left(z_{1}\right)$. Equilibrium is achieved when the tie-line corresponds to the common tangent at compositions $\alpha$ and $\beta$. The equation for the line tangent to the $G_{mix}$ at $z$ is given by~\cite{ThermodynamicModels, PhaseEquilCalcsEasyandHard}:\
 
 \begin{equation}
 f\left(x\right) = G_{mix}\left(z\right) + \dfrac{\mathrm{d}G_{mix}}{\mathrm{d}z}\vert_{z}\left(x-z\right) \label{Tangent}
@@ -61,7 +49,7 @@ And, finally, the distance from the tangent line, to the Gibbs energy surface:\
 s\left(x\right) = G_{mix}\left(x\right) -  G_{mix}\left(z\right) + \dfrac{\mathrm{d}G_{mix}}{\mathrm{d}z}\vert_{z}\left(x-z\right) \label{TangentPlaneDistance}
 \end{equation}\
 
-Therefore, if for a composition $z$ the tangent plane distance in equation \ref{TangentPlaneDistance} becomes negative for any composition within the allowable simplex, the mixture is unstable at $z$~\cite{ThermodynamicModels}.\
+Therefore, if for a composition $z$ the tangent plane distance in equation \ref{TangentPlaneDistance} becomes negative for any composition within the allowable simplex, the mixture is unstable at $z$~\cite{ThermodynamicModels, PhaseEquilCalcsEasyandHard}.\
 
 \subsubsection{The Hessian Matrix and Phase Diagram Construction}\
 	
